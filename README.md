@@ -1,2 +1,0 @@
-Space App, is a decluttering tool, that helps people minimize and get rid of the excess. it has tests and challenges and organizing tools,
-to help people take control of their space, and live a better life.
