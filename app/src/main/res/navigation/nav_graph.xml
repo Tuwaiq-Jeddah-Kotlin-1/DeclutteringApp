@@ -50,5 +50,30 @@
             android:id="@+id/action_thirdFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/startFragment2"
+        android:name="com.example.declutteringapp.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" />
+    <fragment
+        android:id="@+id/toolsFragment2"
+        android:name="com.example.declutteringapp.ToolsFragment"
+        android:label="fragment_tools"
+        tools:layout="@layout/fragment_tools" />
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.example.declutteringapp.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/mySpaceFragment2"
+        android:name="com.example.declutteringapp.MySpaceFragment"
+        android:label="fragment_my_space"
+        tools:layout="@layout/fragment_my_space" />
+    <fragment
+        android:id="@+id/challengesFragment2"
+        android:name="com.example.declutteringapp.ChallengesFragment"
+        android:label="fragment_challenges"
+        tools:layout="@layout/fragment_challenges" />
 
 </navigation>
