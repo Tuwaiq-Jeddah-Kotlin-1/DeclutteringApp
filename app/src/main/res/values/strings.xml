@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_home">home title</string>
     <string name="SignUp">Sign Up</string>
+    <string name="challenges">Challenges</string>
+    <string name="Tools">Tools</string>
+    <string name="mySpace">My Space</string>
+    <string name="profile">Profile</string>
+    <string name="Start">Start</string>
 </resources>

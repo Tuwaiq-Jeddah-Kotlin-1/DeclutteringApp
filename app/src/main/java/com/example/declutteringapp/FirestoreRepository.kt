@@ -1,10 +1,20 @@
 package com.example.declutteringapp
 
+import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
-
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.util.*
 class FirestoreRepository {
 
     val TAG = "FIREBASE_REPOSITORY"
@@ -13,23 +23,25 @@ class FirestoreRepository {
 
 
     // save address to firebase
-    fun saveUserInfo(userInfo: UserInfoModel): Task<Void> {
+    fun saveUserInfo(userInfo: UserInfoModel):Task<Void>{
         //var
-        var documentReference = firestoreDB.collection("users").document(user!!.email.toString())
-            .collection("saved_users").document(userInfo.userId)
-        return documentReference.set(userInfo)
+        var documentReference = Firebase.firestore.collection("users")
+            .document("uid")
+return documentReference.set(userInfo)
+
     }
 
-    // get saved users from firebase
+    // get saved addresses from firebase
+    fun getSavedUsers(): CollectionReference {
+        var collectionReference = Firebase.firestore.collection("users")
+            .document("name").collection("userRecord")
 
-    fun getSavedUser(): CollectionReference {
-        var collectionReference = firestoreDB.collection("users/${user!!.email.toString()}/saved_city")
         return collectionReference
     }
 
     fun deleteUser(userInfo: UserInfoModel): Task<Void> {
-        var documentReference =  firestoreDB.collection("users/${user!!.email.toString()}/saved_user")
-            .document(userInfo.userId)
+        var documentReference = Firebase.firestore.collection("users")
+            .document("name").collection("userRecord").document(userInfo.name)
 
         return documentReference.delete()
     }

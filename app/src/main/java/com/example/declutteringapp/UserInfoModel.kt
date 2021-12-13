@@ -3,13 +3,13 @@ package com.example.declutteringapp
 import java.io.Serializable
 import java.net.PasswordAuthentication
 
-class UserInfoModel(var userId:String,var userName:String,var userEmail:String,var city:String) : Serializable{
+data class UserInfoModel(var name:String,var email:String,var password:String) : Serializable{
 
-        constructor():this("","","","")
+        constructor():this("","","")
 
 
         fun getUserInfo():String{
-            var user = "$userName, $userEmail. city: $city"
+            var user = "$name, $email,password:$password"
             return user
         }
     }

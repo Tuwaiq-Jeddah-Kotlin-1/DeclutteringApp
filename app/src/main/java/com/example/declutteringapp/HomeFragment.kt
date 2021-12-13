@@ -1,6 +1,8 @@
 package com.example.declutteringapp
 
+import android.app.Application
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,13 +11,22 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.databinding.FragmentHomeBinding
 import com.example.declutteringapp.databinding.FragmentViewPagerBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserInfo
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.*
 
 
 class HomeFragment : Fragment() {
@@ -32,6 +43,8 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
     }
 
     override fun onCreateView(
@@ -47,62 +60,59 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        firestoreViewModel = FirestoreViewModel()
+        var firestoreViewModel = ViewModelProvider(this)
+            .get(FirestoreViewModel::class.java)
 
-        firestoreViewModel.getUserInfo().observe(requireActivity(), Observer { it ->
-            savedUser = it
 
-        })
-        auth = Firebase.auth
+
 
         binding.btnSignUp.setOnClickListener {
+            var email = binding.txtEmail.text.toString()
+            var name = binding.txtName.text.toString()
+            var password = binding.txtPwd.text.toString()
 
-            firestoreViewModel.saveUserToFirebase(UserInfoModel("","","",""))
 
-        }
-    }
-        private fun registerUser () {
-            val emailTxt = binding.txtEmail
-            val passwordTxt = binding.txtPwd
-            val nameTxt = binding.txtName
+            when {
 
-            var email = emailTxt.text.toString()
-            var password = passwordTxt.text.toString()
-            var name = nameTxt.text.toString()
-
-            if (!email.isEmpty() && !password.isEmpty() && !name.isEmpty()) {
-             firestoreViewModel.saveUserToFirebase(user)
-
-                        Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()
-                    }else {
-                        Toast.makeText(this, "Error registering, try again later :(", Toast.LENGTH_LONG).show()
-                    }
-                })
-            }else {
-                Toast.makeText(this,"Please fill up the Credentials :|", Toast.LENGTH_LONG).show()
-            }
-        }
-        private fun sendVerificationEmail(user: FirebaseUser?) {
-            user?.sendEmailVerification()?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Log.d(FirebaseUtils.TAG, "Email sent.")
-                }else{
-                    Toast.makeText(
-                        this, "Couldn't Send Verification Email",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                TextUtils.isEmpty(binding.txtEmail.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(context, "Please Enter Email", Toast.LENGTH_LONG).show()
                 }
-            }
-        }
+
+                TextUtils.isEmpty(binding.txtName.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(context, "Please Enter Full Name", Toast.LENGTH_LONG).show()
+
+
+                }
+                TextUtils.isEmpty(binding.txtPwd.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(context, "Please Enter Password", Toast.LENGTH_LONG).show()
+
+
+                }
+                else -> {
+                    var userInfo = UserInfoModel()
+                    firestoreViewModel.saveUserToFirebase(userInfo)
+
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener { task ->
+
+                            // if the registration is sucessfully done
+                            if (task.isSuccessful) {
+                                //firebase register user
+                                val firebaseUser: FirebaseUser = task.result!!.user!!
+
+                                firestoreViewModel.insertUser(
+                                    "${email}",
+                                    "${name.toString()}",
+                                            "${password.toString()}"
+                                )
+
+
+                            }}}}}
+                            //----------------------------------------------------
+                        }
+
+                }
 
 
 
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
 
-
-    }
