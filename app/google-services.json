@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1083001223648",
+    "project_id": "decluttering-app",
+    "storage_bucket": "decluttering-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083001223648:android:1367082c1612fa32c79385",
+        "android_client_info": {
+          "package_name": "com.example.declutteringapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083001223648-548n5uo9o90tn3d7isspb7jgmk2rsek2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVg4bKO1VpHfyM9QesZQTSQVIV6w0Y-iQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083001223648-548n5uo9o90tn3d7isspb7jgmk2rsek2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
