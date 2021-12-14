@@ -61,7 +61,20 @@
         android:id="@+id/startFragment2"
         android:name="com.example.declutteringapp.StartFragment"
         android:label="fragment_start"
-        tools:layout="@layout/fragment_start" />
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment2_to_toolsFragment2"
+            app:destination="@id/toolsFragment2" />
+        <action
+            android:id="@+id/action_startFragment2_to_mySpaceFragment2"
+            app:destination="@id/mySpaceFragment2" />
+        <action
+            android:id="@+id/action_startFragment2_to_challengesFragment2"
+            app:destination="@id/challengesFragment2" />
+        <action
+            android:id="@+id/action_startFragment2_to_tipsFragment"
+            app:destination="@id/tipsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/toolsFragment2"
         android:name="com.example.declutteringapp.ToolsFragment"
@@ -94,5 +107,10 @@
             android:id="@+id/action_logInFragment_to_startFragment2"
             app:destination="@id/startFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/tipsFragment"
+        android:name="com.example.declutteringapp.TipsFragment"
+        android:label="fragment_tips"
+        tools:layout="@layout/fragment_tips" />
 
 </navigation>
