@@ -46,7 +46,8 @@
             app:destination="@id/startFragment2" />
         <action
             android:id="@+id/action_homeFragment2_to_logInFragment"
-            app:destination="@id/logInFragment" />
+            app:destination="@id/logInFragment"
+            app:launchSingleTop="false" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"

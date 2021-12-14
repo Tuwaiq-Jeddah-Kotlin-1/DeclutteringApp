@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -115,7 +114,6 @@ class LogInFragment : Fragment() {
                         val email: String = binding.etEmail.text.toString().trim { it <= ' ' }
                         val password: String = binding.etPwd.text.toString().trim { it <= ' ' }
 
-                        // create an instance and create a register with email and password
                         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                             .addOnCompleteListener { task ->
 
@@ -150,27 +148,19 @@ class LogInFragment : Fragment() {
                                         toastMessageInfoSaved,
                                         Toast.LENGTH_LONG
                                     ).show()
-
-
-
                                     firestoreViewModel.readUserData()
-
                                     goToHome()
-
                                 } else {
-
                                     Toast.makeText(
                                         context,
                                         task.exception!!.message.toString(),
                                         Toast.LENGTH_LONG
                                     ).show()
-
                                 }
                             }
                     }
                 }
             }
-
 
         }
     }
@@ -194,18 +184,13 @@ class LogInFragment : Fragment() {
     }
 
     private fun forgotPassword(userEmail: EditText) {
-
         auth= FirebaseAuth.getInstance()
         if (userEmail.text.toString().isEmpty()) {
             return
         }
-
-
         if (!Patterns.EMAIL_ADDRESS.matcher(userEmail.text.toString()).matches()) {
             return
         }
-
-
         auth.sendPasswordResetEmail(userEmail.text.toString())
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

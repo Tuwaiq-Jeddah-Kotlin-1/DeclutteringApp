@@ -15,29 +15,90 @@
         android:layout_marginTop="56dp"
         android:gravity="center"
         android:padding="3dp"
+        android:shadowRadius="0.3"
         android:text="This is where you can start decluttering your life"
         android:textColor="#474040"
         android:textSize="18dp"
         android:textStyle="bold"
+        app:circularflow_radiusInDP="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btnChallengesStart"
-        android:layout_width="130dp"
-        android:layout_height="140dp"
+        android:id="@+id/btnTipsStart"
+        android:layout_width="137dp"
+        android:layout_height="126dp"
+        android:alpha="0.7"
         android:clickable="true"
+        android:defaultFocusHighlightEnabled="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:foreground="@drawable/card_foreground"
         android:padding="100dp"
-        android:shadowRadius="20.4"
-        app:cardElevation="5dp"
+        android:shadowRadius="10.6"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="17dp"
+        app:cardPreventCornerOverlap="false"
+        app:contentPadding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintHorizontal_bias="0.835"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254">
+        app:layout_constraintVertical_bias="0.547">
+
+        <ImageView
+            android:layout_width="52dp"
+            android:layout_height="61dp"
+            android:layout_margin="40dp"
+            android:src="@drawable/ic_bulb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Inspiration"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="536dp"
+        android:background="#ECECEC"
+        android:padding="5dp"
+        android:text="Decluttering quote of the day"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.581"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnChallengesStart"
+        android:layout_width="134dp"
+        android:layout_height="124dp"
+        android:alpha="0.7"
+        android:clickable="true"
+        android:defaultFocusHighlightEnabled="true"
+        android:focusable="true"
+        android:foreground="@drawable/card_foreground"
+        android:padding="100dp"
+        android:shadowRadius="10.6"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="17dp"
+        app:cardPreventCornerOverlap="true"
+        app:contentPadding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.837"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293">
 
         <ImageView
             android:layout_width="52dp"
@@ -54,66 +115,27 @@
             android:textSize="18dp" />
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="536dp"
-        android:background="#ECECEC"
-        android:padding="5dp"
-        android:text="Decluttering quote of the day"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnToolsStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:padding="100dp"
-        android:shadowRadius="20.4"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254">
-
-        <ImageView
-            android:layout_width="52dp"
-            android:layout_height="61dp"
-            android:layout_margin="40dp"
-            android:src="@drawable/ic_tools" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Tools"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
-
-    </androidx.cardview.widget.CardView>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/btnSpacesStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="128dp"
+        android:alpha="0.7"
         android:clickable="true"
+        android:defaultFocusHighlightEnabled="true"
+        android:focusable="true"
+        android:foreground="@drawable/card_foreground"
         android:padding="100dp"
-        android:shadowRadius="20.4"
-        app:cardElevation="5dp"
+        android:shadowRadius="10.6"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="17dp"
+        app:cardPreventCornerOverlap="false"
+        app:contentPadding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55">
+        app:layout_constraintVertical_bias="0.548">
 
         <ImageView
             android:layout_width="52dp"
@@ -131,33 +153,40 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btnTipsStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnToolsStart"
+        android:layout_width="134dp"
+        android:layout_height="124dp"
+        android:alpha="0.8"
         android:clickable="true"
-        android:padding="100dp"
-        android:shadowRadius="20.4"
-        app:cardElevation="5dp"
+        android:defaultFocusHighlightEnabled="true"
+        android:focusable="true"
+        android:foreground="@drawable/card_foreground"
+        android:shadowRadius="10.6"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="17dp"
+        app:cardPreventCornerOverlap="false"
+        app:contentPadding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55">
+        app:layout_constraintVertical_bias="0.293">
 
         <ImageView
             android:layout_width="52dp"
             android:layout_height="61dp"
             android:layout_margin="40dp"
-            android:src="@drawable/ic_bulb" />
+            android:src="@drawable/ic_tools" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Inspiration"
+            android:text="Tools"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="17dp" />
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
