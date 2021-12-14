@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.logInFragment -> {
                     binding.bottomNav.visibility = View.GONE
                 }
+
                 else -> {
                     binding.bottomNav.visibility = View.VISIBLE
                 }

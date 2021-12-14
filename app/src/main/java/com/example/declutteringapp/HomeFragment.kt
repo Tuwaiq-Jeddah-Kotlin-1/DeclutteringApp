@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -103,7 +104,7 @@ binding.lnkLogin.setOnClickListener{
                                 Toast.makeText(context, "You were registered succsessfuly", Toast.LENGTH_LONG)
                                     .show()
 
-                                val emailPreference: String = email
+                              /*  val emailPreference: String = email
                                 val passwordPreference: String = password
                                 val checked: Boolean = binding.rememberMeUp.isChecked
 
@@ -113,7 +114,7 @@ binding.lnkLogin.setOnClickListener{
                                 editor.putString("PASSWORD", passwordPreference)
                                 editor.putBoolean("CHECKBOX", checked)
                                 editor.apply()
-
+*/
 
                                 goToStart()
 
