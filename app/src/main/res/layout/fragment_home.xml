@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:text="Login" />
+        android:text="@string/SignUp" />
 
     <TextView
         android:id="@+id/lnkLogin"
@@ -84,4 +84,14 @@
         android:text="have an account? Login"
         android:textColor="#3F51B5"
         android:textSize="20dp" />
+
+    <CheckBox
+        android:id="@+id/rememberMeUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Rememberme"
+        android:layout_marginLeft="100dp"
+
+
+        />
 </LinearLayout>

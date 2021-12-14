@@ -5,8 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.EventListener
-import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -20,7 +19,6 @@ class FirestoreViewModel : ViewModel(){
     var firebaseRepository = FirestoreRepository()
     var savedUser : MutableLiveData<List<UserInfoModel>> = MutableLiveData()
 
-    // save User to firebase
 
     fun saveUserToFirebase(userInfo: UserInfoModel){
         firebaseRepository.saveUserInfo(userInfo).addOnFailureListener {
@@ -29,7 +27,6 @@ class FirestoreViewModel : ViewModel(){
 
         }
     }
-    // get realtime updates from firebase regarding saved user
 
     fun getUserInfo(): LiveData<List<UserInfoModel>> {
         firebaseRepository.getSavedUsers().addSnapshotListener { value, error ->
@@ -68,36 +65,56 @@ class FirestoreViewModel : ViewModel(){
 
  fun createUserFirestore(userInfo: UserInfoModel) = CoroutineScope(Dispatchers.IO).launch {
 
-    try {
-        val userRef = Firebase.firestore.collection("users")
+     try {
+         val userRef = Firebase.firestore.collection("users")
 
-        val uId = FirebaseAuth.getInstance().currentUser?.uid
+         val uId = FirebaseAuth.getInstance().currentUser?.uid
 
+         userRef.document("$uId").set(userInfo).addOnCompleteListener {
+             it
+             when {
+                 it.isSuccessful -> {
+                     saveUserToFirebase(userInfo)
+                 }
+                 else -> {
+                 }
+             }
+         }
+         withContext(Dispatchers.Main) {
 
-        userRef.document("$uId").set(userInfo).addOnCompleteListener {
-            it
-            when {
-                it.isSuccessful -> {
-                    saveUserToFirebase(userInfo)
+         }
+     } catch (e: Exception) {
+         withContext(Dispatchers.Main) {
+             Log.e("FUNCTION createUserFirestore", "${e.message}")
+         }
+     }
+ }
+     fun readUserData() = CoroutineScope(Dispatchers.IO).launch {
 
-                }
-                else -> {
+         val uId = FirebaseAuth.getInstance().currentUser!!.uid
+         try {
+             //coroutine
+             val db = FirebaseFirestore.getInstance()
+             db.collection("users").document("$uId")
+                 .get().addOnCompleteListener {
+                     it
+                     if (it.getResult()?.exists()!!) {
+                         var name = it.getResult()!!.getString("name")
 
-                }
-            }
+                         Log.e("error \n", "name $name")
+                     } else {
+                         Log.e("error \n", "errooooooorr")
+                     }
 
-        }
+                 }
 
+         } catch (e: Exception) {
+             withContext(Dispatchers.Main) {
+                 Log.e("FUNCTION createUserFirestore", "${e.message}")
+             }
+         }
 
-        withContext(Dispatchers.Main) {
-            //Toast.makeText(coroutineContext.javaClass, "Welcome ${user.fullName.toString()}", Toast.LENGTH_LONG).show()
+     }
 
-        }
-    } catch (e: Exception) {
-        withContext(Dispatchers.Main) {
-            // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()
-            Log.e("FUNCTION createUserFirestore", "${e.message}")
-        }
-    }
-}}
+ }
 

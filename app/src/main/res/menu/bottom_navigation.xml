@@ -4,9 +4,10 @@
         android:id="@+id/startFragment2"
         android:icon="@drawable/ic_home"/>
 
-    <item android:title="@string/Tools"
+    <item
         android:id="@+id/toolsFragment2"
-        android:icon="@drawable/ic_tools"/>
+        android:icon="@drawable/ic_tools"
+        android:title="@string/Tools" />
 
     <item android:title="@string/challenges"
         android:id="@+id/challengesFragment2"

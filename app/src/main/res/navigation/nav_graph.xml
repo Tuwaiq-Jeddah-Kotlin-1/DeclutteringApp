@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_startFragment2"
             app:destination="@id/startFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_logInFragment"
+            app:destination="@id/logInFragment" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
@@ -68,7 +71,11 @@
         android:id="@+id/profileFragment2"
         android:name="com.example.declutteringapp.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_logInFragment"
+            app:destination="@id/logInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mySpaceFragment2"
         android:name="com.example.declutteringapp.MySpaceFragment"
@@ -79,5 +86,13 @@
         android:name="com.example.declutteringapp.ChallengesFragment"
         android:label="fragment_challenges"
         tools:layout="@layout/fragment_challenges" />
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.example.declutteringapp.LogInFragment"
+        android:label="LogInFragment" >
+        <action
+            android:id="@+id/action_logInFragment_to_startFragment2"
+            app:destination="@id/startFragment2" />
+    </fragment>
 
 </navigation>
