@@ -9,7 +9,7 @@ data class UserInfoModel(var name:String,var email:String,var password:String) :
 
 
         fun getUserInfo():String{
-            var user = "$name, $email,password:$password"
+            var user = " $email,password:$password"
             return user
         }
     }

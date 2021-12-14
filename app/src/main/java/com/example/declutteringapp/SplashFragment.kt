@@ -20,16 +20,14 @@ class SplashFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
 
-        }
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
-                requireActivity().finish()
+                activity?.finish()
             }
         }
-        requireActivity().getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback)
+        this.activity?.getOnBackPressedDispatcher()?.addCallback(this, onBackPressedCallback)
 
     }
 
@@ -55,8 +53,14 @@ class SplashFragment : Fragment() {
 
 
     fun getOnBoardStatus(): Boolean {
+        addPref()
+        return this.requireActivity().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)!!.getBoolean("finished", false)
+    }
 
-        return requireActivity().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)
-            .getBoolean("finished", false)
+
+    fun addPref()
+    {
+        val shpf=requireContext().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)
+        shpf.edit().apply {  putBoolean("finished",true)}.apply()
     }
 }

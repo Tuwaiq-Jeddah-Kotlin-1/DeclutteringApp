@@ -1,50 +1,33 @@
 package com.example.declutteringapp
 
-import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.databinding.FragmentHomeBinding
-import com.example.declutteringapp.databinding.FragmentViewPagerBinding
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.UserInfo
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.util.*
+
 
 
 class HomeFragment : Fragment() {
 
-
-    private lateinit var _binding: FragmentHomeBinding
-
-    private val binding get() = _binding
-
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var auth: FirebaseAuth
-
     private lateinit var firestoreViewModel: FirestoreViewModel
+    private lateinit var sharedPreferences: SharedPreferences
+    var isRemembered = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
     }
 
     override fun onCreateView(
@@ -52,7 +35,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -60,10 +43,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var firestoreViewModel = ViewModelProvider(this)
+         firestoreViewModel = ViewModelProvider(this)
             .get(FirestoreViewModel::class.java)
 
+        sharedPreferences =
+            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
+        isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
 
+        if (isRemembered) {
+            goToStart()
+        }
+
+binding.lnkLogin.setOnClickListener{
+    goToStart()
+
+
+}
 
 
         binding.btnSignUp.setOnClickListener {
@@ -95,9 +90,8 @@ class HomeFragment : Fragment() {
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
 
-                            // if the registration is sucessfully done
                             if (task.isSuccessful) {
-                                //firebase register user
+
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                 firestoreViewModel.insertUser(
@@ -106,12 +100,37 @@ class HomeFragment : Fragment() {
                                             "${password.toString()}"
                                 )
 
+                                Toast.makeText(context, "You were registered succsessfuly", Toast.LENGTH_LONG)
+                                    .show()
 
-                            }}}}}
-                            //----------------------------------------------------
+                                val emailPreference: String = email
+                                val passwordPreference: String = password
+                                val checked: Boolean = binding.rememberMeUp.isChecked
+
+                                val editor: SharedPreferences.Editor =
+                                    sharedPreferences.edit()
+                                editor.putString("EMAIL", emailPreference)
+                                editor.putString("PASSWORD", passwordPreference)
+                                editor.putBoolean("CHECKBOX", checked)
+                                editor.apply()
+
+
+                                goToStart()
+
+                            } else {
+                                Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
+
+                            }
                         }
 
-                }
+
+                }}}}
+    fun goToStart(){
+        findNavController().navigate(R.id.action_homeFragment2_to_logInFragment)
+
+    }
+}
+
 
 
 

@@ -33,7 +33,10 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNav.visibility = View.GONE
                 }
                 R.id.homeFragment2 -> {
-                    binding.bottomNav.visibility = View.VISIBLE
+                    binding.bottomNav.visibility = View.GONE
+                }
+                R.id.logInFragment -> {
+                    binding.bottomNav.visibility = View.GONE
                 }
                 else -> {
                     binding.bottomNav.visibility = View.VISIBLE

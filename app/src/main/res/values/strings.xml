@@ -9,4 +9,13 @@
     <string name="mySpace">My Space</string>
     <string name="profile">Profile</string>
     <string name="Start">Start</string>
+    <string name="please_enter_email">Please Enter Email</string>
+    <string name="please_enter_password">Please Enter Email</string>
+    <string name="welcome">Welcome</string>
+    <string name="Rememberme">Remmber me</string>
+    <string name="info_saved">Info Saved!</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="email">Email</string>
+    <string name="signout">Sign Out</string>
+
 </resources>
