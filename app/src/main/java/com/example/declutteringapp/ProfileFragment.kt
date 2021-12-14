@@ -77,7 +77,6 @@ class ProfileFragment : Fragment() {
                         ).show()
                     }
 
-
                 }
 
 
