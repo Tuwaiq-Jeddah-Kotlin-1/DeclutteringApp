@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1EDED"
     android:orientation="vertical"
     tools:context="HomeFragment">
@@ -60,13 +61,24 @@
         android:textColor="@color/black"
         android:text="Password" />
 
-    <EditText
-        android:id="@+id/txtPwd"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:ems="10"
-        android:inputType="textPassword" />
+        app:passwordToggleEnabled="true">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txtPwd"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:cursorVisible="true"
+            android:background="@android:color/transparent"
+            android:focusable="true"
+            android:inputType="textPassword"
+            android:maxLength="10"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnSignUp"

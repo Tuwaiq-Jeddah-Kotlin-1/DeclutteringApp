@@ -13,11 +13,11 @@
         android:id="@+id/challengesFragment2"
         android:icon="@drawable/ic_challenges"/>
 
-    <item android:title="@string/profile"
-        android:id="@+id/profileFragment2"
-        android:icon="@drawable/ic_person"/>
-
     <item android:title="@string/mySpace"
         android:id="@+id/mySpaceFragment2"
         android:icon="@drawable/ic_space"/>
+
+     <item android:title="@string/profile"
+    android:id="@+id/profileFragment2"
+    android:icon="@drawable/ic_person"/>
 </menu>

@@ -22,9 +22,14 @@ import com.example.declutteringapp.databinding.FragmentProfileBinding
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -38,6 +43,9 @@ class ProfileFragment : Fragment() {
     private lateinit var preferences: SharedPreferences
     private lateinit var tvName: TextView
     private lateinit var tvEmail: TextView
+    private lateinit var tvPassword: TextView
+
+    val TAG = "PROFILE_FRAGMENT"
 
     private lateinit var binding:FragmentProfileBinding
 
@@ -67,6 +75,8 @@ class ProfileFragment : Fragment() {
         userEmail.text = emailPref
         val passwordPref = preferences.getString("PASSWORD", "")
 
+        val user = Firebase.auth.currentUser
+
 
         binding.btnSignOut.setOnClickListener {
 
@@ -86,17 +96,25 @@ class ProfileFragment : Fragment() {
         }
 
 
+
         readUserData()
 
         tvName = binding.tvYourProfile
         tvEmail = binding.tvProfileEmail
+        tvPassword = binding.tvProfilePassword
 
 
         tvName.setText("${tvName.text}")
         tvEmail.setText("${tvEmail.text}")
+        tvPassword.setText("${tvEmail.text}")
+
 
     }
+
+
          private  fun readUserData() = CoroutineScope(Dispatchers.IO).launch {
+
+
 
                 val uId = FirebaseAuth.getInstance().currentUser!!.uid
                 try {
@@ -108,16 +126,18 @@ class ProfileFragment : Fragment() {
                             it
 
                             if (it.getResult()?.exists()!!) {
-                                var eamil = it.getResult()!!.getString("email")
+                                var email = it.getResult()!!.getString("email")
                                 var name = it.getResult()!!.getString("name")
+                                var password = it.getResult()!!.getString("password")
 
 
-                                tvEmail.setText(eamil)
+                                tvEmail.setText(email)
                                 tvName.setText(name)
+                                tvPassword.setText(password)
 
 
 
-                                Log.e("error \n", "name $name   email / $eamil")
+                                Log.e("error \n", "name $name   email / $email")
                             } else {
                                 Log.e("error \n", "erorr")
                             }
@@ -135,9 +155,78 @@ class ProfileFragment : Fragment() {
 
             }
 
+    fun dialogChangeEmail() {
+        val view: View = layoutInflater.inflate(R.layout.change_email_dialog, null)
 
+        val builder = BottomSheetDialog(requireView()?.context)
+        builder.setTitle("Change Email")
+
+        builder.setContentView(view)
+
+
+        binding.profileEditEmail.setOnClickListener {
+            changeEmail()
 
         }
+        if (tvEmail.text.toString().isNotEmpty()
+        ) {
+        }
+
+        val upDateUser = hashMapOf(
+            "email" to "${tvEmail}"
+        )
+
+        val userRef = Firebase.firestore.collection("users")
+
+        val uId = FirebaseAuth.getInstance().currentUser?.uid
+
+        userRef.document("$uId").set(upDateUser, SetOptions.merge()).addOnCompleteListener {
+            it
+            when {
+                it.isSuccessful -> {
+                    readUserData()
+                    Toast.makeText(context, "Update ", Toast.LENGTH_SHORT).show()
+
+                }
+                else -> {
+
+
+                }
+            }
+
+            tvEmail.text.toString()
+
+
+
+            builder.show()
+        }
+    }
+        fun changeEmail() {
+            val user = Firebase.auth.currentUser
+            user?.let {
+                for (profile in it.providerData) {
+                    val providerId = profile.providerId
+
+                    val uid = profile.uid
+
+                    val email = profile.email
+
+                    tvEmail.setText("${tvEmail.text}")
+
+                    user!!.updateEmail("user@example.com")
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Log.d(TAG, "User email address updated.")
+                            }
+                        }
+                }
+            }
+        }
+
+
+    }
+
+
 
 
 
