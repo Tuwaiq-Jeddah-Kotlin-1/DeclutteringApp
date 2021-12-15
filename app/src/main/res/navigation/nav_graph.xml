@@ -99,7 +99,17 @@
         android:id="@+id/challengesFragment2"
         android:name="com.example.declutteringapp.ChallengesFragment"
         android:label="fragment_challenges"
-        tools:layout="@layout/fragment_challenges" />
+        tools:layout="@layout/fragment_challenges" >
+        <action
+            android:id="@+id/action_challengesFragment2_to_bagFragment"
+            app:destination="@id/bagFragment" />
+        <action
+            android:id="@+id/action_challengesFragment2_to_thirtyDaysFragment"
+            app:destination="@id/thirtyDaysFragment" />
+        <action
+            android:id="@+id/action_challengesFragment2_to_fiveMinFragment"
+            app:destination="@id/fiveMinFragment" />
+    </fragment>
     <fragment
         android:id="@+id/logInFragment"
         android:name="com.example.declutteringapp.LogInFragment"
@@ -113,5 +123,20 @@
         android:name="com.example.declutteringapp.TipsFragment"
         android:label="fragment_tips"
         tools:layout="@layout/fragment_tips" />
+    <fragment
+        android:id="@+id/bagFragment"
+        android:name="com.example.declutteringapp.BagFragment"
+        android:label="fragment_bag"
+        tools:layout="@layout/fragment_bag" />
+    <fragment
+        android:id="@+id/thirtyDaysFragment"
+        android:name="com.example.declutteringapp.ThirtyDaysFragment"
+        android:label="fragment_thirty_days"
+        tools:layout="@layout/fragment_thirty_days" />
+    <fragment
+        android:id="@+id/fiveMinFragment"
+        android:name="com.example.declutteringapp.FiveMinFragment"
+        android:label="fragment_five_min"
+        tools:layout="@layout/fragment_five_min" />
 
 </navigation>
