@@ -131,7 +131,7 @@
                 android:layout_marginTop="15dp"
                 android:text="Keep or Toss"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -183,7 +183,7 @@
                 android:layout_marginTop="15dp"
                 android:text="Buy or save"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -235,7 +235,7 @@
                 android:layout_marginTop="15dp"
                 android:text="I tem Labeler"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

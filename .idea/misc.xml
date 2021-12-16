@@ -7,12 +7,23 @@
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13802083333333334" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/card_foreground.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/card_foreground_profile.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_30day.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_bag.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_check.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_edit.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_home.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_ideclutter.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_keep.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_label.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_point_star_grey.xml" value="0.25435897435897437" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_save.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_space.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_star.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_timer.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/drawable/ic_tools.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/change_email_dialog.xml" value="0.21354166666666666" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/change_lang_dialog.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/forgot_password_layout.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_bag.xml" value="0.2421875" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_challenges.xml" value="0.23055555555555557" />
@@ -22,11 +33,11 @@
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_label.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_log_in.xml" value="0.2421875" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_my_space.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_profile.xml" value="0.4735135135135135" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_second.xml" value="0.1" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_splash.xml" value="0.1" />
-        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_start.xml" value="0.16" />
+        <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_start.xml" value="0.264" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_third.xml" value="0.1" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_tips.xml" value="0.2421875" />
         <entry key="..\:/Users/suz43/AndroidStudioProjects/DeclutteringApp/app/src/main/res/layout/fragment_tools.xml" value="0.264" />

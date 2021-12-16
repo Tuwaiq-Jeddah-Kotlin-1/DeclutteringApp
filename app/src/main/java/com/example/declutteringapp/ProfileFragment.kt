@@ -2,6 +2,7 @@ package com.example.declutteringapp
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,10 +12,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import com.example.declutteringapp.R.layout.support_simple_spinner_dropdown_item
+
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.databinding.FragmentLogInBinding
@@ -34,6 +36,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 
 class ProfileFragment : Fragment() {
@@ -95,7 +98,20 @@ class ProfileFragment : Fragment() {
             ).show()
         }
 
+binding.langChange.setOnClickListener{
 
+    changeLangeDialog()
+
+
+}
+        binding.modeToggle.setOnCheckedChangeListener{ buttonView, isChecked ->
+            if (isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+            }else{
+
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            } }
 
         readUserData()
 
@@ -112,7 +128,81 @@ class ProfileFragment : Fragment() {
     }
 
 
-         private  fun readUserData() = CoroutineScope(Dispatchers.IO).launch {
+
+
+    fun changeLangeDialog() {
+
+        val builder = AlertDialog.Builder(context)
+        val view: View = layoutInflater.inflate(R.layout.change_lang_dialog, null)
+
+       var spinner: Spinner =view.findViewById(R.id.spinner)
+        val list = ArrayList<String>()
+        list.add("Select Language")
+        list.add("English")
+        list.add("Español")
+        list.add("Français")
+        list.add("Hindi")
+        list.add("Arabic")
+        val adapter = ArrayAdapter(requireContext(), support_simple_spinner_dropdown_item, list)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> {
+                    }
+                    1 -> setLocale("en")
+                    2 -> setLocale("es")
+                    3 -> setLocale("fr")
+                    4 -> setLocale("hi")
+                    5 -> setLocale("ar")
+                }
+            }
+
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+        builder.setView(view)
+        builder.show()    }
+
+
+
+
+
+
+    private fun setLocale(localeName: String) {
+        lateinit var locale: Locale
+        var currentLanguage = "en"
+        var currentLang: String? = null
+        var bundle = Bundle()
+        currentLanguage = bundle.getString(currentLang).toString()
+        if (localeName != currentLanguage) {
+            locale = Locale(localeName)
+            val res = resources
+            val dm = res.displayMetrics
+            val conf = res.configuration
+            conf.locale = locale
+            res.updateConfiguration(conf, dm)
+            val refresh = Intent(
+                context,
+                MainActivity::class.java
+            )
+            refresh.putExtra(currentLang, localeName)
+            startActivity(refresh)
+        } else {
+            Toast.makeText(
+                this.context, "Language, , already, , selected)!", Toast.LENGTH_SHORT
+            ).show();
+        }
+    }
+
+
+    private  fun readUserData() = CoroutineScope(Dispatchers.IO).launch {
 
 
 
