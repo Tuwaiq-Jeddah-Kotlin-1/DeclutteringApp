@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDD1D0"
+    android:background="#E8E5E5"
     tools:context=".ChallengesFragment">
 
 
@@ -131,7 +131,7 @@
                 android:layout_marginTop="15dp"
                 android:text="30 Day Challenge"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,7 +191,7 @@
                 android:layout_marginTop="15dp"
                 android:text="Five Minutes Challenge"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             <ImageView
@@ -250,7 +250,7 @@
                 android:layout_marginTop="15dp"
                 android:text="Bag Challenge"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">تطبيق التخلص من الفائض</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">home title</string>
+    <string name="SignUp">تسجيل جديد</string>
+    <string name="challenges">التحديات</string>
+    <string name="Tools">الأدوات</string>
+    <string name="mySpace">مساحتي</string>
+    <string name="profile">الملف</string>
+    <string name="Start">ابدا</string>
+    <string name="please_enter_email">Please Enter Email</string>
+    <string name="please_enter_password">Please Enter Email</string>
+    <string name="welcome">مرحبا</string>
+    <string name="Rememberme">تذكرني</string>
+    <string name="info_saved">حفظت المعلومات!</string>
+    <string name="forgot_your_password">نسيت كلمة المرور؟</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="signout">تسجيل الخروج</string>
+    <string name="stop">أوقف المؤقت</string>
+    <string name="start">ابدا المؤقت</string>
+    <string name="working">Started</string>
+    <string name="stopped">Stopped</string>
+    <string name="change_language">Change Language:</string>
+</resources>

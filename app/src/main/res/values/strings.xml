@@ -21,4 +21,5 @@
     <string name="start">Start Timer</string>
     <string name="working">Started</string>
     <string name="stopped">Stopped</string>
+    <string name="change_language">Change Language:</string>
 </resources>

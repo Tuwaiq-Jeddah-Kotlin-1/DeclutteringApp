@@ -58,7 +58,7 @@
                 android:layout_marginTop="5dp"
                 android:text="name"
                 android:textColor="@color/black"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,35 +89,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
-        android:textColor="#6C6969"
-        android:textSize="17dp"
+        android:textColor="#7A7676"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.672" />
+        app:layout_constraintVertical_bias="0.596" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profileEditEmail"
-        android:layout_width="342dp"
-        android:layout_height="47dp"
+        android:layout_width="323dp"
+        android:layout_height="41dp"
         android:layout_margin="10dp"
         android:alpha="0.7"
         android:clickable="true"
         android:focusable="true"
         android:foreground="@drawable/card_foreground_profile"
-        android:padding="10dp"
+        android:padding="4dp"
         android:shadowRadius=".2"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211">
+        app:layout_constraintVertical_bias="0.214">
 
         <TextView
             android:id="@+id/tvProfileEmail"
@@ -127,7 +127,7 @@
             android:paddingTop="10dp"
             android:text="Email"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+            android:textSize="15dp" />
 
         <ImageView
             android:layout_width="25dp"
@@ -140,8 +140,8 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="342dp"
-        android:layout_height="47dp"
+        android:layout_width="322dp"
+        android:layout_height="38dp"
         android:layout_margin="10dp"
         android:alpha="0.7"
         android:clickable="true"
@@ -150,15 +150,15 @@
         android:foreground="@drawable/card_foreground_profile"
         android:padding="10dp"
         android:shadowRadius=".2"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327">
+        app:layout_constraintVertical_bias="0.303">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -173,7 +173,7 @@
                 android:paddingTop="10dp"
                 android:text="Password"
                 android:textColor="@color/black"
-                android:textSize="17dp" />
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/tvProfilePasswordGet"
@@ -183,10 +183,11 @@
                 android:password="true"
                 android:text="password"
                 android:textSize="17dp" />
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="140dp"
+                android:layout_marginLeft="155dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginRight="0dp"
                 android:src="@drawable/ic_edit" />
@@ -214,7 +215,7 @@
         app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.500">
+        app:layout_constraintVertical_bias="0.420">
 
         <LinearLayout
             android:layout_width="415dp"
@@ -229,7 +230,7 @@
                 android:layout_marginTop="5dp"
                 android:text="ChallengesCompleted"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -274,7 +275,7 @@
         app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.600">
+        app:layout_constraintVertical_bias="0.520">
 
         <LinearLayout
             android:layout_width="415dp"
@@ -289,7 +290,7 @@
                 android:layout_marginTop="5dp"
                 android:text="Items Decluttered"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -328,10 +329,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/langChange"
+        android:layout_width="323dp"
+        android:layout_height="41dp"
         android:layout_margin="10dp"
-        android:alpha="0.4"
+        android:alpha="0.6"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="false"
         android:focusable="true"
@@ -339,7 +341,7 @@
         android:foreground="@drawable/card_foreground"
         android:padding="10dp"
         android:shadowRadius=".1"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -347,44 +349,45 @@
         app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.730">
+        app:layout_constraintVertical_bias="0.680">
 
         <LinearLayout
             android:layout_width="415dp"
-            android:layout_height="match_parent"
+            android:layout_height="47dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="14dp"
                 android:text="Change Language"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="3dp"
+                android:layout_width="40dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginRight="0dp"
                 android:src="@drawable/ic_languge" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+
     <androidx.cardview.widget.CardView
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
+        android:layout_width="325dp"
+        android:layout_height="73dp"
         android:layout_margin="10dp"
-        android:alpha="0.4"
+        android:alpha="0.7"
         android:defaultFocusHighlightEnabled="false"
         android:foreground="@drawable/card_foreground"
         android:padding="10dp"
         android:shadowRadius=".1"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -392,77 +395,51 @@
         app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.790">
+        app:layout_constraintVertical_bias="0.800">
 
-        <LinearLayout
-            android:layout_width="415dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="17dp"
-                android:text="Dark Mode"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:layout_width="wrap_content"
-                android:layout_height="12dp"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="0dp" />
-
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:alpha="0.4"
-        android:defaultFocusHighlightEnabled="false"
-        android:foreground="@drawable/card_foreground"
-        android:padding="10dp"
-        android:shadowRadius=".1"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:cardPreventCornerOverlap="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.342"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.850">
-
-        <LinearLayout
-            android:layout_width="415dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="17dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:text="Challenges Reminders"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="56dp"
+                android:layout_height="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="12dp"
-                android:layout_marginLeft="135dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="0dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Dark Mode"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/modeToggle"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
     <LinearLayout
         android:layout_width="330dp"
@@ -472,7 +449,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.930">
+        app:layout_constraintVertical_bias="0.880">
 
 
         <TextView
@@ -482,14 +459,14 @@
             android:layout_marginTop="5dp"
             android:text="Contact Us"
             android:textColor="#5C5B5B"
-            android:textSize="12dp"
+            android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="130dp"
             android:layout_marginTop="3dp"
             android:layout_marginRight="0dp"
             android:clickable="true"
@@ -498,8 +475,8 @@
             android:src="@drawable/ic_whatsapp" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="3dp"
             android:layout_marginRight="0dp"
