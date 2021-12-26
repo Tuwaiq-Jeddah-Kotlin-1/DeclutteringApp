@@ -33,18 +33,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <EditText
-            android:id="@+id/tvDayNum"
-            android:layout_width="65dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="120dp"
-            android:background="#A1A1A1"
-            android:hint="0"
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/imgUpload"
@@ -81,7 +69,6 @@
             android:layout_marginTop="120dp"
             android:background="#A1A1A1"
             android:hint="0"
-            android:imeOptions="actionDone"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

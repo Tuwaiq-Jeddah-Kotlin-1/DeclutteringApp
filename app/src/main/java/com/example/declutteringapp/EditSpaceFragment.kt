@@ -2,6 +2,7 @@ package com.example.declutteringapp
 
 import android.Manifest
 import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.app.Application
 import android.content.Context
 import android.content.Intent
@@ -11,12 +12,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.declutteringapp.databinding.FragmentEditSpaceBinding
 import android.widget.*
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -67,7 +70,6 @@ class EditSpaceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         editeRoomName = binding.etRoomName
         roomStutus = binding.idRoomStatus
 roomImage=binding.ivSpaceImage
@@ -81,9 +83,12 @@ roomImage=binding.ivSpaceImage
             captureImage()
         }
 
+        val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            uri?.let { binding.ivSpaceImage.setImageURI(uri) }
+        }
         ImageGallary.setOnClickListener {
 
-           // getActionTakePicture.launch("image/*")
+            pickImages.launch("image/*")
 
         }
 
@@ -93,9 +98,30 @@ roomImage=binding.ivSpaceImage
         ).get(SpaceViewModel::class.java)
 
 
+        fun createSpace(it: View?) {
+
+            val roomName= binding.etRoomName.text.toString()
+            //    val roomStatus= binding.idRoomStatus.toString()
+            var spinnerText=roomStutus.selectedItem.toString()
+            roomImage=binding.ivSpaceImage
+
+            Glide.with(this)
+                .load(selectedImagePath)
+                .into(roomImage)
+
+            val data =Space(status = spinnerText, roomName = roomName, imgPath = mCurrentPhotoPath)
+            viewModel.addSpace(data)
+            Toast.makeText(requireContext(),"You Added a Room!", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+
         saveBtn.setOnClickListener {
          createSpace(it)
+
             findNavController().navigate(R.id.action_editSpaceFragment_to_mySpaceFragment22)
+            initViews()
 
         }
 
@@ -121,21 +147,6 @@ roomImage=binding.ivSpaceImage
                     TODO("Not yet implemented")
                 }
             }}}
-    private fun createSpace(it: View?) {
-
-val roomName= binding.etRoomName.text.toString()
-    //    val roomStatus= binding.idRoomStatus.toString()
-        var spinnerText=roomStutus.selectedItem.toString()
-        roomImage=binding.ivSpaceImage
-
-        Glide.with(this)
-            .load(mCurrentPhotoPath)
-            .into(roomImage)
-
-        val data =Space(status = spinnerText, roomName = roomName, imgPath = roomImage.toString())
-     viewModel.addSpace(data)
-        Toast.makeText(requireContext(),"You Added a Room!", Toast.LENGTH_SHORT).show()
-    }
 
     private val getActionTakePicture =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -194,11 +205,15 @@ val roomName= binding.etRoomName.text.toString()
     private fun initViews() = binding.apply {
         if (spaceID != -1) {
 
+            val roomName= binding.etRoomName.text.toString()
+            //    val roomStatus= binding.idRoomStatus.toString()
+            var spinnerText=roomStutus.selectedItem.toString()
+      var   roomImages= binding.ivSpaceImage.toString()
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
-                    var day = ThirtyDays(0, 0, "")
-                    selectedImagePath = day.imgPath!!
-                    binding.ivSpaceImage.setImageBitmap(BitmapFactory.decodeFile(day.imgPath))
+                    var space = Space(roomName, spinnerText, roomImages)
+                    selectedImagePath = space.imgPath!!
+                    binding.ivSpaceImage.setImageBitmap(BitmapFactory.decodeFile(space.imgPath))
                     binding.ivSpaceImage.visibility = View.VISIBLE
                 }
             }
@@ -206,12 +221,12 @@ val roomName= binding.etRoomName.text.toString()
     }
 
     @Throws(IOException::class)
-  private   fun createImageFile(): File {
+     fun createImageFile(): File {
         // Create an image file name
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val imageFileName = "JPEG_" + timeStamp + "_"
         val storageDir = activity?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val image = File.createTempFile(
+        var image = File.createTempFile(
             imageFileName, /* prefix */
             ".jpg", /* suffix */
             storageDir      /* directory */
@@ -222,9 +237,34 @@ val roomName= binding.etRoomName.text.toString()
     }
 
 
+    /*private val takePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) {bitmap ->
+      bitmap?.let {
+        bi.imgCameraPic.setImageBitmap(it)
+        bi.imgCameraPic.visibility = View.VISIBLE
+      }
+    }*/
 
+/*    private val askLocationPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                Log.e("TAG", "Permission is granted")
+            } else {
+                Log.e("TAG", "No Permission")
+            }
+        }
 
+    private val askMultiplePermissions =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
+            for (entry in map.entries) {
+                Toast.makeText(context, "${entry.key} = ${entry.value}", Toast.LENGTH_SHORT).show()
+            }
+        }*/
 
+/*
+private val takePicture =
+    registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap ->
+        bitmap?.let { binding.ivSpaceImage.setImageBitmap(bitmap) }
+    }*/
 
 
 
