@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8E5E5"
     tools:context=".ChallengesFragment">
 
 
@@ -21,7 +20,7 @@
         android:padding="5dp"
         android:shadowRadius=".2"
         app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
+        app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +73,7 @@
         android:layout_height="52dp"
         android:layout_marginTop="92dp"
         android:padding="2dp"
+        android:textColor="@color/black"
         android:text="These tools will help you decide make decluttering easier"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,14 +95,13 @@
         app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.219" />
+        app:layout_constraintVertical_bias="0.230" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/thirtDays"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:alpha="0.7"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
@@ -110,7 +109,7 @@
         android:padding="10dp"
         android:shadowRadius=".2"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +153,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:alpha="0.7"
+
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
@@ -162,7 +161,7 @@
         android:padding="10dp"
         android:shadowRadius=".2"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +205,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:alpha="0.7"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
@@ -214,7 +212,7 @@
         android:padding="10dp"
         android:shadowRadius=".2"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

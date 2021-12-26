@@ -104,17 +104,6 @@ binding.lnkLogin.setOnClickListener{
                                 Toast.makeText(context, "You were registered succsessfuly", Toast.LENGTH_LONG)
                                     .show()
 
-                              /*  val emailPreference: String = email
-                                val passwordPreference: String = password
-                                val checked: Boolean = binding.rememberMeUp.isChecked
-
-                                val editor: SharedPreferences.Editor =
-                                    sharedPreferences.edit()
-                                editor.putString("EMAIL", emailPreference)
-                                editor.putString("PASSWORD", passwordPreference)
-                                editor.putBoolean("CHECKBOX", checked)
-                                editor.apply()
-*/
 
                                 goToStart()
 

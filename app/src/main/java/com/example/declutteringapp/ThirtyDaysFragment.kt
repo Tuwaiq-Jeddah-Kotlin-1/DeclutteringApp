@@ -1,59 +1,128 @@
 package com.example.declutteringapp
 
+import android.app.Application
+import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.declutteringapp.databinding.FragmentThirtyDaysBinding
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ThirtyDaysFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ThirtyDaysFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface{
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    val  thirtysDayss  by navArgs<ThirtyDaysFragmentArgs>()
+    private lateinit var sharedViewModel: DaysSharedViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_thirty_days, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ThirtyDaysFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
+/*   companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             ThirtyDaysFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
+    }*/
+
+    private lateinit var binding: FragmentThirtyDaysBinding
+    lateinit var viewModel: DaysViewModel
+    lateinit var thirtyDaysRVv: RecyclerView
+    lateinit var thirtyDaysRVAdapter:ThirtyDaysRVAdapter
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentThirtyDaysBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+/*        sharedViewModel = ViewModelProvider(this).get(DaysSharedViewModel::class.java)
+
+        sharedViewModel.daysData.observe(viewLifecycleOwner, Observer {
+            tvName.text = it
+        })*/
+
+        thirtyDaysRVv = binding.thirtyDaysRV
+
+        thirtyDaysRVv.layoutManager = GridLayoutManager(context, 3)
+
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
+        ).get(DaysViewModel::class.java)
+var dayImage =R.id.imagePlacement
+var daysData=ArrayList<ThirtyDays>()
+
+        for(i in 0..29){
+            daysData.add(ThirtyDays(i+1, 0, ""))
+        }
+         thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this)
+
+        thirtyDaysRVv.adapter = thirtyDaysRVAdapter
+
+
+
+        viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
+            list?.let {
+
+                thirtyDaysRVAdapter.updateList(daysData)
+            }
+        })
+        }
+
+   override fun onDayClick(thirtyDays: ThirtyDays) {
+        findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
+    }
+
 }
+
+
+/*
+  override fun onDayClick(thirtyDays: ThirtyDays) {
+
+            // opening a new intent and passing a data to it.
+            val fragment: Fragment
+            val bundle = Bundle()
+            bundle.putInt("dayId", thirtyDays.id)
+            fragment = ThirtyDaysEditDialogFragment.newInstance()
+            fragment.arguments = bundle
+
+            findNavController(fragment).navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)}
+}*/
+/**/
+ /*   override fun passData(position: Int, itemCount: Int, image: String) {
+        val bundle = Bundle()
+        bundle.putInt("input_pos", position)
+        bundle.putString("input_count", itemCount.toString())
+        bundle.putString("input_image", image)
+
+        val transaction = this.parentFragmentManager.beginTransaction()
+        val frag2 = ThirtyDaysEditDialogFragment()
+        frag2.arguments = bundle
+
+        transaction.replace(R.id.fragment_container_view_tag, frag2)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+}*/
+
+
