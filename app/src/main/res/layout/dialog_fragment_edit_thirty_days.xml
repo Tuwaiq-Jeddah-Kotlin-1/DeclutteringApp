@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+
+
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <!--  <Button
+            android:id="@+id/imgUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select"
+           app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" -->
+
+
+
+        <ImageView
+            android:id="@+id/imagePlacement"
+            android:layout_width="264dp"
+            android:layout_height="181dp"
+            android:src="@drawable/ic_image_replace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/tvDayNum"
+            android:layout_width="65dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="120dp"
+            android:background="#A1A1A1"
+            android:hint="0"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_image_replace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.505" />
+
+        <ImageButton
+            android:id="@+id/imgCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_camers"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.586"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.505" />
+
+        <EditText
+            android:id="@+id/etItemNumber"
+            android:layout_width="65dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="120dp"
+            android:background="#A1A1A1"
+            android:hint="0"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNumberOfItemsDeclutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/etItemNumber"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.964" />
+
+
+
+        <Button
+            android:id="@+id/btnSubmitDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintStart_toStartOf="@+id/imgCamera"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.631" />
+
+    </LinearLayout>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1DFDF"
     tools:context=".ProfileFragment"
     tools:layout_editor_absoluteX="-35dp"
     tools:layout_editor_absoluteY="398dp">
@@ -14,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Personal Information"
-        android:textColor="#7A7676"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +25,6 @@
         android:layout_width="342dp"
         android:layout_height="47dp"
         android:layout_margin="10dp"
-        android:alpha="0.5"
         android:background="#DFCECE"
         android:defaultFocusHighlightEnabled="false"
         android:focusable="true"
@@ -65,7 +62,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="190dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="0dp"
 
@@ -101,9 +98,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/profileEditEmail"
         android:layout_width="323dp"
+        android:backgroundTint="#EDE1DD"
         android:layout_height="41dp"
         android:layout_margin="10dp"
-        android:alpha="0.7"
         android:clickable="true"
         android:focusable="true"
         android:foreground="@drawable/card_foreground_profile"
@@ -143,9 +140,9 @@
         android:layout_width="322dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
-        android:alpha="0.7"
         android:clickable="true"
         android:focusable="true"
+        android:backgroundTint="#EDE1DD"
         android:focusableInTouchMode="true"
         android:foreground="@drawable/card_foreground_profile"
         android:padding="10dp"
@@ -333,7 +330,6 @@
         android:layout_width="323dp"
         android:layout_height="41dp"
         android:layout_margin="10dp"
-        android:alpha="0.6"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="false"
         android:focusable="true"
@@ -382,7 +378,6 @@
         android:layout_width="325dp"
         android:layout_height="73dp"
         android:layout_margin="10dp"
-        android:alpha="0.7"
         android:defaultFocusHighlightEnabled="false"
         android:foreground="@drawable/card_foreground"
         android:padding="10dp"
@@ -416,6 +411,7 @@
             <androidx.appcompat.widget.SwitchCompat
                 android:layout_width="56dp"
                 android:layout_height="32dp"
+                android:backgroundTint="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
