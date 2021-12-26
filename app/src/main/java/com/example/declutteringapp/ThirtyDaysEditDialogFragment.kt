@@ -39,17 +39,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class ThirtyDaysEditDialogFragment: DialogFragment() {
-
- /*   var inputPos: Int? = null
-    var inputCountss: String = ""
-    var inputImage: String = ""*/
-
-    companion object {
-
-        const val TAG = "DialogEdit"
-
-    }
+class ThirtyDaysEditDialogFragment: Fragment() {
 
 
     val  thirtysDayss  by navArgs<ThirtyDaysFragmentArgs>()
@@ -68,7 +58,6 @@ class ThirtyDaysEditDialogFragment: DialogFragment() {
     private var photoFile: File? = null
     private var mCurrentPhotoPath: String? = null
     private var selectedImagePath = ""
-    private lateinit var sharedViewModel: DaysSharedViewModel
 
 
     private lateinit var binding: DialogFragmentEditThirtyDaysBinding
@@ -95,7 +84,6 @@ class ThirtyDaysEditDialogFragment: DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sharedViewModel = ViewModelProvider(requireActivity()).get(DaysSharedViewModel::class.java)
 
     viewModelDay = ViewModelProvider(
             this,
@@ -110,37 +98,41 @@ class ThirtyDaysEditDialogFragment: DialogFragment() {
 
         saveBtn = binding.btnSubmitDay
 
+        val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            uri?.let { binding.imagePlacement.setImageURI(uri) }
+        }
         ImageCamera.setOnClickListener {
             captureImage()
         }
 
         ImageGallary.setOnClickListener {
+            pickImages.launch("image/*")
 
             //getActionTakePicture.launch("image/*")
 
         }
-
-        saveBtn.setOnClickListener {
+        binding.btnSubmitDay.setOnClickListener {
             createSpace(it)
             findNavController().navigate(R.id.action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment)
 
         }
+      /*  saveBtn.setOnClickListener {
+            createSpace(it)
+            findNavController().navigate(R.id.action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment)
+
+        }*/
 
     }
 
-    override fun onStart() {
+    /*override fun onStart() {
         super.onStart()
         dialog?.window?.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
-    }
-    private fun setupClickListeners(view: View) {
-     binding.btnSubmitDay.setOnClickListener {
-         sharedViewModel.sendDays(binding.etItemNumber.text.toString())
-            dismiss()
-        }
-    }
+    }*/
+
+
 /*    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val dialog = activity?.let {
@@ -221,6 +213,7 @@ private fun createSpace(it: View?) {
 
     val data =ThirtyDays(dayNum = 0,itemCounts=itemCounts, imgPath = image)
     viewModelDay.addDay(data)
+
     Toast.makeText(requireContext(),"You updated the day!", Toast.LENGTH_SHORT).show()
 }
             private val getActionTakePicture =
@@ -281,7 +274,9 @@ private fun createSpace(it: View?) {
 
                     viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                         context?.let {
-                            var day = ThirtyDays(0, 0, null)
+                            val itemCounts= binding.etItemNumber.text.toString().toInt()
+                            val image= binding.imagePlacement.toString()
+                            var day = ThirtyDays(0,  itemCounts, image)
                             selectedImagePath = day.imgPath!!
                             imagePlace.setImageBitmap(BitmapFactory.decodeFile(day.imgPath))
                             imagePlace.visibility = View.VISIBLE

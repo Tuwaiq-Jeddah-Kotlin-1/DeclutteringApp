@@ -23,7 +23,6 @@ import androidx.navigation.fragment.navArgs
 class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface{
 
     val  thirtysDayss  by navArgs<ThirtyDaysFragmentArgs>()
-    private lateinit var sharedViewModel: DaysSharedViewModel
 
 
 

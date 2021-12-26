@@ -35,7 +35,8 @@ class ToolsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        findNavController().navigate(R.id.action_editSpaceFragment_to_mySpaceFragment22)
+      //  findNavController().navigate(R.id.action_editSpaceFragment_to_mySpaceFragment22)
 
 
-    }}
+    }
+}
