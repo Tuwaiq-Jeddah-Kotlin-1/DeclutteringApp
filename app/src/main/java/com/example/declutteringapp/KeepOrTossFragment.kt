@@ -31,8 +31,8 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-private const val MOVE_DISTANCE = 80
-private const val MOVE_TIME = 70
+private const val MOVE_DISTANCE = 60
+private const val MOVE_TIME = 40
 
 class KeepOrTossFragment : Fragment(){
 
@@ -57,76 +57,9 @@ var scoreSave=0
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.setContentView<FragmentKeepOrTossBinding>(
-            requireActivity(),
-            R.layout.fragment_keep_or_toss
-        )
-
-
-        screenWidth =  requireContext().resources.displayMetrics.widthPixels
-      //  var scorePref:Int = finalScore
-
-        sharedPreferences =
-            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
-       // scoreSave = sharedPreferences.getInt("SCORE", scorePref)
-
-
-        val editor: SharedPreferences.Editor =
-            sharedPreferences.edit()
-        //editor.putInt("SCORE", scorePref)
-        editor.apply()
-
-
-        binding.yesButton.clicks()
-            .onEach { firstClick()
-            }
-            .onEach { secondClick()
-            }.launchIn(lifecycleScope)
-
-        binding.noButton.clicks()
-            .onEach { firstClickN()
-            }
-            .onEach { secondClickN()
-            }.launchIn(lifecycleScope)
-
-
-
-        val listQuestions = mutableListOf<KeepOrTossModel>()
-
-        val adapter = QuestionsViewPagerAdapter(context, listQuestions)
-
-        binding.questionsViewpager.adapter = adapter
-
-        binding.questionsViewpager.isUserInputEnabled = false
-
-
-        listQuestions.add(KeepOrTossModel("have you used it in the last year?", 1))
-        listQuestions.add(KeepOrTossModel("You can't replace it with 20 SAR or less?", 2))
-        listQuestions.add(KeepOrTossModel("Do you use it regularly?", 3))
-        listQuestions.add(KeepOrTossModel("Will you use it in the next month?", 4))
-        listQuestions.add(KeepOrTossModel("Does it have a place?", 5))
-        listQuestions.add(KeepOrTossModel("If you moved to another country would you take it with you?", 6))
-        listQuestions.add(KeepOrTossModel("Would you replace or re-buy this item?", 7))
-        listQuestions.add(KeepOrTossModel("Does it make you feel good?", 8))
-        listQuestions.add(KeepOrTossModel("Does it mean something to you", 9))
-        listQuestions.add(KeepOrTossModel("Is the item adding enough value to your life to justify the tim, space and energy it takes up?", 10))
-        listQuestions.add(KeepOrTossModel("does it have a place", 11))
-        listQuestions.add(KeepOrTossModel("You don't have similar items like it?", 12))
-
-        var score = 6
-       var scoreNumbers= binding.scoreNumber
-        scoreNumbers.text= score.toString()
-
- /*       var score = 6
-        var scoreNumbers= binding.scoreNumber
-        score.text= scoreNumbers.toString()*/
-      //  finalScore=binding.scoreNumber
-
-
-
-
-
-return view
+        binding = FragmentKeepOrTossBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
 
         }
 
@@ -138,6 +71,7 @@ return view
         awaitClose { setOnClickListener(null) }
 
     }
+
    // var finalScore = binding.scoreNumber.text.toString().toInt()
 
 
@@ -164,15 +98,13 @@ return view
 
 
         val location = IntArray(2)
+        binding.imageToss.getLocationOnScreen(location)
         val x = location[0]
 
-        screenWidth = displayMetrics.widthPixels
+        val imageWidth =  binding.imageToss.width
 
-    binding.imageToss.getLocationOnScreen(location)
+        //screenWidth = displayMetrics.widthPixels
 
-var imageT =binding.imageToss
-
-    val imageWidth =  imageT.width
 
     return if (left) x
     else screenWidth - (x + imageWidth)
@@ -200,12 +132,14 @@ var imageT =binding.imageToss
             val distance = Math.min(distanceToEdge(true), MOVE_DISTANCE)
             moveImage(-distance)
 
-            if (distanceToEdge(true) == 0) {
+            if (distanceToEdge(true) == 0 ) {
                 Toast.makeText(context, "Keep it, you earned 50 Points", Toast.LENGTH_LONG).show()
                // score(taskDone = true)
 
             } else {
             }
+
+
 
         }
 
@@ -260,7 +194,79 @@ var imageT =binding.imageToss
         super.onViewCreated(view, savedInstanceState)
 
 
-    }}
+        screenWidth =  requireContext().resources.displayMetrics.widthPixels
+        //  var scorePref:Int = finalScore
+
+        sharedPreferences =
+            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
+        // scoreSave = sharedPreferences.getInt("SCORE", scorePref)
+
+
+        val editor: SharedPreferences.Editor =
+            sharedPreferences.edit()
+        //editor.putInt("SCORE", scorePref)
+        editor.apply()
+
+
+        binding.yesButton.clicks()
+            .onEach { firstClick()
+            }
+            .onEach { secondClick()
+            }.launchIn(lifecycleScope)
+
+        binding.noButton.clicks()
+            .onEach { firstClickN()
+            }
+            .onEach { secondClickN()
+            }.launchIn(lifecycleScope)
+
+
+
+        val listQuestions = mutableListOf<KeepOrTossModel>()
+
+        val adapter = QuestionsViewPagerAdapter(context, listQuestions)
+
+        binding.questionsViewpager.adapter = adapter
+
+        binding.questionsViewpager.isUserInputEnabled = false
+
+
+        listQuestions.add(KeepOrTossModel("have you used it in the last year?", 1))
+        listQuestions.add(KeepOrTossModel("You can't replace it with 20 SAR or less?", 2))
+        listQuestions.add(KeepOrTossModel("Do you use it regularly?", 3))
+        listQuestions.add(KeepOrTossModel("Will you use it in the next month?", 4))
+        listQuestions.add(KeepOrTossModel("Does it have a place?", 5))
+        listQuestions.add(KeepOrTossModel("If you moved to another country would you take it with you?", 6))
+        listQuestions.add(KeepOrTossModel("Would you replace or re-buy this item?", 7))
+        listQuestions.add(KeepOrTossModel("Does it make you feel good?", 8))
+        listQuestions.add(KeepOrTossModel("Does it mean something to you", 9))
+        listQuestions.add(KeepOrTossModel("Is the item adding enough value to your life to justify the tim, space and energy it takes up?", 10))
+        listQuestions.add(KeepOrTossModel("does it have a place", 11))
+        listQuestions.add(KeepOrTossModel("You don't have similar items like it?", 12))
+
+        /*  var score = 6
+         var scoreNumbers= binding.scoreNumber
+          scoreNumbers.text= score.toString()
+  */
+        /*       var score = 6
+               var scoreNumbers= binding.scoreNumber
+               score.text= scoreNumbers.toString()*/
+        //  finalScore=binding.scoreNumber
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+}
 
 
 
