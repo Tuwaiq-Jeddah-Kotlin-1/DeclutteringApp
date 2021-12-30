@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.widget.AbsListView
 import android.widget.Button
 import android.widget.TextView
@@ -123,6 +124,7 @@ var scoreSave=0
 
     val duration = Math.abs(MOVE_TIME * fraction).toLong()
     binding.imageToss.animate().setDuration(duration).translationXBy(distance.toFloat())
+
 }
 
 
@@ -211,12 +213,17 @@ var scoreSave=0
         binding.yesButton.clicks()
             .onEach { firstClick()
             }
+            .onEach {      val animation = AnimationUtils.loadAnimation(context, R.anim.shake)
+                binding.imageToss.startAnimation(animation)
+            }
             .onEach { secondClick()
             }.launchIn(lifecycleScope)
 
         binding.noButton.clicks()
             .onEach { firstClickN()
             }
+            .onEach { val animation = AnimationUtils.loadAnimation(context, R.anim.shake)
+                binding.imageToss.startAnimation(animation) }
             .onEach { secondClickN()
             }.launchIn(lifecycleScope)
 
