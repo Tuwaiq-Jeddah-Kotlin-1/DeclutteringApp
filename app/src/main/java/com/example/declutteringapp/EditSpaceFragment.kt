@@ -47,6 +47,7 @@ class EditSpaceFragment : Fragment() {
     private var photoFile: File? = null
     private var mCurrentPhotoPath: String? = null
     private var selectedImagePath = ""
+    lateinit var  adapterSpace:SpaceRvAdapter
     private lateinit var _binding: FragmentEditSpaceBinding
     private val binding get() = _binding!!
     var spaceID = -1
@@ -77,7 +78,6 @@ roomImage=binding.ivSpaceImage
 
         ImageCamera = binding.imgCameraSpace
         ImageGallary = binding.imgUploadSpace
-
 
         ImageCamera.setOnClickListener {
             captureImage()
@@ -125,6 +125,7 @@ roomImage=binding.ivSpaceImage
 
         }
 
+
         val roomState = resources.getStringArray(R.array.room_spinner)
 
 
@@ -148,12 +149,30 @@ roomImage=binding.ivSpaceImage
                 }
             }}}
 
-    private val getActionTakePicture =
+   private  val getActionTakePicture =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK) {
 
            binding.ivSpaceImage.setImageURI(photoFile!!.toUri())
+
+/*
+                if (RESULT_OK === RESULT_LOAD_IMAGE && resultCode === RESULT_OK && data != null) {
+                    val selectedImageURI: Uri = android.R.attr.data.getData()
+                    val placeWorkModel = Place() // the model between activity and adapter
+                    placeWorkModel.setPhoto(convertImage2Base64().toInt()) // here i pass the photo
+                    picturesList.add(placeWorkModel)
+                    adapter.updateList(picturesList) // add this
+                    mAdapter.notifyDataSetChanged()
+                }
+                */
+
+
             } else {
+
+
+
+
+
                 // "Request cancelled or something went wrong."
             }
 
@@ -215,6 +234,8 @@ roomImage=binding.ivSpaceImage
                     selectedImagePath = space.imgPath!!
                     binding.ivSpaceImage.setImageBitmap(BitmapFactory.decodeFile(space.imgPath))
                     binding.ivSpaceImage.visibility = View.VISIBLE
+
+
                 }
             }
         }
@@ -235,6 +256,7 @@ roomImage=binding.ivSpaceImage
         mCurrentPhotoPath = image.absolutePath
         return image
     }
+
 
 
     /*private val takePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) {bitmap ->

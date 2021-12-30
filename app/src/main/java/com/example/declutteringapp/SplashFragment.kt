@@ -48,7 +48,7 @@ class SplashFragment : Fragment() {
             else
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
 
-        }, 3000)
+        }, 1000)
     }
 
 

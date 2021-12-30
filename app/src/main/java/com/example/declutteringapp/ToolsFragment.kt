@@ -34,8 +34,15 @@ class ToolsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.cvKeepOrToss.setOnClickListener{
+            findNavController().navigate(R.id.action_toolsFragment2_to_keepOrTossFragment)
 
-      //  findNavController().navigate(R.id.action_editSpaceFragment_to_mySpaceFragment22)
+        }
+        binding.cvKeepOrTossAnim.setOnClickListener{
+            findNavController().navigate(R.id.action_toolsFragment2_to_questionAnimation)
+
+        }
+
 
 
     }
