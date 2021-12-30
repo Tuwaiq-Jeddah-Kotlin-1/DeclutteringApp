@@ -38,10 +38,7 @@ class ToolsFragment : Fragment() {
             findNavController().navigate(R.id.action_toolsFragment2_to_keepOrTossFragment)
 
         }
-        binding.cvKeepOrTossAnim.setOnClickListener{
-            findNavController().navigate(R.id.action_toolsFragment2_to_questionAnimation)
 
-        }
 
 
 
