@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+   <data>
+
+
+      </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/frameLayout"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       tools:context=".KeepOrTossFragment">
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/cardViewoScore"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="10dp"
+          android:alpha="0.5"
+          android:background="#DFCECE"
+          android:defaultFocusHighlightEnabled="false"
+          android:focusable="true"
+          android:foreground="@drawable/card_foreground"
+          android:padding="5dp"
+          android:shadowRadius=".2"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="10dp"
+          app:cardPreventCornerOverlap="false"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/questionsViewpager"
+          app:layout_constraintVertical_bias="0.020">
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="40dp"
+             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvYourProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="5dp"
+                android:text="name"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="0dp"
+                android:src="@drawable/ic_point_star" />
+
+            <TextView
+                android:id="@+id/scoreNumber"
+                android:layout_width="34dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="5dp"
+                android:hint="Earn points by completing challenges!"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+         </LinearLayout>
+      </androidx.cardview.widget.CardView>
+
+
+      <androidx.viewpager2.widget.ViewPager2
+          android:id="@+id/questionsViewpager"
+          android:layout_width="415dp"
+          android:layout_height="414dp"
+          android:layout_marginTop="4dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+
+      </androidx.viewpager2.widget.ViewPager2>
+      <!--
+      <ProgressBar
+          android:id="@+id/progressBar2"
+          style="?android:attr/progressBarStyleHorizontal"
+          android:layout_width="wrap_content"
+
+          android:layout_height="wrap_content"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.498"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/questionsViewpager"
+          app:layout_constraintVertical_bias="0.96" />-->
+
+      <Button
+          android:id="@+id/yesButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Yes"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.987"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.701" />
+
+
+      <Button
+          android:id="@+id/noButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="No"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.049"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.701" />
+
+      <ImageView
+          android:id="@+id/imageToss"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/ic_check_grey"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <com.google.android.material.bottomnavigation.BottomNavigationView
+          android:id="@+id/bottom_nav"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          app:labelVisibilityMode="selected"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintVertical_bias="1.0"
+          app:menu="@menu/bottom_navigation" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -80,7 +80,12 @@
         android:id="@+id/toolsFragment2"
         android:name="com.example.declutteringapp.ToolsFragment"
         android:label="fragment_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_tools" >
+        <action
+            android:id="@+id/action_toolsFragment2_to_keepOrTossFragment"
+            app:destination="@id/keepOrTossFragment" />
+
+    </fragment>
     <fragment
         android:id="@+id/profileFragment2"
         android:name="com.example.declutteringapp.ProfileFragment"
@@ -207,6 +212,12 @@
             android:name="space"
             app:argType="com.example.declutteringapp.Space" />
     </fragment>
+    <fragment
+        android:id="@+id/keepOrTossFragment"
+        android:name="com.example.declutteringapp.KeepOrTossFragment"
+        android:label="fragment_keep_or_toss"
+        tools:layout="@layout/fragment_keep_or_toss" />
+
 
 
 </navigation>

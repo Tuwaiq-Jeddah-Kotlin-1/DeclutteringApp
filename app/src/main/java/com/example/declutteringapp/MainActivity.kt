@@ -1,22 +1,24 @@
 package com.example.declutteringapp
 
-import android.content.Intent
-import android.net.Uri
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.declutteringapp.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.io.File
 
-lateinit var _binding:ActivityMainBinding
-private val binding get() = _binding!!
+
+
 
 
 
 class MainActivity : AppCompatActivity() {
+
+
+    lateinit var _binding:ActivityMainBinding
+    private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +47,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.logInFragment -> {
                     binding.bottomNav.visibility = View.GONE
                 }
+                    R.id.keepOrTossFragment -> {
+                        binding.bottomNav.visibility=View.VISIBLE
+                    }
+
+
 
                 else -> {
+
                     binding.bottomNav.visibility = View.VISIBLE
                 }
             }
@@ -55,12 +63,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-/*    override fun passData(etName:String,etItemNum:Int,dayImage: String) {
-
-
-            val bundle = Bundle()
-            bundle.putString("message", etName)
-        bundle.putInt("0", etItemNum)
-         bundle.putString("image", dayImage)
-        }*/
-

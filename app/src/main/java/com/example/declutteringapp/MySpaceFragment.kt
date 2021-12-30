@@ -1,5 +1,6 @@
 package com.example.declutteringapp
 
+import android.R.attr
 import android.app.Application
 import android.net.Uri
 import android.os.Bundle
@@ -28,6 +29,10 @@ import com.google.firebase.auth.FirebaseAuth
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
+import android.R.attr.data
+
+
+
 
 
 class MySpaceFragment : Fragment() , SpaceClickDeleteInterface,SpaceClickInterface{
@@ -37,7 +42,7 @@ class MySpaceFragment : Fragment() , SpaceClickDeleteInterface,SpaceClickInterfa
     lateinit var addFAB: FloatingActionButton
     private lateinit var _binding: FragmentMySpaceBinding
     private val binding get() = _binding!!
-
+private lateinit var roomList:Space
     private lateinit var nameTitle:TextView
 
 
@@ -79,13 +84,14 @@ class MySpaceFragment : Fragment() , SpaceClickDeleteInterface,SpaceClickInterfa
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(SpaceViewModel::class.java)
 
+
+
 /*
 
         var roomsImages=  Glide.with(this)
             .load(Uri.fromFile())
             .into(roomImage)
 */
-
 
         viewModel.allSpaces.observe(viewLifecycleOwner, Observer { list ->
             list?.let {

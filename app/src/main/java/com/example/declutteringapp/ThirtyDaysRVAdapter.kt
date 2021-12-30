@@ -98,15 +98,12 @@ class ThirtyDaysRVAdapter(
   //holder.imageView.setImage(allDays.get(position).imgPath!!)
 
 
- /*allDays[position].imgPath
+allDays[position].imgPath
             holder.imageView.setImageBitmap(BitmapFactory.decodeFile(allDays[position].imgPath.toString()))
-*/
 
-       // on below line we are adding click listener
-        // to our recycler view item.
+
         holder.itemView.setOnClickListener {
-            // on below line we are calling a note click interface
-            // and we are passing a position to it.
+
             dayClickInterface.onDayClick(allDays.get(position))
         }
     }
@@ -124,14 +121,12 @@ return allDays.size
 
 
 
-    // below method is use to update our list of notes.
     fun updateList(newList: List<ThirtyDays>) {
 
         allDays.clear()
 
         allDays.addAll(newList)
-        // on below line we are calling notify data
-        // change method to notify our adapter.
+
         notifyDataSetChanged()
     }
 
