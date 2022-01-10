@@ -5,24 +5,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_margin="9dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="3dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="197dp"
-        android:layout_height="210dp"
-        android:layout_margin="4dp">
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+       >
 
         <TextView
             android:id="@+id/tvSpacestatus"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/ivDeleteSpace"
             android:padding="4dp"
             android:text="Space Status"
-            android:textSize="18sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -32,35 +32,36 @@
 
         <TextView
             android:id="@+id/tvSpaceName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="119dp"
+            android:layout_height="32dp"
+            android:layout_margin="2dp"
             android:layout_toLeftOf="@id/ivDeleteSpace"
-            android:padding="4dp"
+            android:gravity="center_horizontal"
             android:text="Room Name"
-            android:textSize="18sp"
+            android:textColor="#030204"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/spaceImages"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.406"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/spaceImages"
-            android:layout_width="167dp"
-            android:layout_height="116dp"
+            android:layout_width="115dp"
+            android:layout_height="103dp"
             android:src="@drawable/ic_image_replace"
             app:layout_constraintBottom_toTopOf="@+id/tvSpacestatus"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.796" />
+            app:layout_constraintVertical_bias="0.813" />
 
         <ImageView
             android:id="@+id/ivDeleteSpace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="24dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -69,10 +70,10 @@
             android:src="@drawable/ic_delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.96"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.022" />
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
