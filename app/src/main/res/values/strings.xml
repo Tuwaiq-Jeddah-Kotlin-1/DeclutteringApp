@@ -58,15 +58,17 @@
         <item>Toys Room</item>
     </string-array>
     <string-array name="decluttring_qoutes">
-        <item>one</item>
-        <item>two</item>
-        <item>three</item>
-        <item>four</item>
-        <item>five</item>
-        <item>Gsize</item>
-        <item>seven</item>
-        <item>fourfoure</item>
-        <item>one two</item>
+        <item>“Enough is a decision, not an amount.” Alison Faulkner</item>
+        <item>“For me, a calm house equals a calm heart equals a calm life.”
+– Erica Layne</item>
+        <item>“Your home should be the antidote to stress, not the cause of it.”
+– Peter Walsh</item>
+        <item>Society says you need lots of stuff to be happy. They are wrong.” , Joshua Becker</item>
+        <item>"Eliminating clutter makes the burden of daily life feel lighter" , Gretchen Rubin</item>
+        <item>Out of calmness comes clarity., Trevor Carss</item>
+        <item>The best way to find out what we really need is to get rid of what we don’t, Marie Kondo</item>
+        <item>"Eliminating clutter makes the burden of daily life feel lighter", Gretchen Rubin</item>
+        <item>Owning less is better than organizing more, Joshua Becker</item>
     </string-array>
     <string name="selected_item">Selected item:</string>
     <string name="room_title">room name</string>

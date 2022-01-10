@@ -193,15 +193,11 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
                     val data = ToDeclutter(
                             items = itemsD,spaces.space.roomId
                         )
+
                     viewModelD.addItem(data)
 
-                    //  var itemSpace=ToDeclutter(data)
-
-               //  selectedImagePath = data.roomImages!!
-                    binding.showRoomImage.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
 
                     binding.showRoomImage.visibility = View.VISIBLE
-
 
                   var  roomShowImagePref: String? =  selectedImagePath
 
@@ -320,6 +316,10 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
 
 
+//  var itemSpace=ToDeclutter(data)
+
+//  selectedImagePath = data.roomImages!!
+//   binding.showRoomImage.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
 
 
 
