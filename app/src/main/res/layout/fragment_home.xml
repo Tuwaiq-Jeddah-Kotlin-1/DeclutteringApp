@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1EDED"
     android:orientation="vertical"
-    tools:context="HomeFragment">
+    tools:context="com.example.declutteringapp.view.HomeFragment">
 
     <TextView
         android:id="@+id/loginscrn"

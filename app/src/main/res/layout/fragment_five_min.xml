@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E6FCFF"
-    tools:context=".MainActivity">
+    tools:context="com.example.declutteringapp.view.FiveMinFragment">
 
 
     <androidx.cardview.widget.CardView
@@ -56,6 +56,7 @@
                 android:src="@drawable/ic_point_star" />
 
             <TextView
+                android:id="@+id/scoreN"
                 android:layout_width="34dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"

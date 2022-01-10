@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogInFragment">
+    android:layout_gravity="center_horizontal"
+    tools:context="com.example.declutteringapp.view.LogInFragment">
     <TextView
         android:id="@+id/tvLogIn"
         android:layout_width="wrap_content"
@@ -49,6 +50,7 @@
             android:background="@android:color/transparent"
             android:cursorVisible="true"
             android:ems="10"
+
             android:focusable="true"
             android:inputType="textPassword"
             android:maxLength="10"

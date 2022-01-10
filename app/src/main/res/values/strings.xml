@@ -46,6 +46,28 @@
         <item>All items in it has a place</item>
         <item>Needs some work</item>
     </string-array>
+    <string-array name="room_name_spinner">
+        <item>Kitchen</item>
+        <item>Living Room</item>
+        <item>Bedroom</item>
+        <item>Guest Room</item>
+        <item>Kids Room</item>
+        <item>Garage</item>
+        <item>Bathroom</item>
+        <item>Storage Room</item>
+        <item>Toys Room</item>
+    </string-array>
+    <string-array name="decluttring_qoutes">
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+        <item>four</item>
+        <item>five</item>
+        <item>Gsize</item>
+        <item>seven</item>
+        <item>fourfoure</item>
+        <item>one two</item>
+    </string-array>
     <string name="selected_item">Selected item:</string>
     <string name="room_title">room name</string>
 

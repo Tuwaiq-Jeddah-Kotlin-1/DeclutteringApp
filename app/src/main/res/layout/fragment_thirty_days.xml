@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D6D6D6"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ThirtyDaysFragment">
+    tools:context="com.example.declutteringapp.view.ThirtyDaysFragment">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="360dp"
+        android:layout_height="63dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="The first day declutter one item, the second day two, the third day three items, and so one..
+this challenge is meant to help you get started! by the end you'll declutter 500 Items!"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.151" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewo"
@@ -72,12 +88,12 @@
         android:id="@+id/thirtyDaysRV"
         android:layout_width="366dp"
         android:layout_height="523dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
         tools:listitem="@layout/thirty_day_rv_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

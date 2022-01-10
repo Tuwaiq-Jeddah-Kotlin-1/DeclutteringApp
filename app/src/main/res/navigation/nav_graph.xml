@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.declutteringapp.SplashFragment"
+        android:name="com.example.declutteringapp.view.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.declutteringapp.ViewPagerFragment"
+        android:name="com.example.declutteringapp.view.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.example.declutteringapp.HomeFragment"
+        android:name="com.example.declutteringapp.view.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.example.declutteringapp.ThirdFragment"
+        android:name="com.example.declutteringapp.view.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" >
         <action
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/startFragment2"
-        android:name="com.example.declutteringapp.StartFragment"
+        android:name="com.example.declutteringapp.view.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -78,43 +78,49 @@
     </fragment>
     <fragment
         android:id="@+id/toolsFragment2"
-        android:name="com.example.declutteringapp.ToolsFragment"
+        android:name="com.example.declutteringapp.view.ToolsFragment"
         android:label="fragment_tools"
         tools:layout="@layout/fragment_tools" >
         <action
             android:id="@+id/action_toolsFragment2_to_keepOrTossFragment"
             app:destination="@id/keepOrTossFragment" />
+        <action
+            android:id="@+id/action_toolsFragment2_to_buyOrSave"
+            app:destination="@id/buyOrSave" />
 
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="com.example.declutteringapp.ProfileFragment"
+        android:name="com.example.declutteringapp.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment2_to_logInFragment"
             app:destination="@id/logInFragment" />
+        <argument
+            android:name="score"
+            app:argType="integer" />
+
     </fragment>
     <fragment
         android:id="@+id/mySpaceFragment2"
-        android:name="com.example.declutteringapp.MySpaceFragment"
+        android:name="com.example.declutteringapp.view.MySpaceFragment"
         android:label="fragment_my_space"
         tools:layout="@layout/fragment_my_space" >
         <action
             android:id="@+id/action_mySpaceFragment2_to_editSpaceFragment2"
             app:destination="@id/editSpaceFragment"/>
-        <action
-            android:id="@+id/action_mySpaceFragment2_to_roomFragment"
-            app:destination="@id/roomFragment" />
+
         <action
             android:id="@+id/action_mySpaceFragment2_to_showRoomFragment"
             app:destination="@id/showRoomFragment" />
 
 
+
     </fragment>
     <fragment
         android:id="@+id/challengesFragment2"
-        android:name="com.example.declutteringapp.ChallengesFragment"
+        android:name="com.example.declutteringapp.view.ChallengesFragment"
         android:label="fragment_challenges"
         tools:layout="@layout/fragment_challenges" >
         <action
@@ -130,7 +136,7 @@
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
-        android:name="com.example.declutteringapp.LogInFragment"
+        android:name="com.example.declutteringapp.view.LogInFragment"
         android:label="LogInFragment" >
         <action
             android:id="@+id/action_logInFragment_to_startFragment2"
@@ -148,7 +154,7 @@
         tools:layout="@layout/fragment_bag" />
     <fragment
         android:id="@+id/thirtyDaysFragment"
-        android:name="com.example.declutteringapp.ThirtyDaysFragment"
+        android:name="com.example.declutteringapp.view.ThirtyDaysFragment"
         android:label="fragment_thirty_days"
         tools:layout="@layout/fragment_thirty_days" >
         <action
@@ -156,17 +162,17 @@
             app:destination="@id/thirtyDaysEditDialogFragment" />
         <argument
             android:name="daysData"
-            app:argType="com.example.declutteringapp.ThirtyDays" />
+            app:argType="com.example.declutteringapp.model.ThirtyDays" />
 
     </fragment>
     <fragment
         android:id="@+id/fiveMinFragment"
-        android:name="com.example.declutteringapp.FiveMinFragment"
+        android:name="com.example.declutteringapp.view.FiveMinFragment"
         android:label="fragment_five_min"
         tools:layout="@layout/fragment_five_min" />
     <fragment
         android:id="@+id/thirtyDaysEditDialogFragment"
-        android:name="com.example.declutteringapp.ThirtyDaysEditDialogFragment"
+        android:name="com.example.declutteringapp.view.ThirtyDaysEditDialogFragment"
         android:label="ThirtyDaysEditDialogFragment" >
 
 
@@ -177,7 +183,7 @@
     </fragment>
     <fragment
         android:id="@+id/editSpaceFragment"
-        android:name="com.example.declutteringapp.EditSpaceFragment"
+        android:name="com.example.declutteringapp.view.EditSpaceFragment"
         android:label="fragment_edit_space"
         tools:layout="@layout/fragment_edit_space">
         <action
@@ -189,35 +195,36 @@
     </fragment>
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.declutteringapp.MainActivity"
+        android:name="com.example.declutteringapp.view.MainActivity"
    />
-    <fragment
-        android:id="@+id/roomFragment"
-        android:name="com.example.declutteringapp.RoomFragment"
-        android:label="fragment_room"
-        tools:layout="@layout/fragment_room" >
-        <action
-            android:id="@+id/action_roomFragment_to_mySpaceFragment2"
-            app:destination="@id/mySpaceFragment2" />
-      <!--  <argument
-            android:name="data"
-            app:argType="com.example.declutteringapp.Space" />-->
-    </fragment>
+
     <fragment
         android:id="@+id/showRoomFragment"
-        android:name="com.example.declutteringapp.ShowRoomFragment"
+        android:name="com.example.declutteringapp.view.ShowRoomFragment"
         android:label="fragment_show_room"
         tools:layout="@layout/fragment_show_room" >
         <argument
             android:name="space"
-            app:argType="com.example.declutteringapp.Space" />
+            app:argType="com.example.declutteringapp.model.Space" />
+    <!--    <argument
+            android:name="items"
+            app:argType="model.ToDeclutter" />-->
     </fragment>
     <fragment
         android:id="@+id/keepOrTossFragment"
-        android:name="com.example.declutteringapp.KeepOrTossFragment"
+        android:name="com.example.declutteringapp.view.KeepOrTossFragment"
         android:label="fragment_keep_or_toss"
         tools:layout="@layout/fragment_keep_or_toss" />
-
+    <fragment
+        android:id="@+id/labelFragment"
+        android:name="com.example.declutteringapp.LabelFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/buyOrSave"
+        android:name="com.example.declutteringapp.view.BuyOrSave"
+        android:label="fragment_buy_or_save"
+        tools:layout="@layout/fragment_buy_or_save" />
 
 
 </navigation>
