@@ -12,15 +12,13 @@ import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.Space
 import android.R.string.no
-
-
-
+import com.example.declutteringapp.model.Score
 
 
 class SpaceRvAdapter(
     val context: Context,
     val spaceClickDeleteInterface: SpaceClickDeleteInterface,
-    val spaceClickInterface: SpaceClickInterface,
+    val spaceClickInterface: SpaceClickInterface
 
     ) :
     RecyclerView.Adapter<SpaceRvAdapter.ViewHolder>() {
@@ -28,13 +26,6 @@ class SpaceRvAdapter(
 
 
     private val allSpaces = ArrayList<Space>()
-
-    //private val allItems = ArrayList<ToDeclutter>()
-
-
-
-    private var roomPostions = mutableListOf<Space>()
-    var itemPosition: Int? = null
 
 
 
@@ -64,15 +55,17 @@ class SpaceRvAdapter(
         holder.spaceTV.setText(allSpaces.get(position).roomName)
 
         holder.statusTV.setText(allSpaces.get(position).status)
-        holder.spaceImage.setImageResource(R.drawable.ic_image_replace)
+       allSpaces.get(position).roomId
 
-/*
+        //  holder.spaceImage.setImageResource(R.drawable.ic_image_replace)
+
+
 
         Glide.with(context)
-            .load(Uri.)
-            .into(imagePlace)
+            .load(spaces.imgPath)
+            .into(holder.spaceImage)
 
-*/
+
 
         holder.deleteSpace.setOnClickListener {
 

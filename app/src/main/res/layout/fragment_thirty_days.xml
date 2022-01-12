@@ -71,6 +71,7 @@ this challenge is meant to help you get started! by the end you'll declutter 500
                 android:src="@drawable/ic_point_star" />
 
             <TextView
+                android:id="@+id/tvScore"
                 android:layout_width="34dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -88,12 +89,11 @@ this challenge is meant to help you get started! by the end you'll declutter 500
         android:id="@+id/thirtyDaysRV"
         android:layout_width="366dp"
         android:layout_height="523dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="180dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/thirty_day_rv_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,16 +24,19 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.DialogFragmentEditThirtyDaysBinding
+import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.viewmodel.DaysViewModel
+import com.example.declutteringapp.viewmodel.ScoreViewModel
 
 import java.io.File
 import java.io.IOException
+import java.lang.Integer.parseInt
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class ThirtyDaysEditDialogFragment: Fragment() {
+class ThirtyDaysEditDialogFragment: Fragment(){
 
 
  //   val  thirtysDayss  by navArgs()
@@ -45,6 +48,7 @@ class ThirtyDaysEditDialogFragment: Fragment() {
     lateinit var ImageGallary: ImageButton
     lateinit var itemNum: EditText
     lateinit var imagePlace: ImageView
+    lateinit var scoreViewModel: ScoreViewModel
 
 
     var dayID = -1
@@ -106,10 +110,16 @@ class ThirtyDaysEditDialogFragment: Fragment() {
 
         }
         initViews()
+        scoreViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
+        ).get(ScoreViewModel::class.java)
 
         binding.btnSubmitDay.setOnClickListener {
             createSpace(it)
             findNavController().navigate(R.id.action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment)
+            var score= Score(30)
+            scoreViewModel.updateScore(score)
 
         }
       /*  saveBtn.setOnClickListener {
@@ -203,25 +213,38 @@ class ThirtyDaysEditDialogFragment: Fragment() {
         return dialog!! }*/
 
 private fun createSpace(it: View?) {
-    val itemCounts= binding.etItemNumber.text.toString().toInt()
-    val image= binding.imagePlacement.toString()
-    var day = ThirtyDays(0,  itemCounts, image)
-    selectedImagePath = day.imgPath!!
-    imagePlace.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
-    imagePlace.visibility = View.VISIBLE
+
+    var itemCounts= binding.etItemNumber.toString()
+    val image=mCurrentPhotoPath
+
+
+/*
+if (itemCounts ==i){
+
+}*/
+
+       /* var day = ThirtyDays(0,  itemCounts, image)
+       *//* selectedImagePath = day.imgPath!!
+        imagePlace.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
+        imagePlace.visibility = View.VISIBLE*/
 
     //   val daysNum= binding.tvDayNum.toString().toInt()
-
+    viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+        context?.let {
     val data =ThirtyDays(dayNum = 0,itemCounts=itemCounts, imgPath = image)
-    viewModelDay.addDay(data)
+
+    viewModelDay.updateDay(data)
 
     Toast.makeText(requireContext(),"You updated the day!", Toast.LENGTH_SHORT).show()
+}}
+
+
 }
             private val getActionTakePicture =
                 registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                     if (it.resultCode == Activity.RESULT_OK) {
 
-                        binding.imagePlacement.setImageURI(photoFile!!.toUri())
+                        binding.imagePlacement.setImageURI(mCurrentPhotoPath!!.toUri())
                     } else {
                         // "Request cancelled or something went wrong."
                     }
@@ -275,10 +298,10 @@ private fun createSpace(it: View?) {
 
                     viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                         context?.let {
-                            val itemCounts= binding.etItemNumber.text.toString().toInt()
-                            val image= binding.imagePlacement.toString()
+                            val itemCounts= binding.etItemNumber.text.toString()
+                            val image= mCurrentPhotoPath
                             var day = ThirtyDays(0,  itemCounts, image)
-                            selectedImagePath = day.imgPath!!
+                           selectedImagePath = day.imgPath!!
                             imagePlace.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
                             imagePlace.visibility = View.VISIBLE
                         }

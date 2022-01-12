@@ -1,42 +1,32 @@
 package com.example.declutteringapp.model
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 class SpaceRepo(private val spaceDao: MySpacesDao) {
 
 
     val allSpaces: LiveData<List<Space>> = spaceDao.getAllSpaces()
- val allItems: LiveData<List<ToDeclutter>> = spaceDao.getAllItems()
+    val allScores: LiveData<List<Score>> = spaceDao.getAcores()
+ fun allItems(roomId:Int): LiveData<List<ToDeclutter>> = spaceDao.getAllItems(roomId)
   // val getSpaceAndItem: LiveData<List<SpaceItemRelation>> = spaceDao.getAllItemss(roomId = 0)
 
 
-
-
- /*   suspend fun insert(spaceItemRelation: SpaceItemRelation) {
-       spaceDao.insert(spaceItemRelation)
-
-    }*/
     suspend fun insert(space: Space) {
         spaceDao.insert(space)
 
     }
+    suspend fun insert(score: Score) {
+        spaceDao.insert(score)
 
-/*
-    suspend fun delete(itemSpace: SpaceAndItem){
-        spaceDao.delete(itemSpace)
     }
 
-    suspend fun update(itemSpace: SpaceAndItem){
-        spaceDao.update(itemSpace)
+
+    suspend fun update(score: Score){
+        spaceDao.update(score)
     }
-*/
 
 
-/*
- suspend fun insert(both: SpaceAndItem) {
-        spaceDao.insert(both)
-
-    }*/
     suspend fun insert(item:ToDeclutter) {
         spaceDao.insert(item)
 

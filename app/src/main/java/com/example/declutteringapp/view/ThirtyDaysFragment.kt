@@ -14,28 +14,17 @@ import com.example.declutteringapp.databinding.FragmentThirtyDaysBinding
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.declutteringapp.R
+import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.viewmodel.DaysViewModel
+import com.example.declutteringapp.viewmodel.ScoreViewModel
 
 
-
-class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface{
-
-    val  thirtysDayss  by navArgs<ThirtyDaysFragmentArgs>()
-
-
-
-/*   companion object {
-        @JvmStatic
-        fun newInstance() =
-            ThirtyDaysFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
-    }*/
+class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface {
 
     private lateinit var binding: FragmentThirtyDaysBinding
     lateinit var viewModel: DaysViewModel
+    lateinit var scoreViewModel: ScoreViewModel
     lateinit var thirtyDaysRVv: RecyclerView
     lateinit var thirtyDaysRVAdapter:ThirtyDaysRVAdapter
 
@@ -53,11 +42,6 @@ class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface{
         super.onViewCreated(view, savedInstanceState)
 
 
-/*        sharedViewModel = ViewModelProvider(this).get(DaysSharedViewModel::class.java)
-
-        sharedViewModel.daysData.observe(viewLifecycleOwner, Observer {
-            tvName.text = it
-        })*/
 
         thirtyDaysRVv = binding.thirtyDaysRV
 
@@ -67,27 +51,61 @@ class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface{
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(DaysViewModel::class.java)
-var dayImage = R.id.imagePlacement
-var daysData=ArrayList<ThirtyDays>()
+      //  thirtyDaysRVv.setHasFixedSize(true)
 
-
-
-        for(i in 0..29){
-            daysData.add(ThirtyDays(i+1,  0,""))
-        }
-         thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this)
+        thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this)
 
         thirtyDaysRVv.adapter = thirtyDaysRVAdapter
-
 
 
         viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
 
-                thirtyDaysRVAdapter.updateList(daysData)
+                thirtyDaysRVAdapter.updateList(list)
+
+                /*       val scoreObserver = Observer<Score> { newScore ->
+                           binding.tvScore.text = newScore.toString()
+                       }
+
+                       scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)*/
             }
         })
+
+        var daysData=ArrayList<ThirtyDays>()
+
+        for(i in 0..29){
+            viewModel.addDay(ThirtyDays(i+1, "0",""))
         }
+
+        scoreViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
+        ).get(ScoreViewModel::class.java)
+
+var dayImage = R.id.imagePlacement
+
+
+
+/*
+    scoreViewModel.allScores.observe(viewLifecycleOwner, Observer { scores ->
+        scores?.let {
+            scoreViewModel.updateScore(scores)
+        }
+    })
+*/
+
+
+        val scoreObserver = Observer<Score> { newScore ->
+            binding.tvScore.text = newScore.toString()
+        }
+
+        scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)
+
+
+
+
+}
+
 
    override fun onDayClick(thirtyDays: ThirtyDays) {
         findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
@@ -99,33 +117,5 @@ var daysData=ArrayList<ThirtyDays>()
 }
 
 
-/*
-  override fun onDayClick(thirtyDays: ThirtyDays) {
-
-            // opening a new intent and passing a data to it.
-            val fragment: Fragment
-            val bundle = Bundle()
-            bundle.putInt("dayId", thirtyDays.id)
-            fragment = ThirtyDaysEditDialogFragment.newInstance()
-            fragment.arguments = bundle
-
-            findNavController(fragment).navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)}
-}*/
-/**/
- /*   override fun passData(position: Int, itemCount: Int, image: String) {
-        val bundle = Bundle()
-        bundle.putInt("input_pos", position)
-        bundle.putString("input_count", itemCount.toString())
-        bundle.putString("input_image", image)
-
-        val transaction = this.parentFragmentManager.beginTransaction()
-        val frag2 = ThirtyDaysEditDialogFragment()
-        frag2.arguments = bundle
-
-        transaction.replace(R.id.fragment_container_view_tag, frag2)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-}*/
 
 

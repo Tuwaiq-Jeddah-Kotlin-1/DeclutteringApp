@@ -2,6 +2,7 @@ package com.example.declutteringapp.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.model.SpaceDataBase
@@ -16,18 +17,18 @@ class SpaceViewModel  (application: Application) :AndroidViewModel(application) 
 
 
     val allSpaces: LiveData<List<Space>>
-    val allItems: LiveData<List<ToDeclutter>>
+
   //  val getSpaceAndItem: LiveData<List<SpaceItemRelation>>
 //val getAllItemsT :LiveData<List<ToDeclutter>>
     // val getSpaceAndItem: LiveData<List<Space>>*/
 
     val repository: SpaceRepo
+    fun allItems(roomId:Int): LiveData<List<ToDeclutter>> = repository.allItems(roomId)
 
     init {
         val dao = SpaceDataBase.getDatabase(application).getSpaceDao()
         repository = SpaceRepo(dao)
         allSpaces = repository.allSpaces
-        allItems = repository.allItems
             //  getSpaceAndItem = repository.getSpaceAndItem
        // getAllItemsT=repository.getAllItems
         //  getSpaceAndItem=repository.getSpaceAndItem*/

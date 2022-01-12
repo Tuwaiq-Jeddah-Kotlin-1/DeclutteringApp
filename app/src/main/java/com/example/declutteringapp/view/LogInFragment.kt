@@ -3,6 +3,8 @@ package com.example.declutteringapp.view
 import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
@@ -52,6 +54,7 @@ class LogInFragment : Fragment() {
 
 
 
+
         firestoreViewModel = ViewModelProvider(this)
             .get(FirestoreViewModel::class.java)
 
@@ -71,7 +74,11 @@ class LogInFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
 
             logInAuthentication()
+            if (isNetworkConnected(requireContext()) ==false){
+                Toast.makeText(activity, "No Internet Connection, Connect to the Internet to Log In", Toast.LENGTH_LONG).show()
 
+            }
+            else{}
         }
     }
 
@@ -204,4 +211,11 @@ class LogInFragment : Fragment() {
 
 
     }
+
+}  fun isNetworkConnected(context: Context): Boolean{
+    val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val activeNetwork = connectivityManager.activeNetwork
+    val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+    return networkCapabilities != null &&
+            networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
 }

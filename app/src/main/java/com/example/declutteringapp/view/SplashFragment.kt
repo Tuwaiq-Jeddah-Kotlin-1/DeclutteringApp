@@ -6,13 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
+import com.example.declutteringapp.databinding.FragmentEditSpaceBinding
+import com.example.declutteringapp.databinding.FragmentSplashBinding
 import kotlinx.coroutines.*
 
 
 class SplashFragment : Fragment() {
+    private lateinit var _binding: FragmentSplashBinding
+    private val binding get() = _binding!!
+
+
+
 
     val activityScope = CoroutineScope(Dispatchers.Main)
 
@@ -36,15 +44,22 @@ class SplashFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_splash, container, false)}
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+    /*    val animation = AnimationUtils.loadAnimation(context, R.anim.zoom_in)
+        binding.imageb.startAnimation(animation)*/
 
          activityScope.launch {
 

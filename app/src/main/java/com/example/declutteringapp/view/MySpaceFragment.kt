@@ -1,5 +1,6 @@
 package com.example.declutteringapp.view
 
+import android.app.AlertDialog
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -15,7 +17,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentMySpaceBinding
+import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.Space
+import com.example.declutteringapp.viewmodel.ScoreViewModel
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -28,6 +32,8 @@ class MySpaceFragment : Fragment() , SpaceRvAdapter.SpaceClickDeleteInterface,
     lateinit var viewModel: SpaceViewModel
     lateinit var spacesRV: RecyclerView
     lateinit var addFAB: FloatingActionButton
+    lateinit var scoreViewModel: ScoreViewModel
+lateinit var score:Score
     private lateinit var _binding: FragmentMySpaceBinding
     private val binding get() = _binding!!
     //private val emptyBinding: RvEmptyBinding
@@ -66,9 +72,9 @@ class MySpaceFragment : Fragment() , SpaceRvAdapter.SpaceClickDeleteInterface,
         val spaceRvAdapter = SpaceRvAdapter(requireContext(),this,this)
  //spaceRvAdapter.submitList(Type.
 
-        var score = sharedPref?.getInt("Score", 0)
+       /* var score = sharedPref?.getInt("Score", 0)
 
-binding.scoreNumber.text=score.toString()
+binding.scoreNumber.text=score.toString()*/
 
         spacesRV.adapter = spaceRvAdapter
 
@@ -86,6 +92,11 @@ binding.scoreNumber.text=score.toString()
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(SpaceViewModel::class.java)
 
+        scoreViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
+        ).get(ScoreViewModel::class.java)
+
 
 /*        val score = sharedPref.getInt("Score", 0)
 
@@ -95,10 +106,21 @@ binding.scoreNumber.text=score.toString()
             .into(roomImage)
 */
 
+
+     //   scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)
+
+
+        scoreViewModel.scores.observe(viewLifecycleOwner, Observer { list ->
+            list?.let {
+                    binding.scoreNumber.text = list.toString()
+                }
+            })
+
         viewModel.allSpaces.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
 
                 spaceRvAdapter.updateList(it)
+
             }
         })
         addFAB.setOnClickListener {
@@ -107,19 +129,26 @@ binding.scoreNumber.text=score.toString()
                 R.id.action_mySpaceFragment2_to_editSpaceFragment2
             )
 
+
         }
-
-
-
-
-
-
-
 
     }
 
+
+
     override fun onDeleteIconClick(space: Space) {
-        viewModel.deleteSpace(space)
+        val builder = AlertDialog.Builder(context)
+        builder.setMessage("Are you sure you want to Delete Item?")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { dialog, id ->
+                viewModel.deleteSpace(space)
+                Toast.makeText(this.activity, "room Deleted", Toast.LENGTH_LONG).show()
+            }
+            .setNegativeButton("No") { dialog, id ->
+                dialog.dismiss()
+            }
+        val alert = builder.create()
+        alert.show()
 
     }
 

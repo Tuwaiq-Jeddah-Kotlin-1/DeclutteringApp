@@ -3,20 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:backgroundTint="#F6F6F6"
     android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:backgroundTint="#F6F6F6"
     tools:context="com.example.declutteringapp.view.StartFragment">
 
 
     <TextView
+        android:id="@+id/textView11"
         android:layout_width="321dp"
         android:layout_height="81dp"
         android:layout_margin="20dp"
         android:layout_marginTop="56dp"
-        android:gravity="center"
-        android:padding="3dp"
         android:background="@color/black"
         android:backgroundTint="#E8FCFF"
+        android:gravity="center"
+        android:padding="3dp"
         android:text="This is where you can start decluttering your space"
         android:textColor="#474040"
         android:textSize="18dp"
@@ -31,6 +33,8 @@
         android:id="@+id/btnTipsStart"
         android:layout_width="137dp"
         android:layout_height="126dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="false"
         android:focusable="true"
@@ -40,12 +44,10 @@
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="false"
         app:contentPadding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnSpacesStart"
+        app:layout_constraintTop_toBottomOf="@+id/btnChallengesStart">
 
         <ImageView
             android:layout_width="52dp"
@@ -64,24 +66,27 @@
 
     <TextView
         android:id="@+id/qoutes"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_width="206dp"
+        android:layout_height="84dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="524dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#F1EDF1"
         android:gravity="center_horizontal"
         android:padding="5dp"
         android:text="Decluttering quote of the day"
         android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.809"
+        app:circularflow_radiusInDP="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btnChallengesStart"
         android:layout_width="134dp"
         android:layout_height="124dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="180dp"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
@@ -91,12 +96,9 @@
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="true"
         app:contentPadding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.837"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293">
+        app:layout_constraintStart_toEndOf="@+id/btnToolsStart"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="52dp"
@@ -117,6 +119,8 @@
         android:id="@+id/btnSpacesStart"
         android:layout_width="134dp"
         android:layout_height="128dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="332dp"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
@@ -126,12 +130,8 @@
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="false"
         app:contentPadding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="52dp"
@@ -152,6 +152,8 @@
         android:id="@+id/btnToolsStart"
         android:layout_width="134dp"
         android:layout_height="124dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="180dp"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
@@ -159,12 +161,8 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="2dp"
         app:contentPadding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="52dp"
@@ -183,16 +181,29 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:layout_width="39dp"
-        android:layout_height="38dp"
+        android:layout_width="65dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="140dp"
+
         android:src="@drawable/ic_qoutes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/qoutes"
-
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSpacesStart"
+        app:layout_constraintVertical_bias="0.903" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="120dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="472dp"
+        app:layout_constraintStart_toEndOf="@+id/qoutes"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88" />
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/ic_plant" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

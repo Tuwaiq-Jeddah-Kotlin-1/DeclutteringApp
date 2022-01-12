@@ -9,10 +9,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "daysTable")
-class ThirtyDays (@ColumnInfo(name = "dayNum")val dayNum :Int, @ColumnInfo(name = "itemsCount") var itemCounts :Int, @ColumnInfo(name = "img_path")
-var imgPath:String?=null) :
-  Parcelable  {
+class ThirtyDays (@ColumnInfo(name = "dayNum")val dayNum :Int, @ColumnInfo(name = "itemsCount") var itemCounts :String?, @ColumnInfo(name = "img_path") var imgPath: String?,
+
 
   @PrimaryKey(autoGenerate = true)
-  var id: Int = 0
-}
+  var id: Int = 0 )  : Parcelable
+

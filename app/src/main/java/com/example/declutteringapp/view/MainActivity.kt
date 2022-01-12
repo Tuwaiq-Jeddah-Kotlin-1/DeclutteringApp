@@ -1,9 +1,13 @@
 package com.example.declutteringapp.view
 
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.declutteringapp.R
@@ -25,6 +29,13 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        if (isNetworkConnected(this) ==false){
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
+
+        }
+        else{}
+
 
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -58,7 +69,9 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNav.visibility = View.VISIBLE
                 }
             }
+
         }
+
 /*
 
         val editor: SharedPreferences.Editor =
@@ -74,5 +87,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }  fun isNetworkConnected(context: Context): Boolean{
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = connectivityManager.activeNetwork
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+        return networkCapabilities != null &&
+                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 }

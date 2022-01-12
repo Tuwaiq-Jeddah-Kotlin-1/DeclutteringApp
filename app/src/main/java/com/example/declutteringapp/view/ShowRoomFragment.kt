@@ -87,8 +87,11 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
         ImageGallary = binding.imgUploadSpace
         binding.ShowRoomName.setText(spaces.space.roomName)
         binding.ShowRoomStatus.setText(spaces.space.status)
-        binding.showRoomImage.setImageURI(photoFile?.toUri())
-        // binding.ShowRoomImage.setImage((spaces.space.imgPath))
+        Glide.with(this)
+            .load(spaces.space.imgPath)
+            .into(binding.showRoomImage)
+
+
 
         sharedPreferences =
             this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
@@ -110,7 +113,7 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
         initViews()
 
 
-        viewModelD.allItems.observe(viewLifecycleOwner,  { list ->
+        viewModelD.allItems(spaces.space.roomId).observe(viewLifecycleOwner,  { list ->
             list?.let {
 
                 spaceAdapter.updateList(it)
@@ -199,7 +202,7 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
                     binding.showRoomImage.visibility = View.VISIBLE
 
-                  var  roomShowImagePref: String? =  selectedImagePath
+               /*   var  roomShowImagePref: String? =  selectedImagePath
 
 
                     val editor: SharedPreferences.Editor =
@@ -208,22 +211,11 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
                     )
                     editor.apply()
 
-                    }}}}}
+                    }}}}}*/}}}}}
     private  val getActionTakePicture =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK) {
                 binding.showRoomImage.setImageURI(photoFile!!.toUri())
-
-/*
-                if (RESULT_OK === RESULT_LOAD_IMAGE && resultCode === RESULT_OK && data != null) {
-                    val selectedImageURI: Uri = android.R.attr.data.getData()
-                    val placeWorkModel = Place() // the model between activity and adapter
-                    placeWorkModel.setPhoto(convertImage2Base64().toInt()) // here i pass the photo
-                    picturesList.add(placeWorkModel)
-                    adapter.updateList(picturesList) // add this
-                    mAdapter.notifyDataSetChanged()
-                }
-                */
 
 
             } else {

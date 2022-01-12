@@ -7,57 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.content.Context
+import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.ThirtyDays
 
 
-/*
-class ThirtyDaysRVAdapter(
-    private val allDays: List<ThirtyDays>,
-    private val listener: Communicator
-) :
-    RecyclerView.Adapter<ThirtyDaysRVAdapter.ViewHolder>() {
-
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = allDays[position]
-        Glide.with(holder.itemView.context)
-            .load(currentItem.imgPath)
-            .into(holder.imageView)
-        holder.itemCount.text = currentItem.toString()
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val com.example.declutteringapp.view = LayoutInflater.from(parent.context).inflate(R.layout.thirty_day_rv_item, parent, false)
-        return ViewHolder(com.example.declutteringapp.view)
-    }
-
-
-    override fun getItemCount() = allDays.size
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val itemCount = itemView.findViewById<TextView>(R.id.rvThirtyText)
-        val itemNum = itemView.findViewById<TextView>(R.id.rvItemNum)
-        val imageView: ImageView = itemView.findViewById(R.id.rvThirtyImg)
-
-
-        init {
-            itemView.setOnClickListener (this)
-        }
-
-        override fun onClick(v: View?) {
-            val position = adapterPosition
-            val image = allDays[adapterPosition].imgPath
-            val count =  allDays[adapterPosition].itemCounts
-            if (position != RecyclerView.NO_POSITION) {
-                if (image != null) {
-                    listener.passData(position,count, image)
-                }
-            }
-        }
-    }
-}
-*/
 
 
 class ThirtyDaysRVAdapter(
@@ -66,18 +20,12 @@ class ThirtyDaysRVAdapter(
 ) :
     RecyclerView.Adapter<ThirtyDaysRVAdapter.ViewHolder>() {
 
-    var daysLimit= 30
 
-
-    // on below line we are creating a
-    // variable for our all dyas list.
     private var allDays = ArrayList<ThirtyDays>()
 
-    // on below line we are creating a com.example.declutteringapp.view holder class.
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // on below line we are creating an initializing all our
-        // variables which we have added in layout file.
-        val itemCount = itemView.findViewById<TextView>(R.id.rvItemNum)
+
+        val itemCount = itemView.findViewById<TextView>(R.id.rvThirtyText)
         val itemNum = itemView.findViewById<TextView>(R.id.rvItemNum)
         val imageView: ImageView = itemView.findViewById(R.id.rvThirtyImg)
 
@@ -93,13 +41,16 @@ class ThirtyDaysRVAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // on below line we are setting data to item of recycler com.example.declutteringapp.view.
+        var days = allDays[position]
         holder.itemCount.setText(allDays.get(position).itemCounts.toString())
         holder.itemNum.setText(allDays.get(position).dayNum.toString())
   //holder.imageView.setImage(allDays.get(position).imgPath!!)
+        Glide.with(context)
+            .load(days.imgPath)
+            .into(holder.imageView)
 
 
-allDays[position].imgPath
+
           //holder.imageView.setImageBitmap(BitmapFactory.decodeFile(allDays[position].imgPath))
 
 
@@ -114,10 +65,6 @@ allDays[position].imgPath
 return allDays.size
 
             }
-
-
-
-
 
 
 

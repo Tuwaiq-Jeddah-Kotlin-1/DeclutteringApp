@@ -6,8 +6,7 @@ import com.example.declutteringapp.Converters
 
 @Database(entities = arrayOf(
     Space::class,
-    ToDeclutter::class) , version = 1, exportSchema = false)
-//@TypeConverters(Converters::class)
+    ToDeclutter::class,Score::class) , version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 
 
