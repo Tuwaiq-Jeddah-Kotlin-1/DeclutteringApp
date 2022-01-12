@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".view.EditSpaceFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:text="Take a before photo of the room, to track your progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etRoomName"
@@ -83,7 +92,6 @@
         android:id="@+id/imgCameraSpace"
         android:layout_width="41dp"
         android:layout_height="36dp"
-        android:layout_marginTop="116dp"
         android:backgroundTint="#FFFFFF"
         android:clickable="true"
         android:focusable="true"
@@ -91,18 +99,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.832"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/showRoomImage"
         android:layout_width="234dp"
         android:layout_height="181dp"
-      android:layout_marginTop="24dp"
         android:src="@drawable/ic_image_replace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
-   />
+        app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/idBtn"
         android:layout_width="match_parent"

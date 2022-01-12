@@ -160,9 +160,7 @@
         <action
             android:id="@+id/action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment"
             app:destination="@id/thirtyDaysEditDialogFragment" />
-        <argument
-            android:name="daysData"
-            app:argType="com.example.declutteringapp.model.ThirtyDays" />
+
 
     </fragment>
     <fragment
@@ -189,7 +187,9 @@
         <action
             android:id="@+id/action_editSpaceFragment_to_mySpaceFragment22"
             app:destination="@id/mySpaceFragment2"/>
-
+        <argument
+            android:name="score"
+            app:argType="com.example.declutteringapp.model.Score" />
 
 
     </fragment>

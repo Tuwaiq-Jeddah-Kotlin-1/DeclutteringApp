@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -30,7 +30,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
         <ImageButton
             android:id="@+id/imgUpload"
             android:layout_width="wrap_content"
@@ -40,10 +39,10 @@
             android:src="@drawable/ic_image_replace"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintHorizontal_bias="0.369"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.505" />
+            app:layout_constraintVertical_bias="0.732" />
 
         <ImageButton
             android:id="@+id/imgCamera"
@@ -54,48 +53,47 @@
             android:src="@drawable/ic_camers"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.586"
+            app:layout_constraintHorizontal_bias="0.628"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.505" />
+            app:layout_constraintVertical_bias="0.722" />
 
         <EditText
             android:id="@+id/etItemNumber"
-            android:layout_width="65dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="120dp"
-            android:background="#A1A1A1"
-            android:hint="0"
-            android:inputType="number"
+            android:layout_width="120dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="92dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.896"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <TextView
             android:id="@+id/tvNumberOfItemsDeclutter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="207dp"
+            android:layout_height="20dp"
             android:layout_marginStart="28dp"
-            android:textSize="16dp"
+            android:text="Number of items you decluttered today"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/etItemNumber"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.964" />
-
-
+            app:layout_constraintVertical_bias="0.87" />
 
         <Button
             android:id="@+id/btnSubmitDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="110dp"
+            android:text="Add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imgCamera"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.631" />
+            app:layout_constraintVertical_bias="0.959" />
 
-    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
