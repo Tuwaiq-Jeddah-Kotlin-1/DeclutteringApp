@@ -42,7 +42,47 @@ class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface {
         super.onViewCreated(view, savedInstanceState)
 
 
+        thirtyDaysRVv = binding.thirtyDaysRV
 
+        thirtyDaysRVv.layoutManager = GridLayoutManager(requireContext(), 3)
+        thirtyDaysRVv.setHasFixedSize(true)
+
+        val data = ArrayList<ThirtyDays>()
+
+
+        thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this)
+
+
+        thirtyDaysRVv.adapter = thirtyDaysRVAdapter
+
+
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
+        ).get(DaysViewModel::class.java)
+
+        viewModel.allDays
+
+        var daysData=ArrayList<ThirtyDays>()
+
+        for(i in 0..29){
+            viewModel.addDay(ThirtyDays(i+1, 0,""))
+        }
+
+        viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
+            list?.let {
+
+                thirtyDaysRVAdapter.updateList(list)
+
+
+            }
+        })
+    }
+    override fun onDayClick(thirtyDays: ThirtyDays) {
+        findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
+    }
+
+/*
         thirtyDaysRVv = binding.thirtyDaysRV
 
         thirtyDaysRVv.layoutManager = GridLayoutManager(context, 3)
@@ -51,37 +91,29 @@ class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface {
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(DaysViewModel::class.java)
-      //  thirtyDaysRVv.setHasFixedSize(true)
+       thirtyDaysRVv.setHasFixedSize(true)
 
         thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this)
 
         thirtyDaysRVv.adapter = thirtyDaysRVAdapter
 
 
-        viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
-            list?.let {
 
-                thirtyDaysRVAdapter.updateList(list)
+        val data = ArrayList<ThirtyDays>()
+        for(i in 1..29){
+            data.add(ThirtyDays(1+i,0,""))
+        }*/
 
-                /*       val scoreObserver = Observer<Score> { newScore ->
-                           binding.tvScore.text = newScore.toString()
-                       }
-
-                       scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)*/
-            }
-        })
-
-        var daysData=ArrayList<ThirtyDays>()
-
-        for(i in 0..29){
-            viewModel.addDay(ThirtyDays(i+1, "0",""))
-        }
-
-        scoreViewModel = ViewModelProvider(
+     /*   scoreViewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(ScoreViewModel::class.java)
+*/
+        /*       val scoreObserver = Observer<Score> { newScore ->
+                                  binding.tvScore.text = newScore.toString()
+                              }
 
+                              scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)*/
 var dayImage = R.id.imagePlacement
 
 
@@ -94,12 +126,14 @@ var dayImage = R.id.imagePlacement
     })
 */
 
+/*
 
         val scoreObserver = Observer<Score> { newScore ->
             binding.tvScore.text = newScore.toString()
         }
 
         scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)
+*/
 
 
 
@@ -107,15 +141,12 @@ var dayImage = R.id.imagePlacement
 }
 
 
-   override fun onDayClick(thirtyDays: ThirtyDays) {
-        findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
-    }
-
+ /*
 
 
 
 }
-
+*/
 
 
 

@@ -66,11 +66,11 @@
 
     <TextView
         android:id="@+id/qoutes"
-        android:layout_width="206dp"
-        android:layout_height="84dp"
+        android:layout_width="248dp"
+        android:layout_height="83dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="524dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="544dp"
         android:background="#FFFFFF"
         android:backgroundTint="#F1EDF1"
         android:gravity="center_horizontal"
@@ -183,24 +183,25 @@
     <ImageView
         android:layout_width="65dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="140dp"
 
+        android:layout_marginBottom="160dp"
         android:src="@drawable/ic_qoutes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/qoutes"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSpacesStart"
-        app:layout_constraintVertical_bias="0.903" />
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
-        android:layout_width="120dp"
-        android:layout_height="154dp"
+        android:layout_width="114dp"
+        android:layout_height="123dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="472dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/qoutes"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.828"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/ic_plant" />

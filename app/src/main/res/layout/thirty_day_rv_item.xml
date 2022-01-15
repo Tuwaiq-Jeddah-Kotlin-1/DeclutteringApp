@@ -28,10 +28,12 @@
                 android:textColor="#B6B6B6"
                 android:textSize="14dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/rvItemNum"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.776"
+                app:layout_constraintHorizontal_bias="0.508"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:layout_width="35dp"
@@ -41,6 +43,7 @@
                 android:text="Day"
                 android:textColor="#D3D3D3"
                 android:textSize="14dp"
+                app:layout_constraintBottom_toTopOf="@+id/rvThirtyImg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.219"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +55,11 @@
                 android:layout_height="43dp"
                 android:layout_marginTop="48dp"
                 android:gravity="center"
+                android:text="0"
                 android:textColor="#8B7198"
-android:text="0"
                 android:textSize="25dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/rvThirtyImg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.813"
                 app:layout_constraintStart_toStartOf="parent"

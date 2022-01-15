@@ -1,5 +1,6 @@
 package com.example.declutteringapp.view
 
+import android.app.AlertDialog
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.QuestionsLayoutBinding
 
@@ -7,6 +8,7 @@ import com.example.declutteringapp.databinding.QuestionsLayoutBinding
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutteringapp.model.KeepOrTossModel
@@ -42,6 +44,22 @@ class QuestionsViewPagerAdapter(private var ctx: Context?, private var listQuest
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemBinding.ques = listQuestions?.get(position)
+       /* if(position == itemCount - 1){
+           *//* val builder = AlertDialog.Builder(ctx)
+            builder.setTitle("You're Done")
+            builder.setMessage("Hopefully you can see to witch side the item is closer ")
+
+            builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                Toast.makeText(ctx,
+                    android.R.string.yes, Toast.LENGTH_SHORT).show()
+            }
+
+
+            builder.show()
+        }*//*
+            Toast.makeText(ctx, "Keep it, you earned 50 Points", Toast.LENGTH_LONG).show()
+
+        }*/
     }
 
 }

@@ -23,9 +23,9 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.declutteringapp.view.ViewPagerFragment"
+        android:name="com.example.declutteringapp.view.OnBoardingFragment"
         android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" >
+        tools:layout="@layout/fragment_on_boarding" >
         <action
             android:id="@+id/action_viewPagerFragment_to_homeFragment2"
             app:destination="@id/homeFragment2"
@@ -35,6 +35,10 @@
             app:popExitAnim="@anim/nav_default_exit_anim"
             app:popUpTo="@id/homeFragment2"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_logInFragment"
+            app:destination="@id/logInFragment"
+            app:launchSingleTop="false" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
@@ -49,15 +53,7 @@
             app:destination="@id/logInFragment"
             app:launchSingleTop="false" />
     </fragment>
-    <fragment
-        android:id="@+id/thirdFragment"
-        android:name="com.example.declutteringapp.view.ThirdFragment"
-        android:label="fragment_third"
-        tools:layout="@layout/fragment_third" >
-        <action
-            android:id="@+id/action_thirdFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
-    </fragment>
+
     <fragment
         android:id="@+id/startFragment2"
         android:name="com.example.declutteringapp.view.StartFragment"
@@ -141,6 +137,9 @@
         <action
             android:id="@+id/action_logInFragment_to_startFragment2"
             app:destination="@id/startFragment2" />
+        <action
+            android:id="@+id/action_logInFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/tipsFragment"

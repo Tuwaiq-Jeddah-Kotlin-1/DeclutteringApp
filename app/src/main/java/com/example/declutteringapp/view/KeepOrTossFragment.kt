@@ -27,9 +27,13 @@ class KeepOrTossFragment : Fragment(){
 
     private lateinit var binding: FragmentKeepOrTossBinding
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var adapter: QuestionsViewPagerAdapter
+
     val displayMetrics = DisplayMetrics()
     var screenWidth =0
     val sharedPref =activity?.getPreferences(Context.MODE_PRIVATE)
+var yesClick=0
+    var nClick=0
 
 
 
@@ -88,16 +92,20 @@ class KeepOrTossFragment : Fragment(){
         binding.imageToss.getLocationOnScreen(location)
         val x = location[0]
 
-        val imageWidth =  binding.imageToss.width
-
-        //screenWidth = displayMetrics.widthPixels
-
-
-    return if (left) x
-    else screenWidth - (x + imageWidth)
+        val imageWidth = binding.imageToss.width
+//        var screenWidth = resources.displayMetrics.widthPixels / resources.displayMetrics.density
+        var xdpi = displayMetrics.xdpi
+        var ydpi = displayMetrics.ydpi
 
 
+        //  screenWidth = resources.displayMetrics.widthPixels
+
+
+            return if (left) x
+            else screenWidth - imageWidth
     }
+
+
 
 
 
@@ -119,19 +127,10 @@ class KeepOrTossFragment : Fragment(){
             binding.yesButton.clicks()
             val distance = Math.min(distanceToEdge(true), MOVE_DISTANCE)
             moveImage(-distance)
+
             val listQuestions = mutableListOf<KeepOrTossModel>()
 
             val adapter = QuestionsViewPagerAdapter(context, listQuestions)
-
-            if (/*distanceToEdge(true) == 20*/ adapter.itemCount==12
-                        ) {
-                Toast.makeText(context, "Keep it, you earned 50 Points", Toast.LENGTH_LONG).show()
-               // score(taskDone = true)
-
-            } else {
-            }
-
-
 
         }
 
@@ -151,6 +150,7 @@ class KeepOrTossFragment : Fragment(){
 
     }
 
+
     suspend fun firstClickN(){
 
         binding.noButton.clicks()
@@ -158,7 +158,7 @@ class KeepOrTossFragment : Fragment(){
         val distance = Math.min(distanceToEdge(true), MOVE_DISTANCE)
         moveImage(distance)
         if (distanceToEdge(false) ==0){
-            Toast.makeText(context, "Tossss it", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Toss it", Toast.LENGTH_LONG).show()
 
         }else{}
 
@@ -187,9 +187,8 @@ class KeepOrTossFragment : Fragment(){
         var score = sharedPref?.getInt("Score", 0)
 
         binding.scoreNumber.text=score.toString()
-        screenWidth =  requireContext().resources.displayMetrics.widthPixels
+        screenWidth = resources.displayMetrics.widthPixels
         //  var scorePref:Int = finalScore
-
         sharedPreferences =
             this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
         // scoreSave = sharedPreferences.getInt("SCORE", scorePref)
@@ -202,7 +201,10 @@ class KeepOrTossFragment : Fragment(){
 
 
         binding.yesButton.clicks()
+
             .onEach { firstClick()
+            }
+            .onEach { yesClick++
             }
             .onEach {      val animation = AnimationUtils.loadAnimation(context, R.anim.shake)
                 binding.imageToss.startAnimation(animation)
@@ -213,22 +215,29 @@ class KeepOrTossFragment : Fragment(){
         binding.noButton.clicks()
             .onEach { firstClickN()
             }
+            .onEach { nClick++
+            }
             .onEach { val animation = AnimationUtils.loadAnimation(context, R.anim.shake)
                 binding.imageToss.startAnimation(animation) }
             .onEach { secondClickN()
             }.launchIn(lifecycleScope)
 
 
-
-
         val listQuestions = mutableListOf<KeepOrTossModel>()
+        adapter=QuestionsViewPagerAdapter(context,listQuestions)
 
         val adapter = QuestionsViewPagerAdapter(context, listQuestions)
 
         binding.questionsViewpager.adapter = adapter
-
         //adapter.itemCount-12
         binding.questionsViewpager.isUserInputEnabled = false
+
+        when(binding.questionsViewpager.currentItem == adapter.itemCount -1 ){
+           yesClick>nClick ->
+            Toast.makeText(context, "Keep it", Toast.LENGTH_LONG).show()
+            nClick>yesClick ->   Toast.makeText(context, "Toss it", Toast.LENGTH_LONG).show()
+        }
+
 
 
         listQuestions.add(KeepOrTossModel("have you used it in the last year?", 1))

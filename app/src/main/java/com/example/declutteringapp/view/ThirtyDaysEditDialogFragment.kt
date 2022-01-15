@@ -92,7 +92,7 @@ class ThirtyDaysEditDialogFragment: Fragment(){
         ImageGallary = binding.imgUpload
 
         imagePlace = binding.imagePlacement
-        itemNum = binding.etItemNumber
+      //  itemNum = binding.etItemNumber
 
         saveBtn = binding.btnSubmitDay
 
@@ -118,8 +118,8 @@ class ThirtyDaysEditDialogFragment: Fragment(){
         binding.btnSubmitDay.setOnClickListener {
             createSpace(it)
             findNavController().navigate(R.id.action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment)
-            var score= Score(30)
-            scoreViewModel.updateScore(score)
+     /*       var score= Score(30)
+            scoreViewModel.updateScore(score)*/
 
         }
       /*  saveBtn.setOnClickListener {
@@ -214,7 +214,7 @@ class ThirtyDaysEditDialogFragment: Fragment(){
 
 private fun createSpace(it: View?) {
 
-    var itemCounts= binding.etItemNumber.toString()
+    itemNum.toString().trim().toInt()
     val image=mCurrentPhotoPath
 
 
@@ -231,9 +231,9 @@ if (itemCounts ==i){
     //   val daysNum= binding.tvDayNum.toString().toInt()
     viewLifecycleOwner.lifecycleScope.launchWhenCreated {
         context?.let {
-    val data =ThirtyDays(dayNum = 0,itemCounts=itemCounts, imgPath = image)
+    val data =ThirtyDays(dayNum = 0,  itemNum.text.toString().trim().toInt(), imgPath = image)
 
-    viewModelDay.updateDay(data)
+    viewModelDay.addDay(data)
 
     Toast.makeText(requireContext(),"You updated the day!", Toast.LENGTH_SHORT).show()
 }}
@@ -298,10 +298,12 @@ if (itemCounts ==i){
 
                     viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                         context?.let {
-                            val itemCounts= binding.etItemNumber.text.toString()
+                            val itemCounts= binding.etItemNumber.text.toString().trim().toInt()
                             val image= mCurrentPhotoPath
                             var day = ThirtyDays(0,  itemCounts, image)
-                           selectedImagePath = day.imgPath!!
+                           viewModelDay.updateDay(day)
+
+                            selectedImagePath = day.imgPath!!
                             imagePlace.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
                             imagePlace.visibility = View.VISIBLE
                         }

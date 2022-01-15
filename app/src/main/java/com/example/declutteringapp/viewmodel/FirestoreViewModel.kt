@@ -1,13 +1,20 @@
 package com.example.declutteringapp.viewmodel
 
+import android.content.ClipData
 import android.util.Log
+import androidx.databinding.adapters.NumberPickerBindingAdapter.setValue
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.declutteringapp.model.FirestoreRepository
+import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.model.UserInfoModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -31,16 +38,18 @@ class FirestoreViewModel : ViewModel(){
     }
 
     fun getUserInfo(): LiveData<List<UserInfoModel>> {
-        firebaseRepository.getSavedUsers().addSnapshotListener { value, error ->
+
+        firebaseRepository.getSavedUsers().addSnapshotListener { value: QuerySnapshot?, error ->
 
             var savedUserList : MutableList<UserInfoModel> = mutableListOf()
-            for (doc in value!!) {
-                var userInfo = doc.toObject(UserInfoModel::class.java)
-                savedUserList.add(userInfo)
-            }
-            savedUser.value = savedUserList
-        }
+            if (value != null) {
+                for (doc in value) {
 
+                    var userInfo = doc.toObject(UserInfoModel::class.java)
+                    savedUserList.add(userInfo)
+                }
+                savedUser.value = savedUserList
+            }}
         return savedUser
     }
 
@@ -63,6 +72,10 @@ class FirestoreViewModel : ViewModel(){
 
     createUserFirestore(userInfo)
 }
+
+    fun updateFirestoreEmail(userInfo: UserInfoModel) = viewModelScope.launch(Dispatchers.IO) {
+        firebaseRepository.updateUserEmail(userInfo = UserInfoModel())
+    }
 
 
  fun createUserFirestore(userInfo: UserInfoModel) = CoroutineScope(Dispatchers.IO).launch {

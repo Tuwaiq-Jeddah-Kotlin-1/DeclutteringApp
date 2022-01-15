@@ -252,7 +252,6 @@ dialogChangeEmail()
         val builder = BottomSheetDialog(requireView()?.context)
         builder.setTitle("Change Email")
 
-        builder.setContentView(view)
 
 
 
@@ -284,7 +283,9 @@ dialogChangeEmail()
 
             tvEmail.text.toString()
 
+            builder.setCancelable(true)
 
+            builder.setContentView(view)
 
             builder.show()
         }
