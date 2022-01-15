@@ -14,7 +14,6 @@ class FirestoreRepository {
     var user = FirebaseAuth.getInstance().currentUser
 
 
-    // save address to firebase
     fun saveUserInfo(userInfo: UserInfoModel):Task<Void>{
         //var
         var documentReference = Firebase.firestore.collection("users")
@@ -23,7 +22,7 @@ return documentReference.set(userInfo)
 
     }
 
-    // get saved addresses from firebase
+    // get saved users from firebase
     fun getSavedUsers(): CollectionReference {
         var collectionReference = Firebase.firestore.collection("users")
             .document("name").collection("userRecord")
@@ -36,6 +35,21 @@ return documentReference.set(userInfo)
             .document("name").collection("userRecord").document(userInfo.name)
 
         return documentReference.delete()
+    }
+
+    fun updateUserName(userInfo: UserInfoModel): Task<Void> {
+        var documentReference = Firebase.firestore.collection("users")
+            .document("name").collection("userRecord").document(userInfo.name)
+
+        return documentReference.update("name",user)
+
+
+    }
+    fun updateUserEmail(userInfo: UserInfoModel): Task<Void> {
+        var documentReference = Firebase.firestore.collection("users")
+            .document("email").collection("userRecord").document(userInfo.email)
+
+        return documentReference.update("email",user)
     }
 
 }

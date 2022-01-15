@@ -70,7 +70,9 @@ class LogInFragment : Fragment() {
             forgotPasswordDialog()
 
         }
-
+binding.lnkCreat.setOnClickListener {
+    findNavController().navigate(R.id.action_logInFragment_to_homeFragment2)
+}
         binding.btnLogin.setOnClickListener {
 
             logInAuthentication()
@@ -130,14 +132,7 @@ class LogInFragment : Fragment() {
 
                                 if (task.isSuccessful) {
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
-                                    val toastMessageWelcome: String =
-                                        this@LogInFragment.getResources()
-                                            .getString(R.string.welcome)
-                                    Toast.makeText(
-                                        context,
-                                        "$toastMessageWelcome ${email.toString()}",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+
 
 
                                     val emailPreference: String = email
@@ -151,14 +146,6 @@ class LogInFragment : Fragment() {
                                     editor.putBoolean("CHECKBOX", checked)
                                     editor.apply()
 
-                                    val toastMessageInfoSaved: String =
-                                        this@LogInFragment.getResources()
-                                            .getString(R.string.info_saved)
-                                    Toast.makeText(
-                                        context,
-                                        toastMessageInfoSaved,
-                                        Toast.LENGTH_LONG
-                                    ).show()
                                     firestoreViewModel.readUserData()
                                     goToHome()
                                 } else {

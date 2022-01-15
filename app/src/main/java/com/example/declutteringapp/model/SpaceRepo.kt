@@ -2,6 +2,13 @@ package com.example.declutteringapp.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
+import androidx.work.workDataOf
+import com.example.declutteringapp.WorkerNotification
+import com.example.declutteringapp.view.MainActivity
+import java.util.concurrent.TimeUnit
 
 class SpaceRepo(private val spaceDao: MySpacesDao) {
 
@@ -49,5 +56,25 @@ class SpaceRepo(private val spaceDao: MySpacesDao) {
     suspend fun update(item:ToDeclutter){
         spaceDao.update(item)
     }
+
+    class NotificationRepo {
+        fun myNotification(mainActivity: MainActivity){
+            val myWorkRequest= PeriodicWorkRequest
+                .Builder(WorkerNotification::class.java,1, TimeUnit.DAYS)
+                .setInputData(workDataOf(
+                    "title" to "Do the Thirty Days Challenge\uD83D\uDCAA",
+                    "message" to "Complete the challenge and feel lighter \uD83D\uDE0C")
+                )
+                .build()
+            WorkManager.getInstance(mainActivity).enqueueUniquePeriodicWork(
+                "periodicStockWorker",
+                ExistingPeriodicWorkPolicy.KEEP,
+                myWorkRequest
+            )
+        }
+    }
+
+
+
 
 }

@@ -1,18 +1,23 @@
 package com.example.declutteringapp.view
 
 
+import android.app.Activity
+import android.app.UiModeManager.MODE_NIGHT_YES
 import android.content.Context
+import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.ActivityMainBinding
-
+import com.example.declutteringapp.model.SpaceRepo
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +34,9 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        SpaceRepo.NotificationRepo().myNotification(this)
+
+        val sharedPreferences = getSharedPreferences("SHARED_PREF", Activity.MODE_PRIVATE)
 
         if (isNetworkConnected(this) ==false){
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
@@ -72,6 +80,31 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        if (sharedPreferences.getString("LOCALE","") == "ar") {
+            setLocate(this,"ar")
+        } else {
+            setLocate(this,"en")
+        }
+        if (sharedPreferences.getBoolean("DARK_MOOD", false)) {
+            resources.configuration.uiMode = AppCompatDelegate.MODE_NIGHT_YES
+
+        } else {
+            resources.configuration.uiMode = AppCompatDelegate.MODE_NIGHT_NO
+        }
+    }
+
+
+
+    private fun setLocate(activity: Activity, Lang: String) {
+        val locale = Locale(Lang)
+        Locale.setDefault(locale)
+        val resources = activity.resources
+        val  config: Configuration = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+
+    }
+
 /*
 
         val editor: SharedPreferences.Editor =
@@ -87,11 +120,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    }  fun isNetworkConnected(context: Context): Boolean{
+     fun isNetworkConnected(context: Context): Boolean{
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork = connectivityManager.activeNetwork
         val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
         return networkCapabilities != null &&
                 networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
+
+
 }
