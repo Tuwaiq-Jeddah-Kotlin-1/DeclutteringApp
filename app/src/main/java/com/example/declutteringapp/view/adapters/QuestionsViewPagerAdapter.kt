@@ -1,4 +1,4 @@
-package com.example.declutteringapp.view
+package com.example.declutteringapp.view.adapters
 
 import android.app.AlertDialog
 import com.example.declutteringapp.R
@@ -13,7 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutteringapp.model.KeepOrTossModel
 
-class QuestionsViewPagerAdapter(private var ctx: Context?, private var listQuestions: MutableList<KeepOrTossModel>?) :
+class QuestionsViewPagerAdapter( val context: Context,private var listQuestions: MutableList<KeepOrTossModel>?, val resultDialog: ResultDialog) :
     RecyclerView.Adapter<QuestionsViewPagerAdapter.MyViewHolder>() {
 
     class MyViewHolder(val itemBinding: QuestionsLayoutBinding) : RecyclerView.ViewHolder(itemBinding.root){
@@ -27,7 +27,7 @@ class QuestionsViewPagerAdapter(private var ctx: Context?, private var listQuest
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val inflater = LayoutInflater.from(ctx)
+        val inflater = LayoutInflater.from(parent.context)
         val binding: QuestionsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.questions_layout,parent,false)
         return MyViewHolder(binding)
        // var vpText=
@@ -44,22 +44,32 @@ class QuestionsViewPagerAdapter(private var ctx: Context?, private var listQuest
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemBinding.ques = listQuestions?.get(position)
-       /* if(position == itemCount - 1){
-           *//* val builder = AlertDialog.Builder(ctx)
+        if(position == itemCount - 1){
+          val builder = AlertDialog.Builder(context)
             builder.setTitle("You're Done")
             builder.setMessage("Hopefully you can see to witch side the item is closer ")
-
             builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                Toast.makeText(ctx,
+                Toast.makeText(context,
                     android.R.string.yes, Toast.LENGTH_SHORT).show()
             }
-
-
             builder.show()
-        }*//*
-            Toast.makeText(ctx, "Keep it, you earned 50 Points", Toast.LENGTH_LONG).show()
-
-        }*/
+           // resultDialog.dilog()
     }
 
+
+//builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
+               // builder.d()
+
 }
+
+interface ResultDialog {
+    fun dilog() {
+    }
+}
+    }
+
+
+
+
+
+

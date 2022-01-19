@@ -2,7 +2,6 @@ package com.example.declutteringapp.view
 
 
 import android.app.Activity
-import android.app.UiModeManager.MODE_NIGHT_YES
 import android.content.Context
 import android.content.res.Configuration
 import android.net.ConnectivityManager
@@ -16,7 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.ActivityMainBinding
-import com.example.declutteringapp.model.SpaceRepo
+import com.example.declutteringapp.model.repo.SpaceRepo
 import java.util.*
 
 

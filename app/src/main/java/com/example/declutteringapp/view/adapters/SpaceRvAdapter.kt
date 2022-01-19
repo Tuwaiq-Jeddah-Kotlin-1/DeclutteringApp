@@ -1,7 +1,6 @@
-package com.example.declutteringapp.view
+package com.example.declutteringapp.view.adapters
 
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.Space
-import android.R.string.no
-import com.example.declutteringapp.model.Score
 
 
 class SpaceRvAdapter(
@@ -253,7 +250,18 @@ class DiffCallback : DiffUtil.ItemCallback<SpaceItem>() {
 
 
 
-
+/*override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    if (viewType == VIEW_TYPE_TEXT) {
+        return TextViewHolder(
+            LayoutInflater.from(context)
+                .inflate(R.layout.text_item_layout, parent, false)
+        )
+    }
+    return ImageViewHolder(
+        LayoutInflater.from(context)
+            .inflate(R.layout.image_item_layout, parent, false)
+    )
+}*/
 
 
 

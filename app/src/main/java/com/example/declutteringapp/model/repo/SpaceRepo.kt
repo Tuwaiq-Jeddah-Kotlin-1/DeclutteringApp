@@ -1,12 +1,14 @@
-package com.example.declutteringapp.model
+package com.example.declutteringapp.model.repo
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.example.declutteringapp.WorkerNotification
+import com.example.declutteringapp.model.Score
+import com.example.declutteringapp.model.Space
+import com.example.declutteringapp.model.ToDeclutter
 import com.example.declutteringapp.view.MainActivity
 import java.util.concurrent.TimeUnit
 
@@ -34,7 +36,7 @@ class SpaceRepo(private val spaceDao: MySpacesDao) {
     }
 
 
-    suspend fun insert(item:ToDeclutter) {
+    suspend fun insert(item: ToDeclutter) {
         spaceDao.insert(item)
 
     }
@@ -48,12 +50,12 @@ class SpaceRepo(private val spaceDao: MySpacesDao) {
         spaceDao.delete(space)
     }
 
-    suspend fun delete(item:ToDeclutter){
+    suspend fun delete(item: ToDeclutter){
         spaceDao.delete(item)
     }
 
 
-    suspend fun update(item:ToDeclutter){
+    suspend fun update(item: ToDeclutter){
         spaceDao.update(item)
     }
 

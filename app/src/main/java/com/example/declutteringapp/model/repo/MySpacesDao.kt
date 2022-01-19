@@ -1,8 +1,10 @@
-package com.example.declutteringapp.model
+package com.example.declutteringapp.model.repo
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.*
+import com.example.declutteringapp.model.Score
+import com.example.declutteringapp.model.Space
+import com.example.declutteringapp.model.ToDeclutter
 
 @Dao
 interface MySpacesDao {
@@ -27,11 +29,11 @@ interface MySpacesDao {
     fun getGuestWithReservations(): LiveData<List<ItemsWithSpaces>>*/
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(score:Score)
+    suspend fun insert(score: Score)
 
 
      @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(item:ToDeclutter)
+    suspend fun insert(item: ToDeclutter)
 
   /*  @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(spaceItem: SpaceItemBoth)
@@ -42,10 +44,10 @@ interface MySpacesDao {
 
 
     @Delete
-    suspend fun delete(item:ToDeclutter)
+    suspend fun delete(item: ToDeclutter)
 
     @Delete
-    suspend fun delete(space:Space)
+    suspend fun delete(space: Space)
 
 
     @Query("Select * from declutterTable WHERE roomId = (:roomId) ")

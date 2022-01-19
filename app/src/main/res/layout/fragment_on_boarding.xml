@@ -7,15 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.declutteringapp.view.OnBoardingFragment">
 
-    <ImageView
-        android:layout_width="253dp"
-        android:layout_height="92dp"
-        android:src="@drawable/home"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-  <!--  <TextSwitcher55555555555555555554
+    <!--  <TextSwitcher55555555555555555554
 
 
 
@@ -32,6 +24,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />-->
 
+    <ImageView
+        android:layout_width="253dp"
+        android:layout_height="92dp"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.738" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
@@ -47,13 +49,13 @@
         android:id="@+id/logInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
         android:text="Already have an account? login"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.889" />
 
     <TextView
         android:id="@+id/textView"
@@ -71,15 +73,16 @@
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="424dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:ci_drawable="@drawable/ic_circle"
         app:ci_drawable_unselected="@drawable/ic_circle_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619" />
 
     <Button
         android:id="@+id/getStarted"
@@ -92,10 +95,12 @@
         android:textColorLink="#D8D8D8"
         android:textSize="14dp"
         app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/indicator" />
+        app:layout_constraintTop_toBottomOf="@id/indicator"
+        app:layout_constraintVertical_bias="0.098" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

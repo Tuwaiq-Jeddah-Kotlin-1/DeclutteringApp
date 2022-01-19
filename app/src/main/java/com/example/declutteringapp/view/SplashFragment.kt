@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
@@ -65,6 +66,15 @@ class SplashFragment : Fragment() {
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
 
         }, 3000)
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+      /*  var logo=view.findViewById<TextView>(R.id.textView3)
+        val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+        logo.startAnimation(animation)*/
     }
 
 /*

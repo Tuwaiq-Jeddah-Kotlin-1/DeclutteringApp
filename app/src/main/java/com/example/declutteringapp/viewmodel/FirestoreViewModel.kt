@@ -1,19 +1,14 @@
 package com.example.declutteringapp.viewmodel
 
-import android.content.ClipData
 import android.util.Log
-import androidx.databinding.adapters.NumberPickerBindingAdapter.setValue
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.declutteringapp.model.FirestoreRepository
-import com.example.declutteringapp.model.ThirtyDays
+import com.example.declutteringapp.model.repo.FirestoreRepository
 import com.example.declutteringapp.model.UserInfoModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

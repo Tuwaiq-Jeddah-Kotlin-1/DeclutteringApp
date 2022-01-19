@@ -4,15 +4,16 @@
         android:id="@+id/startFragment2"
         android:icon="@drawable/ic_home"/>
 
-    <item
+  <!--  <item
         android:id="@+id/toolsFragment2"
         android:icon="@drawable/ic_tools"
+        android:iconTint="#000000"
         android:title="@string/Tools" />
 
     <item android:title="@string/challenges"
         android:id="@+id/challengesFragment2"
         android:icon="@drawable/ic_challenges"/>
-
+-->
     <item android:title="@string/mySpace"
         android:id="@+id/mySpaceFragment2"
         android:icon="@drawable/ic_space"/>

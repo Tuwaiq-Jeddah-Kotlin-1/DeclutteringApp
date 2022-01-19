@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentStartBinding
@@ -35,26 +36,41 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnToolsStart.setOnClickListener {
-            findNavController().navigate(R.id.action_startFragment2_to_toolsFragment2)
+        binding.tools.setOnClickListener {
+            findNavController().navigate(R.id.action_startFragment2_to_keepOrTossFragment)
         }
 
-        binding.btnChallengesStart.setOnClickListener {
-            findNavController().navigate(R.id.action_startFragment2_to_challengesFragment2)
+        binding.toolsTwo.setOnClickListener {
+            findNavController().navigate(R.id.action_startFragment2_to_buyOrSave)
         }
         binding.btnSpacesStart.setOnClickListener {
+
             findNavController().navigate(R.id.action_startFragment2_to_mySpaceFragment2)
         }
-        binding.btnTipsStart.setOnClickListener {
-            findNavController().navigate(R.id.action_startFragment2_to_tipsFragment)
-        }
-        fun View.Texts() = callbackFlow<Unit> {
-            setOnClickListener {
-                trySend(Unit)
-            }
-            awaitClose { setOnClickListener(null) }
+        binding.challDay.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment2_to_thirtyDaysFragment)
 
         }
+        binding.challFive.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment2_to_fiveMinFragment)
+
+        }
+
+
+
+       /* val animationSlideSpaces = AnimationUtils.loadAnimation(context, R.anim.move_right)
+        binding.btnSpacesStart.startAnimation(animationSlideSpaces)
+
+        val animationTips = AnimationUtils.loadAnimation(context, R.anim.move_left)
+        binding.btnTipsStart.startAnimation(animationTips)
+
+        val animationTools = AnimationUtils.loadAnimation(context, R.anim.move_right)
+        binding.btnToolsStart.startAnimation(animationTools)
+        val animationChallenges = AnimationUtils.loadAnimation(context, R.anim.move_left)
+        binding.btnChallengesStart.startAnimation(animationChallenges)*/
+
+
+
 val qoutes= resources.getStringArray(R.array.decluttring_qoutes)
         var randomQoutes=qoutes.random()
   binding.qoutes.setText(randomQoutes)

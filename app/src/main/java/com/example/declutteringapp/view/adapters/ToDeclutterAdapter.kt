@@ -1,4 +1,4 @@
-package com.example.declutteringapp.view
+package com.example.declutteringapp.view.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutteringapp.R
-import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.model.ToDeclutter
 
 
@@ -20,10 +19,9 @@ class ToDeclutterAdapter (
 
 
 
-        private val allItems = Space("","","", subData =   ArrayList<ToDeclutter>())
+        private val allItems = ArrayList<ToDeclutter>()
 
 
-    var itemss=allItems.subData
 
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,27 +41,27 @@ class ToDeclutterAdapter (
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            var items = itemss[position]
+            var items = allItems[position]
             holder.tvItem.setText(items.items)
           //  allItems.get(position).roomId
 
             holder.ivDelete.setOnClickListener {
 
-               clickDeleteInterface.onDeleteIconClick(itemss.get(position))
+               clickDeleteInterface.onDeleteIconClick(items)
             }
       }
 
 
         override fun getItemCount(): Int {
 
-            return itemss.size
+            return allItems.size
         }
 
         fun updateList(newList: List<ToDeclutter>) {
 
-            itemss.clear()
+            allItems.clear()
 
-            itemss.addAll(newList)
+            allItems.addAll(newList)
 
 
             notifyDataSetChanged()

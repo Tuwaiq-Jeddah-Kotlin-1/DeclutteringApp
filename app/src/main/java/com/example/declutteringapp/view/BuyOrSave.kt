@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentBuyOrSaveBinding
 import com.example.declutteringapp.model.KeepOrTossModel
+import com.example.declutteringapp.view.adapters.QuestionsViewPagerAdapter
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.launchIn
@@ -24,7 +25,7 @@ import kotlinx.coroutines.flow.onEach
 private const val MOVE_DISTANCE = 60
     private const val MOVE_TIME = 40
 
-    class BuyOrSave : Fragment(){
+    class BuyOrSave : Fragment(), QuestionsViewPagerAdapter.ResultDialog {
 
         private lateinit var binding: FragmentBuyOrSaveBinding
         private lateinit var sharedPreferences: SharedPreferences
@@ -121,7 +122,7 @@ private const val MOVE_DISTANCE = 60
             moveImage(-distance)
             val listQuestions = mutableListOf<KeepOrTossModel>()
 
-            val adapter = QuestionsViewPagerAdapter(context, listQuestions)
+            val adapter = QuestionsViewPagerAdapter( ( requireContext()),listQuestions,this)
 
             if (distanceToEdge(true) == 20 ||   adapter.itemCount==12
             ) {
@@ -221,7 +222,7 @@ private const val MOVE_DISTANCE = 60
 
             val listQuestions = mutableListOf<KeepOrTossModel>()
 
-            val adapter = QuestionsViewPagerAdapter(context, listQuestions)
+            val adapter = QuestionsViewPagerAdapter( ( requireContext()),listQuestions,this)
 
             binding.questionsViewpager.adapter = adapter
 

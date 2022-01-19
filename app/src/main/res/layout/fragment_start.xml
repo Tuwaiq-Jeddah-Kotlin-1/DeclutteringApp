@@ -5,206 +5,353 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    android:backgroundTint="#F6F6F6"
+    android:background="#F1F1F1"
     tools:context="com.example.declutteringapp.view.StartFragment">
 
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="321dp"
-        android:layout_height="81dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="56dp"
-        android:background="@color/black"
-        android:backgroundTint="#E8FCFF"
-        android:gravity="center"
-        android:padding="3dp"
-        android:text="This is where you can start decluttering your space"
-        android:textColor="#474040"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:circularflow_radiusInDP="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/btnTipsStart"
-        android:layout_width="137dp"
-        android:layout_height="126dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
-        android:clickable="true"
-        android:defaultFocusHighlightEnabled="false"
-        android:focusable="true"
-        android:foreground="@drawable/card_foreground"
-        android:padding="100dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="2dp"
-        app:cardPreventCornerOverlap="false"
-        app:contentPadding="5dp"
+        android:id="@+id/tools"
+        android:layout_width="189dp"
+        android:layout_height="60dp"
+        android:background="@drawable/border_shape_two"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnSpacesStart"
-        app:layout_constraintTop_toBottomOf="@+id/btnChallengesStart">
+        app:layout_constraintHorizontal_bias="0.940"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.240">
+
+        <TextView
+            android:layout_width="116dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Keep Or Toss"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="52dp"
-            android:layout_height="61dp"
-            android:layout_margin="40dp"
-            android:src="@drawable/ic_bulb" />
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="0dp"
+
+            android:src="@drawable/ic_space" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolsTwo"
+        android:layout_width="189dp"
+        android:layout_height="60dp"
+        android:background="@drawable/border_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Inspiration"
+            android:layout_height="36dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Save or Buy"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="0dp"
+
+            android:src="@drawable/ic_money" />
+
+
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/challFive"
+        android:layout_width="189dp"
+        android:layout_height="60dp"
+        android:background="@drawable/border_shape_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".960"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Five Minutes"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="0dp"
+
+            android:src="@drawable/ic_timer" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/challDay"
+        android:layout_width="189dp"
+        android:layout_height="60dp"
+        android:background="@drawable/border_shape_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485">
+
+        <TextView
+            android:layout_width="165dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="30 Days Challenge"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="0dp"
+
+            android:src="@drawable/ic_30day" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/qoutesTitle"
+        android:layout_width="216dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#F1EDF1"
+        android:padding="5dp"
+        android:paddingTop="50dp"
+        android:text="Decluttering quote of the day"
+        android:textSize="14dp"
+        app:circularflow_radiusInDP="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/qoutes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChallengesStart"
+        app:layout_constraintVertical_bias="0.948" />
 
     <TextView
         android:id="@+id/qoutes"
-        android:layout_width="248dp"
-        android:layout_height="83dp"
+        android:layout_width="224dp"
+        android:layout_height="84dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="544dp"
-        android:background="#FFFFFF"
         android:backgroundTint="#F1EDF1"
-        android:gravity="center_horizontal"
         android:padding="5dp"
         android:text="Decluttering quote of the day"
-        android:textSize="17dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
         app:circularflow_radiusInDP="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btnChallengesStart"
-        android:layout_width="134dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="180dp"
-        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:defaultFocusHighlightEnabled="true"
-        android:focusable="true"
-        android:foreground="@drawable/card_foreground"
-        android:padding="100dp"
+        android:foreground="@drawable/card_foreground_profile"
+        android:padding="10dp"
+        android:backgroundTint="@color/fui_transparent"
+        android:shadowRadius=".2"
         app:cardCornerRadius="10dp"
-        app:cardElevation="2dp"
-        app:cardPreventCornerOverlap="true"
-        app:contentPadding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnToolsStart"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="52dp"
-            android:layout_height="51dp"
-            android:layout_margin="40dp"
-            android:src="@drawable/ic_challenges" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Challenges"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnSpacesStart"
-        android:layout_width="134dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="332dp"
-        android:clickable="true"
-        android:defaultFocusHighlightEnabled="true"
-        android:focusable="true"
-        android:foreground="@drawable/card_foreground"
-        android:padding="100dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="2dp"
+        app:cardElevation="0dp"
         app:cardPreventCornerOverlap="false"
-        app:contentPadding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.400"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.350">
 
-        <ImageView
-            android:layout_width="52dp"
-            android:layout_height="61dp"
-            android:layout_margin="40dp"
-            android:src="@drawable/ic_space" />
+        <LinearLayout
+            android:layout_width="309dp"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Your Space"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="15dp"
+                android:text="Challenges"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="0dp"
+
+                android:src="@drawable/ic_challenges"/>
+
+        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btnToolsStart"
-        android:layout_width="134dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:defaultFocusHighlightEnabled="true"
+        android:foreground="@drawable/card_foreground_profile"
+        android:padding="10dp"
+        android:shadowRadius=".2"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        android:alpha="0.9"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/fui_transparent"
+
+        app:layout_constraintVertical_bias="0.100">
+
+        <LinearLayout
+            android:layout_width="309dp"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="15dp"
+                android:text="Tools"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="0dp"
+
+                android:src="@drawable/ic_tools" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="103dp"
+        android:layout_height="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.817"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/ic_plant" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnSpacesStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
-        android:foreground="@drawable/card_foreground"
+        android:foreground="@drawable/card_foreground_profile"
+        android:padding="10dp"
+        android:shadowRadius=".2"
         app:cardCornerRadius="10dp"
-        app:cardElevation="2dp"
-        app:contentPadding="5dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.400"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/fui_transparent"
 
-        <ImageView
-            android:layout_width="52dp"
-            android:layout_height="61dp"
-            android:layout_margin="40dp"
-            android:src="@drawable/ic_tools" />
+        app:layout_constraintVertical_bias="0.600">
+    <LinearLayout
+        android:layout_width="309dp"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="261dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Tools"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="15dp"
+            android:text="Your Space"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="0dp"
 
-    <ImageView
-        android:layout_width="65dp"
-        android:layout_height="48dp"
+            android:src="@drawable/ic_space" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
 
-        android:layout_marginBottom="160dp"
-        android:src="@drawable/ic_qoutes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/qoutes"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
-        android:layout_width="114dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/qoutes"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.828"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/ic_plant" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

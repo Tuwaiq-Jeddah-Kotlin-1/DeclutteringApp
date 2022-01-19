@@ -10,7 +10,7 @@
     </style>-->
 
     <!-- OnBoarding styles -->
-    <style name="OnBoardingTitle">
+   <!-- <style name="OnBoardingTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
@@ -38,5 +38,5 @@
         <item name="android:textSize">@dimen/text_xx_medium</item>
         <item name="android:textColor">@drawable/mr_button_light</item>
     </style>
-
+-->
 </resources>

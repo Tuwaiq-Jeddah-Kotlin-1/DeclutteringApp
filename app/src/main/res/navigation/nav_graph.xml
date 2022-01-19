@@ -59,30 +59,23 @@
         android:name="com.example.declutteringapp.view.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
-        <action
-            android:id="@+id/action_startFragment2_to_toolsFragment2"
-            app:destination="@id/toolsFragment2" />
+
         <action
             android:id="@+id/action_startFragment2_to_mySpaceFragment2"
             app:destination="@id/mySpaceFragment2" />
+
         <action
-            android:id="@+id/action_startFragment2_to_challengesFragment2"
-            app:destination="@id/challengesFragment2" />
-        <action
-            android:id="@+id/action_startFragment2_to_tipsFragment"
-            app:destination="@id/tipsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/toolsFragment2"
-        android:name="com.example.declutteringapp.view.ToolsFragment"
-        android:label="fragment_tools"
-        tools:layout="@layout/fragment_tools" >
-        <action
-            android:id="@+id/action_toolsFragment2_to_keepOrTossFragment"
+            android:id="@+id/action_startFragment2_to_keepOrTossFragment"
             app:destination="@id/keepOrTossFragment" />
         <action
-            android:id="@+id/action_toolsFragment2_to_buyOrSave"
+            android:id="@+id/action_startFragment2_to_buyOrSave"
             app:destination="@id/buyOrSave" />
+        <action
+            android:id="@+id/action_startFragment2_to_thirtyDaysFragment"
+            app:destination="@id/thirtyDaysFragment" />
+        <action
+            android:id="@+id/action_startFragment2_to_fiveMinFragment"
+            app:destination="@id/fiveMinFragment" />
 
     </fragment>
     <fragment
@@ -115,22 +108,6 @@
 
     </fragment>
     <fragment
-        android:id="@+id/challengesFragment2"
-        android:name="com.example.declutteringapp.view.ChallengesFragment"
-        android:label="fragment_challenges"
-        tools:layout="@layout/fragment_challenges" >
-        <action
-            android:id="@+id/action_challengesFragment2_to_bagFragment"
-            app:destination="@id/bagFragment" />
-        <action
-            android:id="@+id/action_challengesFragment2_to_thirtyDaysFragment"
-            app:destination="@id/thirtyDaysFragment" />
-        <action
-            android:id="@+id/action_challengesFragment2_to_fiveMinFragment"
-            app:destination="@id/fiveMinFragment" />
-
-    </fragment>
-    <fragment
         android:id="@+id/logInFragment"
         android:name="com.example.declutteringapp.view.LogInFragment"
         android:label="LogInFragment" >
@@ -141,16 +118,7 @@
             android:id="@+id/action_logInFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
-    <fragment
-        android:id="@+id/tipsFragment"
-        android:name="com.example.declutteringapp.TipsFragment"
-        android:label="fragment_tips"
-        tools:layout="@layout/fragment_tips" />
-    <fragment
-        android:id="@+id/bagFragment"
-        android:name="com.example.declutteringapp.BagFragment"
-        android:label="fragment_bag"
-        tools:layout="@layout/fragment_bag" />
+
     <fragment
         android:id="@+id/thirtyDaysFragment"
         android:name="com.example.declutteringapp.view.ThirtyDaysFragment"
@@ -159,6 +127,9 @@
         <action
             android:id="@+id/action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment"
             app:destination="@id/thirtyDaysEditDialogFragment" />
+        <argument
+            android:name="days"
+            app:argType="com.example.declutteringapp.model.ThirtyDays" />
 
 
     </fragment>
@@ -169,14 +140,16 @@
         tools:layout="@layout/fragment_five_min" />
     <fragment
         android:id="@+id/thirtyDaysEditDialogFragment"
-        android:name="com.example.declutteringapp.view.ThirtyDaysEditDialogFragment"
+        android:name="com.example.declutteringapp.view.adapters.ThirtyDaysEditDialogFragment"
         android:label="ThirtyDaysEditDialogFragment" >
-
 
         <action
             android:id="@+id/action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment"
             app:destination="@id/thirtyDaysFragment" />
-
+      <!--  <argument
+            android:name="days"
+            app:argType="com.example.declutteringapp.model.ThirtyDays" />
+-->
     </fragment>
     <fragment
         android:id="@+id/editSpaceFragment"
@@ -205,25 +178,28 @@
         <argument
             android:name="space"
             app:argType="com.example.declutteringapp.model.Space" />
-    <!--    <argument
-            android:name="items"
-            app:argType="model.ToDeclutter" />-->
+
     </fragment>
     <fragment
         android:id="@+id/keepOrTossFragment"
         android:name="com.example.declutteringapp.view.KeepOrTossFragment"
         android:label="fragment_keep_or_toss"
-        tools:layout="@layout/fragment_keep_or_toss" />
-    <fragment
-        android:id="@+id/labelFragment"
-        android:name="com.example.declutteringapp.LabelFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" />
+        tools:layout="@layout/fragment_keep_or_toss" >
+        <action
+            android:id="@+id/action_keepOrTossFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/buyOrSave"
         android:name="com.example.declutteringapp.view.BuyOrSave"
         android:label="fragment_buy_or_save"
         tools:layout="@layout/fragment_buy_or_save" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.declutteringapp.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 
 
 </navigation>

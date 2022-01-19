@@ -21,4 +21,14 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.declutteringapp", appContext.packageName)
     }
+/*    fun lastPageCheck(){
+
+        val questionsViewpager= view.findViewById(R.id.questionsViewpager)
+        val result = if (questionsViewpager.adapter == null) {
+        // Adapter did not set
+        false
+    } else {
+        // Check if "current position" equal "number of elements
+            questionsViewpager.currentItem == questionsViewpager.adapter?.count?.minus(1)
+    }}*/
 }

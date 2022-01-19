@@ -2,7 +2,6 @@ package com.example.declutteringapp.view
 
 import android.app.AlertDialog
 import android.app.Application
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +18,7 @@ import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentMySpaceBinding
 import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.Space
+import com.example.declutteringapp.view.adapters.SpaceRvAdapter
 import com.example.declutteringapp.viewmodel.ScoreViewModel
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,9 +35,7 @@ class MySpaceFragment : Fragment() , SpaceRvAdapter.SpaceClickDeleteInterface,
     lateinit var scoreViewModel: ScoreViewModel
 lateinit var score:Score
     private lateinit var _binding: FragmentMySpaceBinding
-    private val binding get() = _binding!!
-    //private val emptyBinding: RvEmptyBinding
-    val sharedPref =activity?.getPreferences(Context.MODE_PRIVATE)
+    private val binding get() = _binding
 
     private var list: ArrayList<Space>? = null
 
@@ -63,6 +61,7 @@ lateinit var score:Score
 
 
 
+
         spacesRV = binding.spaceRV
         addFAB = binding.idFAB
 
@@ -70,21 +69,9 @@ lateinit var score:Score
         spacesRV.layoutManager = GridLayoutManager(this.activity, 2)
 
         val spaceRvAdapter = SpaceRvAdapter(requireContext(),this,this)
- //spaceRvAdapter.submitList(Type.
 
-       /* var score = sharedPref?.getInt("Score", 0)
-
-binding.scoreNumber.text=score.toString()*/
 
         spacesRV.adapter = spaceRvAdapter
-
-    /*    val rvData = ArrayList<SpaceItem>()
-      rvData.spaceRvAdapter.TYPE_SPACE
-        newList.addAll(list!!)
-        val spaceM = SpaceItem(space = Space)
-        newList.add(1,spaceM)
-
-*/
 
 
         viewModel = ViewModelProvider(
@@ -92,29 +79,6 @@ binding.scoreNumber.text=score.toString()*/
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(SpaceViewModel::class.java)
 
-        scoreViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
-        ).get(ScoreViewModel::class.java)
-
-
-/*        val score = sharedPref.getInt("Score", 0)
-
-
-        var roomsImages=  Glide.with(this)
-            .load(Uri.fromFile())
-            .into(roomImage)
-*/
-
-
-     //   scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)
-
-
-        scoreViewModel.scores.observe(viewLifecycleOwner, Observer { list ->
-            list?.let {
-                    binding.scoreNumber.text = list.toString()
-                }
-            })
 
         viewModel.allSpaces.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
@@ -131,9 +95,16 @@ binding.scoreNumber.text=score.toString()*/
 
 
         }
+       if(list?.size == 0){
+            spacesRV.visibility=View.GONE
+            binding.emtyTextRV.visibility=View.VISIBLE
+        }else{
+            spacesRV.visibility=View.VISIBLE
+            binding.emtyTextRV.visibility=View.GONE
+        }
+
 
     }
-
 
 
     override fun onDeleteIconClick(space: Space) {

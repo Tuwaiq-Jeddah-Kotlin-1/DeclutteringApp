@@ -1,4 +1,4 @@
-package com.example.declutteringapp.view
+package com.example.declutteringapp.view.adapters
 
 import android.util.Log
 import androidx.annotation.MainThread

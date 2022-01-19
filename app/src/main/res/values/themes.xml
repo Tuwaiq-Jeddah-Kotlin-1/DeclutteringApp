@@ -4,9 +4,9 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">#000000</item>
         <item name="colorPrimaryVariant">#000000</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">#F1F1F1</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#000000</item>
+        <item name="colorSecondary">#FBFBFB</item>
         <item name="colorSecondaryVariant">#FAC1AF</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

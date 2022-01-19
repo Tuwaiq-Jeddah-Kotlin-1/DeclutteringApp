@@ -3,20 +3,14 @@ package com.example.declutteringapp.view
 import android.Manifest
 import android.app.Activity
 import android.app.Application
-import android.content.ContentResolver
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
-import android.provider.OpenableColumns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +19,6 @@ import com.example.declutteringapp.databinding.FragmentEditSpaceBinding
 import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.result.launch
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -36,20 +29,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.Space
-import com.example.declutteringapp.model.ToDeclutter
+import com.example.declutteringapp.view.adapters.SpaceRvAdapter
 import com.example.declutteringapp.viewmodel.ScoreViewModel
 import com.example.declutteringapp.viewmodel.SpaceViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.FileDescriptor
 import java.io.IOException
-import java.net.URLEncoder
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -271,7 +255,7 @@ class EditSpaceFragment : Fragment() {
         val data = Space(
             status = spinnerText,
             roomName = roomName,
-            imgPath = roomImage, subData = ArrayList<ToDeclutter>()
+            imgPath = roomImage,
         )
 
         viewModel.addSpace(data)
@@ -293,7 +277,7 @@ class EditSpaceFragment : Fragment() {
                     val data = Space(
                         status = spinnerText,
                         roomName = roomName,
-                        imgPath = mCurrentPhotoPath, subData = ArrayList<ToDeclutter>()
+                        imgPath = mCurrentPhotoPath
                     )
                     // , subData = arrayListOf(String())
                     selectedImagePath = data.imgPath!!

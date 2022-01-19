@@ -4,13 +4,10 @@ import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Application
-import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -33,8 +30,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentShowRoomBinding
-import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.model.ToDeclutter
+import com.example.declutteringapp.view.adapters.ToDeclutterAdapter
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.io.File
@@ -202,16 +199,7 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
                     binding.showRoomImage.visibility = View.VISIBLE
 
-               /*   var  roomShowImagePref: String? =  selectedImagePath
-
-
-                    val editor: SharedPreferences.Editor =
-                        sharedPreferences.edit()
-                    editor.putString("imagePath", roomShowImagePref
-                    )
-                    editor.apply()
-
-                    }}}}}*/}}}}}
+          }}}}}
     private  val getActionTakePicture =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK) {

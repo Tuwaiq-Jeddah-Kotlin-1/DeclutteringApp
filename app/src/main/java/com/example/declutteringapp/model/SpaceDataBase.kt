@@ -2,12 +2,11 @@ package com.example.declutteringapp.model
 
 import android.content.Context
 import androidx.room.*
-import com.example.declutteringapp.Converters
+import com.example.declutteringapp.model.repo.MySpacesDao
 
 @Database(entities = arrayOf(
     Space::class,
     ToDeclutter::class,Score::class) , version = 1, exportSchema = false)
-@TypeConverters(Converters::class)
 
 
 abstract class SpaceDataBase : RoomDatabase(){

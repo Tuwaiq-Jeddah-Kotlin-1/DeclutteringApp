@@ -38,8 +38,8 @@ class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var preferences: SharedPreferences
     private lateinit var tvName: TextView
-    private lateinit var tvEmail: TextView
-    private lateinit var tvPassword: TextView
+  /*  private lateinit var tvEmail: TextView
+    private lateinit var tvPassword: TextView*/
 
     val TAG = "PROFILE_FRAGMENT"
 
@@ -65,19 +65,19 @@ var score =50
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val userEmail: TextView = view.findViewById(R.id.tvProfileEmail)
+        //  val userEmail: TextView = view.findViewById(R.id.tvProfileEmail)
 
         preferences =
             this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
         val emailPref = preferences.getString("EMAIL", "")
-        userEmail.text = emailPref
+        //userEmail.text = emailPref
         val passwordPref = preferences.getString("PASSWORD", "")
 
         val user = Firebase.auth.currentUser
-
+/*
         binding.profileEditEmail.setOnClickListener {
 dialogChangeEmail()
-        }
+        }*/
         binding.btnSignOut.setOnClickListener {
 
             val editor: SharedPreferences.Editor = preferences.edit()
@@ -89,42 +89,41 @@ dialogChangeEmail()
                 this@ProfileFragment.getResources()
                     .getString(R.string.signout)
             Toast.makeText(
-                  context,
+                context,
                 "$toastMessageSignOut",
                 Toast.LENGTH_SHORT
             ).show()
-        }
-
-        binding.langChange.setOnClickListener {
-
-            changeLangeDialog()
 
 
-        }
+            binding.langChange.setOnClickListener {
+
+                changeLangeDialog()
 
 
-        binding.modeToggle.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
-            } else {
-
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
-        }
 
-        readUserData()
 
-        tvName = binding.tvYourProfile
-        tvEmail = binding.tvProfileEmail
+            binding.modeToggle.setOnCheckedChangeListener { buttonView, isChecked ->
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+                } else {
+
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
+            }
+
+            readUserData()
+
+            /*  tvEmail = binding.tvProfileEmail
         tvPassword = binding.tvProfilePassword
+*/
 
-
-        tvName.setText("${tvName.text}")
-        tvEmail.setText("${tvEmail.text}")
-        tvPassword.setText("${tvEmail.text}")
+            tvName.setText("${tvName.text}")
+            /*  tvEmail.setText("${tvEmail.text}")
+        tvPassword.setText("${tvEmail.text}")*/
+        }
     }
-
 
 
 
@@ -222,9 +221,9 @@ dialogChangeEmail()
                                 var password = it.getResult()!!.getString("password")
 
 
-                                tvEmail.setText(email)
+                             //   tvEmail.setText(email)
                                 tvName.setText(name)
-                                tvPassword.setText(password)
+                                //tvPassword.setText(password)
 
 
 
@@ -254,20 +253,20 @@ dialogChangeEmail()
 
 
 
-
+/*
         if (tvEmail.text.toString().isNotEmpty()
         ) {
         }
 
         val upDateUser = hashMapOf(
             "email" to "${tvEmail}"
-        )
+        )*/
 
         val userRef = Firebase.firestore.collection("users")
 
         val uId = FirebaseAuth.getInstance().currentUser?.uid
 
-        userRef.document("$uId").set(upDateUser, SetOptions.merge()).addOnCompleteListener {
+     /*   userRef.document("$uId").set(upDateUser, SetOptions.merge()).addOnCompleteListener {
             it
             when {
                 it.isSuccessful -> {
@@ -281,7 +280,7 @@ dialogChangeEmail()
                 }
             }
 
-            tvEmail.text.toString()
+            tvEmail.text.toString()*/
 
             builder.setCancelable(true)
 
@@ -300,12 +299,12 @@ dialogChangeEmail()
 
                     val email = profile.email
 
-                    tvEmail.setText("${tvEmail.text}")
+                //    tvEmail.setText("${tvEmail.text}")
 
                     user!!.updateEmail("user@example.com")
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Log.d(TAG, "User email address updated.")
+                               // Log.d(TAG, "User email address updated.")
                             }
                         }
                 }
@@ -313,7 +312,7 @@ dialogChangeEmail()
         }
 
 
-    }
+
 
 
 

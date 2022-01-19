@@ -14,19 +14,23 @@ import com.example.declutteringapp.databinding.FragmentThirtyDaysBinding
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.declutteringapp.R
-import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.ThirtyDays
+import com.example.declutteringapp.view.adapters.ThirtyDaysRVAdapter
 import com.example.declutteringapp.viewmodel.DaysViewModel
-import com.example.declutteringapp.viewmodel.ScoreViewModel
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface {
+class ThirtyDaysFragment : Fragment() , ThirtyDaysRVAdapter.DayClickInterface {
+
+    val  dayss  by navArgs<ThirtyDaysFragmentArgs>()
+
 
     private lateinit var binding: FragmentThirtyDaysBinding
     lateinit var viewModel: DaysViewModel
-    lateinit var scoreViewModel: ScoreViewModel
     lateinit var thirtyDaysRVv: RecyclerView
-    lateinit var thirtyDaysRVAdapter:ThirtyDaysRVAdapter
+    lateinit var thirtyDaysRVAdapter: ThirtyDaysRVAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,37 +48,27 @@ class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface {
 
         thirtyDaysRVv = binding.thirtyDaysRV
 
-        thirtyDaysRVv.layoutManager = GridLayoutManager(requireContext(), 3)
-        thirtyDaysRVv.setHasFixedSize(true)
-
-        val data = ArrayList<ThirtyDays>()
-
-
-        thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this)
-
-
-        thirtyDaysRVv.adapter = thirtyDaysRVAdapter
-
+        thirtyDaysRVv.layoutManager = GridLayoutManager(context, 3)
 
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(DaysViewModel::class.java)
 
-        viewModel.allDays
+        val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
+        val currentDateAndTime: String = sdf.format(Date())
 
-        var daysData=ArrayList<ThirtyDays>()
+        val daysData = ArrayList<ThirtyDays>()
 
-        for(i in 0..29){
-            viewModel.addDay(ThirtyDays(i+1, 0,""))
-        }
+
 
         viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
+                thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this,daysData)
+
+                thirtyDaysRVv.adapter = thirtyDaysRVAdapter
 
                 thirtyDaysRVAdapter.updateList(list)
-
-
             }
         })
     }
@@ -82,71 +76,17 @@ class ThirtyDaysFragment : Fragment() ,ThirtyDaysRVAdapter.DayClickInterface {
         findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
     }
 
-/*
-        thirtyDaysRVv = binding.thirtyDaysRV
-
-        thirtyDaysRVv.layoutManager = GridLayoutManager(context, 3)
-
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
-        ).get(DaysViewModel::class.java)
-       thirtyDaysRVv.setHasFixedSize(true)
-
-        thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this)
-
-        thirtyDaysRVv.adapter = thirtyDaysRVAdapter
 
 
 
-        val data = ArrayList<ThirtyDays>()
-        for(i in 1..29){
-            data.add(ThirtyDays(1+i,0,""))
-        }*/
+ /*   private fun fetchData():ArrayList<ThirtyDays>{
+        var daysData = ArrayList<ThirtyDays>()
 
-     /*   scoreViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
-        ).get(ScoreViewModel::class.java)
-*/
-        /*       val scoreObserver = Observer<Score> { newScore ->
-                                  binding.tvScore.text = newScore.toString()
-                              }
-
-                              scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)*/
-var dayImage = R.id.imagePlacement
-
-
-
-/*
-    scoreViewModel.allScores.observe(viewLifecycleOwner, Observer { scores ->
-        scores?.let {
-            scoreViewModel.updateScore(scores)
+        for (i in 0..29) {
+            daysData.add(ThirtyDays(i + 1, 0, "",1+29))
         }
-    })
-*/
-
-/*
-
-        val scoreObserver = Observer<Score> { newScore ->
-            binding.tvScore.text = newScore.toString()
-        }
-
-        scoreViewModel.scores.observe(viewLifecycleOwner, scoreObserver)
-*/
-
-
+        return daysData
+    }*/
 
 
 }
-
-
- /*
-
-
-
-}
-*/
-
-
-
