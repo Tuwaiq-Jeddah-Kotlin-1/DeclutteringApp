@@ -15,6 +15,7 @@ miniMize  1.0.0
 
 
 ## Libraries and technologies:
+* Glide
 * Firebase Authentication.
 * Jetpack libraries (Coroutines, Lifecycle, Navigation,Safe Args, WorkManager, and DataBinding)
 * ViewPager
