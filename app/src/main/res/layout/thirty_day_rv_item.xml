@@ -20,17 +20,17 @@
 
             <TextView
                 android:id="@+id/rvThirtyText"
-                android:layout_width="49dp"
-                android:layout_height="18dp"
+                android:layout_width="93dp"
+                android:layout_height="87dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:paddingTop="0dp"
-                android:textColor="#B6B6B6"
-                android:textSize="14dp"
+                android:textColor="#454545"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/rvItemNum"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />

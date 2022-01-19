@@ -3,10 +3,10 @@
     <style name="Theme.DeclutteringApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#000000</item>
-        <item name="colorPrimaryVariant">#000000</item>
-        <item name="colorOnPrimary">#F1F1F1</item>
+        <item name="colorPrimaryVariant">#CDCDCD</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#FBFBFB</item>
+        <item name="colorSecondary">#000000</item>
         <item name="colorSecondaryVariant">#FAC1AF</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

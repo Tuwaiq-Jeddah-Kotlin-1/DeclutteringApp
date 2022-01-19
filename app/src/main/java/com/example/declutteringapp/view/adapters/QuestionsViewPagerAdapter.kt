@@ -45,15 +45,15 @@ class QuestionsViewPagerAdapter( val context: Context,private var listQuestions:
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemBinding.ques = listQuestions?.get(position)
         if(position == itemCount - 1){
-          val builder = AlertDialog.Builder(context)
+    /*      val builder = AlertDialog.Builder(context)
             builder.setTitle("You're Done")
             builder.setMessage("Hopefully you can see to witch side the item is closer ")
             builder.setPositiveButton(android.R.string.yes) { dialog, which ->
                 Toast.makeText(context,
                     android.R.string.yes, Toast.LENGTH_SHORT).show()
             }
-            builder.show()
-           // resultDialog.dilog()
+            builder.show()*/
+            resultDialog.dilog()
     }
 
 

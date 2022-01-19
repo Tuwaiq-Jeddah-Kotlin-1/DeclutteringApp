@@ -2,9 +2,9 @@ package com.example.declutteringapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.declutteringapp.model.repo.ThirtyDayRepository
+import com.example.declutteringapp.model.SpaceDataBase
 import com.example.declutteringapp.model.ThirtyDays
-import com.example.declutteringapp.model.ThirtyDaysDP
+import com.example.declutteringapp.model.repo.SpaceRepo
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,25 +12,20 @@ import kotlinx.coroutines.launch
 
 
 class DaysViewModel  ( application: Application) : AndroidViewModel(application) {
-    val daysData= mutableListOf<ThirtyDays>()
 
-  // var _da
 
     val allDays : LiveData<List<ThirtyDays>>
-    //allDays.value=daysData
 
-    val repository : ThirtyDayRepository
+    val repository : SpaceRepo
 
-    fun allDaysITem(dayId:Int): LiveData<List<ThirtyDays>> = repository.allItems(dayId)
 
     init {
-        val dao = ThirtyDaysDP.getDatabase(application).getDaysDao()
-        repository = ThirtyDayRepository(dao)
+        val roomDao = SpaceDataBase.getDatabase(application).getSpaceDao()
+        val daysDao = SpaceDataBase.getDatabase(application).getDaysDao()
+
+        repository = SpaceRepo(roomDao, daysDao )
         allDays = repository.allDays
-        for (i in 1..30) {
-            daysData.add(ThirtyDays(i , 0, ""))
-        }
-     //  allDays.value=daysData
+
     }
 
 

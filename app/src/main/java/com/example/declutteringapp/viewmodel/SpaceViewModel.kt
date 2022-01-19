@@ -25,8 +25,10 @@ class SpaceViewModel  (application: Application) :AndroidViewModel(application) 
     fun allItems(roomId:Int): LiveData<List<ToDeclutter>> = repository.allItems(roomId)
 
     init {
-        val dao = SpaceDataBase.getDatabase(application).getSpaceDao()
-        repository = SpaceRepo(dao)
+        val roomDao = SpaceDataBase.getDatabase(application).getSpaceDao()
+        val daysDao = SpaceDataBase.getDatabase(application).getDaysDao()
+
+        repository = SpaceRepo(roomDao, daysDao )
         allSpaces = repository.allSpaces
             //  getSpaceAndItem = repository.getSpaceAndItem
        // getAllItemsT=repository.getAllItems

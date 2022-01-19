@@ -16,10 +16,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentMySpaceBinding
-import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.view.adapters.SpaceRvAdapter
-import com.example.declutteringapp.viewmodel.ScoreViewModel
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -32,8 +30,6 @@ class MySpaceFragment : Fragment() , SpaceRvAdapter.SpaceClickDeleteInterface,
     lateinit var viewModel: SpaceViewModel
     lateinit var spacesRV: RecyclerView
     lateinit var addFAB: FloatingActionButton
-    lateinit var scoreViewModel: ScoreViewModel
-lateinit var score:Score
     private lateinit var _binding: FragmentMySpaceBinding
     private val binding get() = _binding
 

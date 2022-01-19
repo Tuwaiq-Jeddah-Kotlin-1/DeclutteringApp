@@ -7,11 +7,10 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     tools:context="com.example.declutteringapp.view.LogInFragment">
-
     <ImageView
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="120dp"
         android:layout_width="282dp"
-        android:layout_height="133dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/ic_logo" />
     <TextView
@@ -19,7 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:layout_marginBottom="16dp"
         android:text="clear space, clear mind"
+        android:textSize="16dp"
         android:layout_gravity="center_horizontal"
         />
 
@@ -85,11 +86,11 @@ android:padding="5dp"
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="374dp"
-        android:layout_height="46dp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/border_shape_two"
-        android:text="Start Clearing Your Space"
+        android:text="Start miniMizing"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16dp" />

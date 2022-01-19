@@ -87,8 +87,6 @@ binding.lnkCreat.setOnClickListener {
 
     fun logInAuthentication() {
 
-        var email = binding.etEmail.text.toString()
-        var password = binding.etPwd.text.toString()
 
         when {
             TextUtils.isEmpty(binding.etEmail.text.toString().trim { it <= ' ' }) -> {

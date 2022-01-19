@@ -3,7 +3,6 @@
         <KeyFrameSet>
             <KeyPosition motion:motionTarget="@+id/textView3" motion:framePosition="25" motion:keyPositionType="deltaRelative"/>
             <KeyAttribute motion:motionTarget="@+id/textView3" motion:framePosition="0" android:translationY="30dp"/>
-            <KeyAttribute motion:motionTarget="@+id/textView3" motion:framePosition="0" android:alpha="0.5"/>
         </KeyFrameSet>
     </Transition>
     <ConstraintSet android:id="@+id/start"> </ConstraintSet>

@@ -13,17 +13,12 @@ import com.example.declutteringapp.model.ThirtyDays
 
 class ThirtyDaysRVAdapter(
     val context: Context,
-    val dayClickInterface: DayClickInterface,
-    val allDays: ArrayList<ThirtyDays>
+  //  val dayClickInterface: DayClickInterface,
 
 ) :
     RecyclerView.Adapter<ThirtyDaysRVAdapter.ViewHolder>() {
 
-    var daysLimit= 30
-  //  val allDays= ArrayList<ThirtyDays>()
-
-
-    //   private var allDays = ArrayList<ThirtyDays>()
+    val allDays= ArrayList<ThirtyDays>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -62,7 +57,7 @@ class ThirtyDaysRVAdapter(
 
         holder.itemView.setOnClickListener {
 
-            dayClickInterface.onDayClick(allDays.get(position))
+        //    dayClickInterface.onDayClick(allDays.get(position))
             allDays.get(position)
         }
     }
@@ -84,7 +79,6 @@ class ThirtyDaysRVAdapter(
     }
 
 
-
     interface DayClickInterface {
 
         fun onDayClick(thirtyDays: ThirtyDays)
@@ -98,92 +92,8 @@ class ThirtyDaysRVAdapter(
 
 }
 
-/*
-
-class ThirtyDaysRVAdapter(
-    val context: Context,
-    val dayClickInterface: DayClickInterface,
-) :
-    RecyclerView.Adapter<ThirtyDaysRVAdapter.DaysViewHolder>(){
-
-
-    private var allDays = ArrayList<ThirtyDays>()
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaysViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.thirty_day_rv_item,
-            parent, false
-        )
-        return DaysViewHolder(itemView)
-    }
-
-    override fun onBindViewHolder(holder: DaysViewHolder, position: Int) {
-     //   var da = allDays[position.absoluteValue]
-       // holder.itemNum.text[position].values
-     //   val modelObject = allDays.values[position]
-
-             //   holder.itemNum.setText(da.dayNum.toString())
-        val dayss = differ.currentList[position]
-        holder.bind(dayss)
-
-    }
-
-    inner class DaysViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-
-        val itemCount = itemView.findViewById<TextView>(R.id.rvThirtyText)
-        val itemNum = itemView.findViewById<TextView>(R.id.rvItemNum)
-        val imageView: ImageView = itemView.findViewById(R.id.rvThirtyImg)
-
-
-
-        fun bind(dayss: ThirtyDays?) {
-            //check for null
-            dayss?.let {
-                    itemCount.setText(dayss.itemCounts.toString())
-                itemNum.setText(dayss.dayNum.toString())
-
-                Glide.with(context)
-                    .load(dayss.imgPath)
-                    .into(imageView)
-                itemView.setOnClickListener {
-
-
-                    dayClickInterface.onDayClick(allDays.get(position))
-
-                }
-
-
-            }
-        }
-    }
-
-
-
-
-    override fun getItemCount(): Int {
-return  differ.currentList.size
-
-            }
-
-*/
-
 
 /*
-
-    fun updateList(newList: List<ThirtyDays>) {
-
-       allDays.clear()
-
-        allDays.addAll(newList)
-
-        notifyDataSetChanged()
-    }
-*/
-
-/*
-
 
 interface DayClickInterface {
 
@@ -203,6 +113,7 @@ interface DayClickInterface {
         }
     }
     val differ = AsyncListDiffer(this, differCallback)
+
 
 
 

@@ -27,10 +27,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
-import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.view.adapters.SpaceRvAdapter
-import com.example.declutteringapp.viewmodel.ScoreViewModel
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import java.io.File
 import java.io.IOException
@@ -44,11 +42,9 @@ class EditSpaceFragment : Fragment() {
     private var isWriteingPermissionGranted = false
     private var isReadingPermissionGranted = false
     private lateinit var permissionLancher: ActivityResultLauncher<Array<String>>
-    lateinit var scoreViewModel: ScoreViewModel
 
     lateinit var imageSelect: ImageButton
     lateinit var imageUpload: ImageButton
-    lateinit var score: Score
 
     lateinit var editeRoomName: EditText
     lateinit var roomStutus: Spinner
@@ -131,10 +127,6 @@ class EditSpaceFragment : Fragment() {
         ).get(SpaceViewModel::class.java)
 
 
-        scoreViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
-        ).get(ScoreViewModel::class.java)
 
 
         saveBtn.setOnClickListener {
@@ -147,19 +139,6 @@ class EditSpaceFragment : Fragment() {
 
 
         }
-/*
-          score=Score(30)
-
-                   scoreViewModel.updateScore(score)*/
-
-
-/*        val score = sharedPref.getInt("Score", 0)
-
-
-        var roomsImages=  Glide.with(this)
-            .load(Uri.fromFile())
-            .into(roomImage)
-*/
 
 
         val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
@@ -268,9 +247,7 @@ class EditSpaceFragment : Fragment() {
         if (spaceID != -1) {
 
             var roomName = roomNames.selectedItem.toString()
-            //    val roomStatus= binding.idRoomStatus.toString()
             var spinnerText = roomStutus.selectedItem.toString()
-//var roomImages=binding.showRoomImage.setImageURI(photoFile!!.toUri())
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
 
@@ -295,7 +272,6 @@ class EditSpaceFragment : Fragment() {
                 result.data?.data
                 binding.showRoomImage.setImageURI(mCurrentPhotoPath!!.toUri())
 
-                // binding.showRoomImage.setImageURI(photoFile!!.toUri())
             }
         }
 
@@ -359,7 +335,4 @@ class EditSpaceFragment : Fragment() {
 
 }
 
-/*    registerForActivityResult(ActivityResultContracts.GetContent(),ActivityResultCallback{
-
-}*/
 

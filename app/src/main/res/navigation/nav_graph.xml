@@ -86,9 +86,7 @@
         <action
             android:id="@+id/action_profileFragment2_to_logInFragment"
             app:destination="@id/logInFragment" />
-        <argument
-            android:name="score"
-            app:argType="integer" />
+
 
     </fragment>
     <fragment
@@ -140,7 +138,7 @@
         tools:layout="@layout/fragment_five_min" />
     <fragment
         android:id="@+id/thirtyDaysEditDialogFragment"
-        android:name="com.example.declutteringapp.view.adapters.ThirtyDaysEditDialogFragment"
+        android:name="com.example.declutteringapp.view.ThirtyDaysEditDialogFragment"
         android:label="ThirtyDaysEditDialogFragment" >
 
         <action
@@ -159,9 +157,6 @@
         <action
             android:id="@+id/action_editSpaceFragment_to_mySpaceFragment22"
             app:destination="@id/mySpaceFragment2"/>
-        <argument
-            android:name="score"
-            app:argType="com.example.declutteringapp.model.Score" />
 
 
     </fragment>

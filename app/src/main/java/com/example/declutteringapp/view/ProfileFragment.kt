@@ -33,17 +33,10 @@ import java.util.*
 
 
 class ProfileFragment : Fragment() {
-    private lateinit var firestoreViewModel: FirestoreViewModel
 
-    private lateinit var auth: FirebaseAuth
     private lateinit var preferences: SharedPreferences
     private lateinit var tvName: TextView
-  /*  private lateinit var tvEmail: TextView
-    private lateinit var tvPassword: TextView*/
 
-    val TAG = "PROFILE_FRAGMENT"
-
-var score =50
 
     private lateinit var binding: FragmentProfileBinding
 
@@ -65,19 +58,11 @@ var score =50
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //  val userEmail: TextView = view.findViewById(R.id.tvProfileEmail)
-
+tvName=binding.tvName
         preferences =
             this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
-        val emailPref = preferences.getString("EMAIL", "")
-        //userEmail.text = emailPref
-        val passwordPref = preferences.getString("PASSWORD", "")
 
-        val user = Firebase.auth.currentUser
-/*
-        binding.profileEditEmail.setOnClickListener {
-dialogChangeEmail()
-        }*/
+
         binding.btnSignOut.setOnClickListener {
 
             val editor: SharedPreferences.Editor = preferences.edit()
@@ -115,13 +100,9 @@ dialogChangeEmail()
 
             readUserData()
 
-            /*  tvEmail = binding.tvProfileEmail
-        tvPassword = binding.tvProfilePassword
-*/
 
             tvName.setText("${tvName.text}")
-            /*  tvEmail.setText("${tvEmail.text}")
-        tvPassword.setText("${tvEmail.text}")*/
+
         }
     }
 
@@ -221,9 +202,7 @@ dialogChangeEmail()
                                 var password = it.getResult()!!.getString("password")
 
 
-                             //   tvEmail.setText(email)
                                 tvName.setText(name)
-                                //tvPassword.setText(password)
 
 
 
@@ -243,78 +222,7 @@ dialogChangeEmail()
                 }
 
 
-            }
-
-    fun dialogChangeEmail() {
-        val view: View = layoutInflater.inflate(R.layout.change_email_dialog, null)
-
-        val builder = BottomSheetDialog(requireView()?.context)
-        builder.setTitle("Change Email")
-
-
-
-/*
-        if (tvEmail.text.toString().isNotEmpty()
-        ) {
-        }
-
-        val upDateUser = hashMapOf(
-            "email" to "${tvEmail}"
-        )*/
-
-        val userRef = Firebase.firestore.collection("users")
-
-        val uId = FirebaseAuth.getInstance().currentUser?.uid
-
-     /*   userRef.document("$uId").set(upDateUser, SetOptions.merge()).addOnCompleteListener {
-            it
-            when {
-                it.isSuccessful -> {
-                    readUserData()
-                    Toast.makeText(context, "Update ", Toast.LENGTH_SHORT).show()
-
-                }
-                else -> {
-
-
-                }
-            }
-
-            tvEmail.text.toString()*/
-
-            builder.setCancelable(true)
-
-            builder.setContentView(view)
-
-            builder.show()
-        }
-    }
-        fun changeEmail() {
-            val user = Firebase.auth.currentUser
-            user?.let {
-                for (profile in it.providerData) {
-                    val providerId = profile.providerId
-
-                    val uid = profile.uid
-
-                    val email = profile.email
-
-                //    tvEmail.setText("${tvEmail.text}")
-
-                    user!!.updateEmail("user@example.com")
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                               // Log.d(TAG, "User email address updated.")
-                            }
-                        }
-                }
-            }
-        }
-
-
-
-
-
+            }}
 
 
 

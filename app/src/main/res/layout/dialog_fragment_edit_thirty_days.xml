@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
-    tools:context="com.example.declutteringapp.view.adapters.ThirtyDaysEditDialogFragment">
+    tools:context="com.example.declutteringapp.view.ThirtyDaysEditDialogFragment">
 
 
         <!--  <Button
@@ -90,7 +90,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="28dp"
             android:ems="10"
-            android:inputType="phone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.139"

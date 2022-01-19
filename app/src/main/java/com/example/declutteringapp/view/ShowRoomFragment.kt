@@ -163,14 +163,14 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
             Toast.makeText(requireContext(), "You Added an Item!", Toast.LENGTH_SHORT).show()
 
+            builder.dismiss()
 
         }
 
+
         builder.setCancelable(true)
 
-
         builder.setContentView(view)
-
 
             builder.show()
         }

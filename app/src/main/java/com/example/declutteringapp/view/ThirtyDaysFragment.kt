@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutteringapp.databinding.FragmentThirtyDaysBinding
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.view.adapters.ThirtyDaysRVAdapter
@@ -22,9 +21,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class ThirtyDaysFragment : Fragment() , ThirtyDaysRVAdapter.DayClickInterface {
-
-    val  dayss  by navArgs<ThirtyDaysFragmentArgs>()
+class ThirtyDaysFragment : Fragment()  {
 
 
     private lateinit var binding: FragmentThirtyDaysBinding
@@ -55,6 +52,14 @@ class ThirtyDaysFragment : Fragment() , ThirtyDaysRVAdapter.DayClickInterface {
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(DaysViewModel::class.java)
 
+        thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), )
+
+        thirtyDaysRVv.adapter = thirtyDaysRVAdapter
+
+        binding.fabDays.setOnClickListener{
+            findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
+        }
+
         val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
         val currentDateAndTime: String = sdf.format(Date())
 
@@ -64,29 +69,17 @@ class ThirtyDaysFragment : Fragment() , ThirtyDaysRVAdapter.DayClickInterface {
 
         viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
-                thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), this,daysData)
 
-                thirtyDaysRVv.adapter = thirtyDaysRVAdapter
 
                 thirtyDaysRVAdapter.updateList(list)
             }
         })
     }
-    override fun onDayClick(thirtyDays: ThirtyDays) {
+ /*   override fun onDayClick(thirtyDays: ThirtyDays) {
         findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
-    }
-
-
-
-
- /*   private fun fetchData():ArrayList<ThirtyDays>{
-        var daysData = ArrayList<ThirtyDays>()
-
-        for (i in 0..29) {
-            daysData.add(ThirtyDays(i + 1, 0, "",1+29))
-        }
-        return daysData
     }*/
+
+
 
 
 }

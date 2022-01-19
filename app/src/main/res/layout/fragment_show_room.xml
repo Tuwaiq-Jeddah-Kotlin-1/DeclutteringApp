@@ -8,76 +8,19 @@
     tools:context="com.example.declutteringapp.view.ShowRoomFragment">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewoScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:alpha="0.5"
-        android:background="#DFCECE"
-        android:defaultFocusHighlightEnabled="false"
-        android:focusable="true"
-        android:foreground="@drawable/card_foreground"
-        android:padding="5dp"
-        android:shadowRadius=".2"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
-        app:cardPreventCornerOverlap="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="317dp"
-            android:layout_height="42dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvYourProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="5dp"
-                android:text="name"
-                android:textColor="@color/black"
-                android:textSize="17dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="0dp"
-                android:src="@drawable/ic_point_star" />
-
-            <TextView
-                android:id="@+id/scoreNumber"
-                android:layout_width="34dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="5dp"
-                android:hint="Earn points by completing challenges!"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
-
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
     <TextView
         android:id="@+id/ShowRoomName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:layout_marginBottom="624dp"
         android:text="@string/room_title"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.332"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewoScore" />
+         />
 
     <TextView
         android:id="@+id/ShowRoomStatus"
@@ -145,7 +88,7 @@
         android:focusable="true"
         android:src="@drawable/ic_image_replace"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.831"
+        app:layout_constraintHorizontal_bias="0.775"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgCameraSpace" />
 
@@ -154,14 +97,16 @@
         android:layout_width="41dp"
         android:layout_height="36dp"
         android:layout_marginTop="116dp"
+        android:layout_marginBottom="544dp"
         android:backgroundTint="#FFFFFF"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_camers"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewoScore" />
+       />
 
     <ImageView
         android:id="@+id/showRoomImage"

@@ -6,34 +6,25 @@ import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.example.declutteringapp.WorkerNotification
-import com.example.declutteringapp.model.Score
 import com.example.declutteringapp.model.Space
+import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.model.ToDeclutter
 import com.example.declutteringapp.view.MainActivity
 import java.util.concurrent.TimeUnit
 
-class SpaceRepo(private val spaceDao: MySpacesDao) {
+class SpaceRepo(private val spaceDao: MySpacesDao,private val thirtyDaysDao: ThirtyDaysDao) {
 
 
     val allSpaces: LiveData<List<Space>> = spaceDao.getAllSpaces()
-    val allScores: LiveData<List<Score>> = spaceDao.getAcores()
+
  fun allItems(roomId:Int): LiveData<List<ToDeclutter>> = spaceDao.getAllItems(roomId)
-  // val getSpaceAndItem: LiveData<List<SpaceItemRelation>> = spaceDao.getAllItemss(roomId = 0)
 
 
     suspend fun insert(space: Space) {
         spaceDao.insert(space)
 
     }
-    suspend fun insert(score: Score) {
-        spaceDao.insert(score)
 
-    }
-
-
-    suspend fun update(score: Score){
-        spaceDao.update(score)
-    }
 
 
     suspend fun insert(item: ToDeclutter) {
@@ -57,6 +48,22 @@ class SpaceRepo(private val spaceDao: MySpacesDao) {
 
     suspend fun update(item: ToDeclutter){
         spaceDao.update(item)
+    }
+
+    val allDays:  LiveData<List<ThirtyDays>> = thirtyDaysDao.getAllDays()
+
+
+    suspend fun insert(day : ThirtyDays){
+        thirtyDaysDao.insert(day)
+    }
+
+    suspend fun delete(day : ThirtyDays){
+        thirtyDaysDao.delete(day)
+    }
+
+
+    suspend fun update(day : ThirtyDays){
+        thirtyDaysDao.update(day)
     }
 
     class NotificationRepo {

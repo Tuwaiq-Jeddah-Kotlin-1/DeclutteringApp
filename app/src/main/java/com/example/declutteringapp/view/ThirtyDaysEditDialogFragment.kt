@@ -1,4 +1,4 @@
-package com.example.declutteringapp.view.adapters
+package com.example.declutteringapp.view
 
 
 import android.Manifest
@@ -22,13 +22,11 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.DialogFragmentEditThirtyDaysBinding
 import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.viewmodel.DaysViewModel
-import com.example.declutteringapp.viewmodel.ScoreViewModel
 
 import java.io.File
 import java.io.IOException
@@ -38,17 +36,12 @@ import java.util.*
 
 class ThirtyDaysEditDialogFragment: Fragment(){
 
-
-
-
-
     lateinit var viewModelDay: DaysViewModel
     lateinit var saveBtn: Button
     lateinit var ImageCamera: ImageButton
     lateinit var ImageGallary: ImageButton
     lateinit var itemNum: EditText
     lateinit var imagePlace: ImageView
-    lateinit var scoreViewModel: ScoreViewModel
 
     var dayID = -1
 
@@ -104,44 +97,34 @@ class ThirtyDaysEditDialogFragment: Fragment(){
 
 
       //  initViews()
-        scoreViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
-        ).get(ScoreViewModel::class.java)
 
         binding.btnSubmitDay.setOnClickListener {
             createSpace(it)
             findNavController().navigate(R.id.action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment)
-
-
         }
 
     }
 
-fun sendData(dayss:ThirtyDays){
 
-    val  action= ThirtyDaysEditDialogFragmentDirections.actionThirtyDaysEditDialogFragmentToThirtyDaysFragment(dayss )
-    Navigation.findNavController(requireView()).navigate(action)
-
-}
     private fun createSpace(it: View?) {
         val image = mCurrentPhotoPath
+
+
         var itemCounts = binding.etItemNumber.text.toString()
 
-        //  var    itemCounts= Integer.parseInt(binding.etItemNumber.text.toString())
-        try {
-        } catch (e: NumberFormatException) {
-            if (itemCounts != "") {
-                itemCounts.toInt()
-            }}
+        when {
+            TextUtils.isEmpty(binding.etItemNumber.text.toString().trim { it <= ' ' }) -> {
+                Toast.makeText(context, "Please Enter a Item Count", Toast.LENGTH_LONG).show()
+            }
 
-            // image = dayss.days.imgPath.toString()
+            }
+
 
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
                     val data =
-                        ThirtyDays(dayNum = 0, itemCounts = itemCounts.toInt(), imgPath = image)
-                    viewModelDay.updateDay(data)
+                        ThirtyDays(dayNum = 0, itemCounts = itemCounts, imgPath = image)
+                    viewModelDay.addDay(data)
                     Toast.makeText(requireContext(), "You updated the day!", Toast.LENGTH_SHORT)
                         .show()
 
@@ -150,7 +133,7 @@ fun sendData(dayss:ThirtyDays){
 
 
 
-    private fun inputCheck(count: Int, Img: String): Boolean{
+    private fun inputCheck(count: String, Img: String): Boolean{
         return (!TextUtils.isEmpty(count.toString()) && !TextUtils.isEmpty(Img))
     }
 
@@ -210,12 +193,12 @@ fun sendData(dayss:ThirtyDays){
                     viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                         context?.let {
 
-                            var    itemCounts= Integer.parseInt(binding.etItemNumber.text.toString())
+                            var    itemCounts= binding.etItemNumber.text.toString()
                             var image= mCurrentPhotoPath
 
                             var day = ThirtyDays(0,  itemCounts, image)
 
-                         viewModelDay.updateDay(day)
+                         viewModelDay.addDay(day)
 
                             selectedImagePath = day.imgPath!!
                             imagePlace.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))

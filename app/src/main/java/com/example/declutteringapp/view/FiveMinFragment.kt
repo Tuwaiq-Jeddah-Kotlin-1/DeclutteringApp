@@ -22,8 +22,6 @@ class FiveMinFragment : Fragment() {
     lateinit var countdown_timer: CountDownTimer
     var isRunning: Boolean = false;
     var time_in_milli_seconds = 0L
-    private lateinit var sharedPreferences: SharedPreferences
-    var scoreNu=70
 
     private lateinit var binding: FragmentFiveMinBinding
 
@@ -45,23 +43,8 @@ class FiveMinFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedPreferences =
-            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
 
-        //var score = sharedPref?.getInt("Score", scoreNu)
 
-        //    val score = sharedPreferences.getInt("Score", 0)
-
-        var tvScore =  binding.scoreN.text.toString().toInt()
-        scoreNu= tvScore
-
-        val scorePref:Int =tvScore
-
-        val editor: SharedPreferences.Editor =
-            sharedPreferences.edit()
-        editor.putInt("score", scorePref
-        )
-        editor.apply()
             binding.button.setOnClickListener {
                 if (isRunning) {
                     pauseTimer()
@@ -91,8 +74,9 @@ class FiveMinFragment : Fragment() {
         private fun startTimer(time_in_seconds: Long) {
             countdown_timer = object : CountDownTimer(time_in_seconds, 1000) {
                 override fun onFinish() {
-                    scoreNu.plus(50)
                     loadConfeti()
+
+
                 }
 
                 override fun onTick(p0: Long) {

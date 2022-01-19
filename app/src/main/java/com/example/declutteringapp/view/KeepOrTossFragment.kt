@@ -37,13 +37,10 @@ private const val MOVE_TIME = 50
 class KeepOrTossFragment : Fragment(), QuestionsViewPagerAdapter.ResultDialog {
 
     private lateinit var binding: FragmentKeepOrTossBinding
-    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var adapter: QuestionsViewPagerAdapter
 
-    val displayMetrics = DisplayMetrics()
     var screenWidth =0
-    val sharedPref =activity?.getPreferences(Context.MODE_PRIVATE)
-var yesClick=0
+    var yesClick=0
     var nClick=0
 
 
@@ -67,126 +64,11 @@ var yesClick=0
         }
 
 
-    fun View.clicks() = callbackFlow<Unit> {
-        setOnClickListener {
-            trySend(Unit)
-        }
-        awaitClose { setOnClickListener(null) }
-
-    }
-
-
-
-    private fun distanceToEdge(left: Boolean): Int {
-
-
-        val location = IntArray(2)
-        binding.imageToss.getLocationOnScreen(location)
-        val x = location[0]
-
-        val imageWidth = binding.imageToss.width
-//        var screenWidth = resources.displayMetrics.widthPixels / resources.displayMetrics.density
-        var xdpi = displayMetrics.xdpi
-        var ydpi = displayMetrics.ydpi
-
-
-        //  screenWidth = resources.displayMetrics.widthPixels
-
-
-            return if (left) x
-            else screenWidth -  (x + imageWidth)
-    }
-
-
-
-
-
-
-
-
-    private fun moveImage(distance: Int) {
-
-    val fraction = distance.toFloat() / MOVE_DISTANCE
-
-    val duration = abs(MOVE_TIME * fraction).toLong()
-    binding.imageToss.animate().setDuration(duration).translationXBy(distance.toFloat())
-
-}
-
-
-        suspend fun firstClick() {
-
-            binding.yesButton.clicks()
-            val distance = min(distanceToEdge(true), MOVE_DISTANCE)
-            moveImage(-distance)
-
-            val listQuestions = mutableListOf<KeepOrTossModel>()
-
-            val adapter = QuestionsViewPagerAdapter( requireContext(),listQuestions,this)
-
-        }
-
-    suspend fun secondClick(){
-        binding.yesButton.clicks()
-              if (binding.questionsViewpager.scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-                binding.questionsViewpager.setCurrentItem(
-                    binding.questionsViewpager.currentItem.plus(
-                        1
-                    ), true
-                )
-            } else {
-            }
-
-
-    }
-
-
-    suspend fun firstClickN(){
-
-        binding.noButton.clicks()
-
-        val distance = min(distanceToEdge(false), MOVE_DISTANCE)
-        moveImage(distance)
-        if (distanceToEdge(false) ==0){
-            Toast.makeText(context, "Toss it", Toast.LENGTH_LONG).show()
-
-        }else{}
-
-
-    }
-
-    suspend fun secondClickN(){
-        binding.noButton.clicks()
-        if (binding.questionsViewpager.scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-            binding.questionsViewpager.setCurrentItem(
-                binding.questionsViewpager.currentItem.plus(
-                    1
-                ), true
-            )
-        } else {
-        }
-
-
-
-    }
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var score = sharedPref?.getInt("Score", 0)
 
         screenWidth = resources.displayMetrics.widthPixels
-        //  var scorePref:Int = finalScore
-        sharedPreferences =
-            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
-        // scoreSave = sharedPreferences.getInt("SCORE", scorePref)
 
-
-        val editor: SharedPreferences.Editor =
-            sharedPreferences.edit()
-        //editor.putInt("SCORE", scorePref)
-        editor.apply()
 
 
         binding.yesButton.clicks()
@@ -242,17 +124,11 @@ var yesClick=0
         listQuestions.add(KeepOrTossModel("Do you use it regularly?", 3))
         listQuestions.add(KeepOrTossModel("Will you use it in the next month?", 4))
         listQuestions.add(KeepOrTossModel("Does it have a place?", 5))
-        listQuestions.add(
-            KeepOrTossModel(
-                "If you moved to another country would you take it with you?",
-                6
-            )
-        )
+        listQuestions.add(KeepOrTossModel("If you moved to another country would you take it with you?", 6))
         listQuestions.add(KeepOrTossModel("Would you replace or re-buy this item?", 7))
         listQuestions.add(KeepOrTossModel("Does it make you feel good?", 8))
         listQuestions.add(KeepOrTossModel("Does it mean something to you", 9))
-        listQuestions.add(
-            KeepOrTossModel(
+        listQuestions.add(KeepOrTossModel(
                 "Is the item adding enough value to your life to justify the tim, space and energy it takes up?",
                 10
             )
@@ -260,6 +136,7 @@ var yesClick=0
         listQuestions.add(KeepOrTossModel("does it have a place", 11))
         listQuestions.add(KeepOrTossModel("You don't have similar items like it?", 12))
 
+        dilog()
 
         ActivityCompat.requestPermissions(
             requireActivity(),
@@ -307,6 +184,101 @@ private fun getScreenShotFromView(v: View): Bitmap? {
     return screenshot
 }
 
+
+
+    fun View.clicks() = callbackFlow<Unit> {
+        setOnClickListener {
+            trySend(Unit)
+        }
+        awaitClose { setOnClickListener(null) }
+
+    }
+
+
+
+    private fun distanceToEdge(left: Boolean): Int {
+
+        val location = IntArray(2)
+        binding.imageToss.getLocationOnScreen(location)
+        val x = location[0]
+
+        val imageWidth = binding.imageToss.width
+        return if (left) x
+        else screenWidth -  (x + imageWidth)
+    }
+
+
+
+
+
+
+
+
+    private fun moveImage(distance: Int) {
+
+        val fraction = distance.toFloat() / MOVE_DISTANCE
+
+        val duration = abs(MOVE_TIME * fraction).toLong()
+        binding.imageToss.animate().setDuration(duration).translationXBy(distance.toFloat())
+
+    }
+
+
+    suspend fun firstClick() {
+
+        binding.yesButton.clicks()
+        val distance = min(distanceToEdge(true), MOVE_DISTANCE)
+        moveImage(-distance)
+
+        val listQuestions = mutableListOf<KeepOrTossModel>()
+
+        val adapter = QuestionsViewPagerAdapter( requireContext(),listQuestions,this)
+
+    }
+
+    suspend fun secondClick(){
+        binding.yesButton.clicks()
+        if (binding.questionsViewpager.scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+            binding.questionsViewpager.setCurrentItem(
+                binding.questionsViewpager.currentItem.plus(
+                    1
+                ), true
+            )
+        } else {
+        }
+
+
+    }
+
+
+    suspend fun firstClickN(){
+
+        binding.noButton.clicks()
+
+        val distance = min(distanceToEdge(false), MOVE_DISTANCE)
+        moveImage(distance)
+        if (distanceToEdge(false) ==0){
+            Toast.makeText(context, "Toss it", Toast.LENGTH_LONG).show()
+
+        }else{}
+
+
+    }
+
+    suspend fun secondClickN(){
+        binding.noButton.clicks()
+        if (binding.questionsViewpager.scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+            binding.questionsViewpager.setCurrentItem(
+                binding.questionsViewpager.currentItem.plus(
+                    1
+                ), true
+            )
+        } else {
+        }
+
+
+
+    }
 
 
 /*     if(  binding.questionsViewpager.currentItem == binding.questionsViewpager.adapter?.itemCount?.minus(1)) {

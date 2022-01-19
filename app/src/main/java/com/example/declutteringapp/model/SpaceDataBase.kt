@@ -3,18 +3,21 @@ package com.example.declutteringapp.model
 import android.content.Context
 import androidx.room.*
 import com.example.declutteringapp.model.repo.MySpacesDao
+import com.example.declutteringapp.model.repo.ThirtyDaysDao
 
 @Database(entities = arrayOf(
     Space::class,
-    ToDeclutter::class,Score::class) , version = 1, exportSchema = false)
+    ToDeclutter::class,ThirtyDays::class) , version = 1, exportSchema = false)
 
 
 abstract class SpaceDataBase : RoomDatabase(){
 
         abstract fun getSpaceDao(): MySpacesDao
+    abstract fun getDaysDao(): ThirtyDaysDao
 
 
-        companion object {
+
+    companion object {
 
             @Volatile
             private var INSTANCE: SpaceDataBase? = null
