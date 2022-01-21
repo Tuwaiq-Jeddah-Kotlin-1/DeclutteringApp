@@ -20,20 +20,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.595" />
 
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+    <TextView
+        android:background="@color/light"
+        android:layout_width="309dp"
+        android:layout_height="84dp"
+        android:text="Think of an Item you want to buy, and answer the questions!
+\n\n
+you'll visually see which side the bag is moving towards."
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
 
-    <!--
-      <ProgressBar
-          android:id="@+id/progressBar2"
-          style="?android:attr/progressBarStyleHorizontal"
-          android:layout_width="wrap_content"
-
-          android:layout_height="wrap_content"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.498"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/questionsViewpager"
-          app:layout_constraintVertical_bias="0.96" />-->
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/questionsViewpager"
@@ -53,7 +64,7 @@
         android:id="@+id/imageToss"
         android:layout_width="48dp"
         android:layout_height="33dp"
-        android:src="@drawable/ic_bag"
+        android:src="@drawable/ic_cart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -66,19 +77,20 @@
         android:layout_width="62dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
-        android:text="Yes"
+        android:text="No"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.736"
         app:layout_constraintStart_toEndOf="@+id/noButton"
         app:layout_constraintTop_toTopOf="parent"
-
         app:layout_constraintVertical_bias="0.834" />
 
     <View
+        android:id="@+id/lines"
         android:layout_width="370dp"
-        android:layout_height="4dp"
+        android:layout_height="2dp"
         android:background="#E9981E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +104,8 @@
         android:layout_width="62dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
-        android:text="No"
+        android:text="Yes"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.219"
@@ -100,24 +113,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.834" />
 
-    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="92dp"
-        app:labelVisibilityMode="selected"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation" />
--->
-
     <ImageView
         android:layout_width="40dp"
         android:layout_height="37dp"
-        android:src="@drawable/ic_drawer"
+        android:src="@drawable/ic_save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"

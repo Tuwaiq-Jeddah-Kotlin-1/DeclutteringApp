@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
+    android:background="@color/Grey"
+
     android:layout_height="match_parent"
     tools:context="com.example.declutteringapp.view.OnBoardingFragment">
 
@@ -89,7 +91,7 @@
         android:layout_width="254dp"
         android:layout_height="39dp"
         android:layout_marginTop="88dp"
-        android:text="Start Clearing Your Space"
+        android:text="Start miniMizing"
         android:textAllCaps="false"
         android:textColorHighlight="#B1B0B0"
         android:textColorLink="#D8D8D8"

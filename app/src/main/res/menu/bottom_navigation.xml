@@ -16,7 +16,7 @@
 -->
     <item android:title="@string/mySpace"
         android:id="@+id/mySpaceFragment2"
-        android:icon="@drawable/ic_space"/>
+        android:icon="@drawable/ic_my_space"/>
 
      <item android:title="@string/profile"
     android:id="@+id/profileFragment2"

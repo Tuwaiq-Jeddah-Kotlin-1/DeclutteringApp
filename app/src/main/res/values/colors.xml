@@ -3,11 +3,13 @@
     <color name="dialog_choose_icon_color">#757575</color>
     <color name="dialog_choose_text_color">#757575</color>
 
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+
     <color name="black">#FF000000</color>
+    <color name="Bege">#F2EAC2</color>
+    <color name="Blue">#8FD9D9</color>
+    <color name="Grey">#F2F2F2</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="Orange">#D9665B</color>
+    <color name="Yellow">#F2E088</color>
+    <color name="light">#F2EADF</color>
 </resources>

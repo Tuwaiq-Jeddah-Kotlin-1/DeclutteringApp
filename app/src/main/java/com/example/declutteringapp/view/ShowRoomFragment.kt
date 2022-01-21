@@ -30,6 +30,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentShowRoomBinding
+import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.model.ToDeclutter
 import com.example.declutteringapp.view.adapters.ToDeclutterAdapter
 import com.example.declutteringapp.viewmodel.SpaceViewModel
@@ -127,19 +128,12 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
         }
 
-        val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            uri?.let { binding.showRoomImage.setImageURI(uri) }
-        }
-
-
-
-
-        ImageGallary.setOnClickListener {
-
-            pickImages.launch("image/*")
-
+        binding.showRoomImage.setOnClickListener{
+            captureImage()
+            viewModelD.updateSpace(Space("","",mCurrentPhotoPath ))
 
         }
+
 
     }
     fun itemDialog() {

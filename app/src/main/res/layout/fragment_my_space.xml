@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:adjustViewBounds="true"
+
     tools:context="com.example.declutteringapp.view.MySpaceFragment">
 
 
@@ -32,7 +32,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
-        android:text="Add each room you want to clutter, to keep on track, and check your progress"
+        android:text="Add each room you want to declutter, to keep on track, and check your progress"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/spaceRV"
         app:layout_constraintEnd_toEndOf="parent"

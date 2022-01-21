@@ -1,4 +1,5 @@
 package com.example.declutteringapp.view
+import android.app.Application
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -26,8 +27,10 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.ImageView
 import androidx.annotation.RawRes
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.databinding.FragmentOnBoardingBinding
+import com.example.declutteringapp.viewmodel.SpaceViewModel
 import java.io.InputStream
 
 
@@ -63,13 +66,16 @@ class OnBoardingFragment : Fragment() {
     }
 
     private fun init() {
-        val viewModel = ViewModelProviders.of(this).get(OnBoardingViewModel::class.java)
+        val  viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
+        ).get(OnBoardingViewModel::class.java)
 
         val adapter = LocalAdapter(viewModel)
         val items = listOf(
-            Item("Start decluttring, and spend more time living and keeping only what matters",  R.raw.ic_leavs),
-                    Item("use our tools to help you decides what to keep and what to toss.",R.drawable.interior_with_cats),
-            Item("use our motivating Challenges to keep you on track, and earn points",  R.drawable.ic_add)
+            Item("Owning less is better than organizing more",  R.drawable.onboarding_two),
+                    Item("start decluttering,with our fun tools and  challenges",R.drawable.onboarding_one),
+            Item("get a clear image of each room in your house with our room miniMizer", R.drawable.onboarding_three)
         )
         adapter.replaceItems(items)
         binding.viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL

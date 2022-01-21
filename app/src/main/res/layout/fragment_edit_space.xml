@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Grey"
+
     tools:context=".view.EditSpaceFragment">
 
     <TextView
@@ -74,30 +76,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.400" />
-    <ImageButton
-        android:id="@+id/imgUploadSpace"
-        android:layout_width="42dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="44dp"
-        android:backgroundTint="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_image_replace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.831"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgCameraSpace" />
 
     <ImageButton
         android:id="@+id/imgCameraSpace"
         android:layout_width="41dp"
         android:layout_height="36dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#FFFFFF"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_camers"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintHorizontal_bias="0.718"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

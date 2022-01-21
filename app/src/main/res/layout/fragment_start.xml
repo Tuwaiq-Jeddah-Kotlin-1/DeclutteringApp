@@ -5,52 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    android:background="#F1F1F1"
     tools:context="com.example.declutteringapp.view.StartFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/tools"
-        android:layout_width="189dp"
-        android:layout_height="60dp"
-        android:background="@drawable/border_shape_two"
+        android:layout_width="123dp"
+        android:layout_height="49dp"
+        android:elevation="0dp"
+        android:background="@drawable/border_shape_three"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.940"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.240">
+        app:layout_constraintVertical_bias="0.24">
 
         <TextView
             android:layout_width="116dp"
             android:layout_height="37dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="50dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
             android:text="Keep Or Toss"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="0dp"
-
-            android:src="@drawable/ic_space" />
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/toolsTwo"
-        android:layout_width="189dp"
-        android:layout_height="60dp"
-        android:background="@drawable/border_shape"
+        android:layout_width="123dp"
+        android:layout_height="49dp"
+
+        android:background="@drawable/border_shape_two"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.24">
@@ -58,92 +52,66 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
             android:text="Save or Buy"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="0dp"
-
-            android:src="@drawable/ic_money" />
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/challFive"
-        android:layout_width="189dp"
-        android:layout_height="60dp"
-        android:background="@drawable/border_shape_two"
+        android:layout_width="123dp"
+        android:layout_height="49dp"
+        android:background="@color/light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".960"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="140dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="50dp"
+            android:layout_width="82dp"
+            android:layout_height="36dp"
             android:layout_marginTop="15dp"
-            android:text="Five Minutes"
+            android:text="5 Minutes"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:textColor="@color/black"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="0dp"
-
-            android:src="@drawable/ic_timer" />
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/challDay"
-        android:layout_width="189dp"
-        android:layout_height="60dp"
+        android:layout_width="123dp"
+        android:layout_height="49dp"
         android:background="@drawable/border_shape_two"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="165dp"
             android:layout_height="43dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="50dp"
             android:layout_marginTop="15dp"
-            android:text="30 Days Challenge"
+            android:text="30 Days"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:textColor="@color/black"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="0dp"
-
-            android:src="@drawable/ic_30day" />
 
 
     </androidx.cardview.widget.CardView>
@@ -155,7 +123,7 @@
         android:backgroundTint="#F1EDF1"
         android:padding="5dp"
         android:paddingTop="50dp"
-        android:text="Decluttering quote of the day"
+        android:text="miniQoute"
         android:textSize="14dp"
         app:circularflow_radiusInDP="30dp"
         app:layout_constraintBottom_toTopOf="@+id/qoutes"
@@ -192,11 +160,12 @@
         android:defaultFocusHighlightEnabled="true"
         android:foreground="@drawable/card_foreground_profile"
         android:padding="10dp"
-        android:backgroundTint="@color/fui_transparent"
+        android:backgroundTint="@color/light"
         android:shadowRadius=".2"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
         app:cardPreventCornerOverlap="false"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.400"
@@ -219,15 +188,6 @@
                 android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="0dp"
-
-                android:src="@drawable/ic_challenges"/>
 
         </LinearLayout>
 
@@ -252,7 +212,7 @@
         app:layout_constraintHorizontal_bias="0.400"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/fui_transparent"
+        android:backgroundTint="@color/light"
 
         app:layout_constraintVertical_bias="0.100">
 
@@ -272,15 +232,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="0dp"
-
-                android:src="@drawable/ic_tools" />
-
 
         </LinearLayout>
 
@@ -292,10 +243,10 @@
         android:layout_height="118dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.817"
+        app:layout_constraintVertical_bias="0.818"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/ic_plant" />
@@ -308,7 +259,6 @@
         android:clickable="true"
         android:defaultFocusHighlightEnabled="true"
         android:focusable="true"
-        android:foreground="@drawable/card_foreground_profile"
         android:padding="10dp"
         android:shadowRadius=".2"
         app:cardCornerRadius="10dp"
@@ -319,7 +269,8 @@
         app:layout_constraintHorizontal_bias="0.400"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
+        android:foreground="@drawable/card_foreground"
+android:backgroundTint="@color/light"
         app:layout_constraintVertical_bias="0.600">
     <LinearLayout
         android:layout_width="309dp"
@@ -333,20 +284,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="17dp"
             android:layout_marginTop="15dp"
-            android:text="Your Space"
+            android:text="Room miniMizer"
             android:textColor="@color/black"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="0dp"
-
-            android:src="@drawable/ic_space" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 

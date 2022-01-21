@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/Grey"
     tools:context="com.example.declutteringapp.view.FiveMinFragment">
 
 
@@ -14,7 +14,9 @@
         android:layout_height="78dp"
         android:layout_marginTop="92dp"
         android:padding="2dp"
-        android:text="Look around your space and declutter any items, don't think too much, just start. this will help you practice letting go of things."
+        android:text="Look around your space and declutter any items with out thinking too much
+
+        /n this will help you practice letting go of things."
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -32,21 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="327dp"
-        android:layout_height="45dp"
-        android:padding="2dp"
-        android:shadowColor="@color/black"
-        android:text="For every five minutes you complete you'll earn 30 points!"
-        android:textColor="#7AA68C"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.270" />
 
     <Button
         android:id="@+id/button"

@@ -19,12 +19,13 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textAlignment="center"
             tools:text="Title"
+            android:layout_margin="20dp"
             />
 
         <ImageView
             android:id="@+id/animationView"
-            android:layout_width="114dp"
-            android:layout_height="123dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

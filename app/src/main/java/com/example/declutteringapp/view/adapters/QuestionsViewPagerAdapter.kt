@@ -13,7 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.declutteringapp.model.KeepOrTossModel
 
-class QuestionsViewPagerAdapter( val context: Context,private var listQuestions: MutableList<KeepOrTossModel>?, val resultDialog: ResultDialog) :
+class QuestionsViewPagerAdapter( val context: Context,private var listQuestions: MutableList<KeepOrTossModel>?) :
     RecyclerView.Adapter<QuestionsViewPagerAdapter.MyViewHolder>() {
 
     class MyViewHolder(val itemBinding: QuestionsLayoutBinding) : RecyclerView.ViewHolder(itemBinding.root){
@@ -30,7 +30,6 @@ class QuestionsViewPagerAdapter( val context: Context,private var listQuestions:
         val inflater = LayoutInflater.from(parent.context)
         val binding: QuestionsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.questions_layout,parent,false)
         return MyViewHolder(binding)
-       // var vpText=
     }
 
     override fun getItemCount(): Int {
@@ -44,28 +43,12 @@ class QuestionsViewPagerAdapter( val context: Context,private var listQuestions:
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemBinding.ques = listQuestions?.get(position)
-        if(position == itemCount - 1){
-    /*      val builder = AlertDialog.Builder(context)
-            builder.setTitle("You're Done")
-            builder.setMessage("Hopefully you can see to witch side the item is closer ")
-            builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                Toast.makeText(context,
-                    android.R.string.yes, Toast.LENGTH_SHORT).show()
-            }
-            builder.show()*/
-            resultDialog.dilog()
-    }
 
 
-//builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
-               // builder.d()
+
 
 }
 
-interface ResultDialog {
-    fun dilog() {
-    }
-}
     }
 
 

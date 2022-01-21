@@ -6,45 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/Grey"
     tools:context="com.example.declutteringapp.view.KeepOrTossFragment">
 
-
-
-
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Think of an Item You're not sure about keeping, and answer these question
-
-you will see visuallty weather to keep this item or  get rid of it."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="14dp"
-        android:textColor="#000000"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100" />
-
-
-
-    <!--
-      <ProgressBar
-          android:id="@+id/progressBar2"
-          style="?android:attr/progressBarStyleHorizontal"
-          android:layout_width="wrap_content"
-
-          android:layout_height="wrap_content"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.498"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/questionsViewpager"
-          app:layout_constraintVertical_bias="0.96" />-->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/questionsViewpager"
         android:layout_width="match_parent"
@@ -55,38 +19,36 @@ you will see visuallty weather to keep this item or  get rid of it."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+</androidx.viewpager2.widget.ViewPager2>
 
-
-    </androidx.viewpager2.widget.ViewPager2>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_View"
-        android:layout_width="410dp"
-        android:layout_height="85dp"
-        android:layout_margin="20dp"
-        android:elevation="10dp"
-        app:cardBackgroundColor="#FFFFFF"
+    <TextView
+        android:background="@color/light"
+        android:layout_width="309dp"
+        android:layout_height="84dp"
+        android:text="Think of an Item, and answer the questions!
+\n\n
+you'll visually see which side the basket is moving towards."
+        android:textColor="@color/black"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="42dp"
+        android:src="@drawable/ic_box"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.611" />
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_box"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.917"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.595" />
-
-            <ImageView
+    <ImageView
                 android:id="@+id/imageToss"
                 android:layout_width="48dp"
                 android:layout_height="33dp"
@@ -96,23 +58,46 @@ you will see visuallty weather to keep this item or  get rid of it."
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.603" />
+                app:layout_constraintVertical_bias="0.590" />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="37dp"
-                android:src="@drawable/ic_drawer"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.056"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.592" />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="37dp"
+        android:src="@drawable/ic_drawer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
 
-            <View
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <View
                 android:id="@+id/line"
                 android:layout_width="370dp"
-                android:layout_height="4dp"
+                android:layout_height="2dp"
                 android:background="#E9981E"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -120,8 +105,16 @@ you will see visuallty weather to keep this item or  get rid of it."
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.628" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.640" />
 
 <Button
         android:id="@+id/yesButton"

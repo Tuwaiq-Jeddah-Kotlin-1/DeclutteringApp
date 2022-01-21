@@ -21,10 +21,7 @@ class SpaceRvAdapter(
     RecyclerView.Adapter<SpaceRvAdapter.ViewHolder>() {
 
 
-
     private val allSpaces = ArrayList<Space>()
-
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -54,14 +51,10 @@ class SpaceRvAdapter(
         holder.statusTV.setText(allSpaces.get(position).status)
        allSpaces.get(position).roomId
 
-        //  holder.spaceImage.setImageResource(R.drawable.ic_image_replace)
-
-
 
         Glide.with(context)
             .load(spaces.imgPath)
             .into(holder.spaceImage)
-
 
 
         holder.deleteSpace.setOnClickListener {
@@ -74,8 +67,6 @@ class SpaceRvAdapter(
             allSpaces.get(position)
 
         }
-
-
 
     }
 

@@ -38,33 +38,19 @@ import java.util.*
 class EditSpaceFragment : Fragment() {
 
 
-    private var isReadPermissionGranted = false
-    private var isWriteingPermissionGranted = false
-    private var isReadingPermissionGranted = false
-    private lateinit var permissionLancher: ActivityResultLauncher<Array<String>>
 
-    lateinit var imageSelect: ImageButton
-    lateinit var imageUpload: ImageButton
 
-    lateinit var editeRoomName: EditText
     lateinit var roomStutus: Spinner
     lateinit var roomNames: Spinner
     lateinit var saveBtn: Button
-    lateinit var roomImage: ImageView
     lateinit var viewModel: SpaceViewModel
-    lateinit var ImageCamera: ImageButton
     lateinit var ImageGallary: ImageButton
     private var photoFile: File? = null
-    private var itemId = 0
-    private var copiedImagePath: String? = null
-    private var imageCollection: String? = null
     private var mCurrentPhotoPath: String? = null
     private var selectedImagePath = ""
-    lateinit var adapterSpace: SpaceRvAdapter
     private lateinit var _binding: FragmentEditSpaceBinding
     private val binding get() = _binding!!
     var spaceID = -1
-    val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,35 +71,12 @@ class EditSpaceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ImageCamera = binding.imgCameraSpace
-        ImageGallary = binding.imgUploadSpace
-
-        editeRoomName = binding.etRoomName
         roomStutus = binding.idRoomStatus
         roomNames = binding.idRoomName
-        roomImage = binding.showRoomImage
         saveBtn = binding.idBtn
 
-        permissionLancher =
-            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissoin ->
 
-                isReadPermissionGranted =
-                    permissoin[android.Manifest.permission.READ_EXTERNAL_STORAGE]
-                        ?: isReadPermissionGranted
-                isReadPermissionGranted =
-                    permissoin[android.Manifest.permission.READ_EXTERNAL_STORAGE]
-                        ?: isWriteingPermissionGranted
-
-            }
-
-
-
-
-
-
-        imageUpload = binding.imgCameraSpace
-
-        imageUpload.setOnClickListener {
+        binding.imgCameraSpace.setOnClickListener {
             captureImage()
 
         }
@@ -142,11 +105,14 @@ class EditSpaceFragment : Fragment() {
 
 
         val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            binding.showRoomImage.setImageURI(uri)
+            uri?.let { binding.showRoomImage.setImageURI(mCurrentPhotoPath?.toUri())
+              }
         }
 
         ImageGallary.setOnClickListener {
+
             pickImages.launch("image/*")
+
         }
 
         val roomState = resources.getStringArray(R.array.room_spinner)
@@ -229,8 +195,6 @@ class EditSpaceFragment : Fragment() {
         val spinnerText = roomStutus.selectedItem.toString()
         val roomImage = mCurrentPhotoPath
 
-        /*viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-                context?.let {*/
         val data = Space(
             status = spinnerText,
             roomName = roomName,

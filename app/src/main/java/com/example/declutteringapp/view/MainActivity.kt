@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             setLocate(this,"en")
         }
+
         if (sharedPreferences.getBoolean("DARK_MOOD", false)) {
             resources.configuration.uiMode = AppCompatDelegate.MODE_NIGHT_YES
 
