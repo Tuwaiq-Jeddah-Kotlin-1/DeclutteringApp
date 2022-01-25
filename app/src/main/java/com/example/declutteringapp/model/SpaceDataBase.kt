@@ -2,8 +2,6 @@ package com.example.declutteringapp.model
 
 import android.content.Context
 import androidx.room.*
-import com.example.declutteringapp.model.repo.MySpacesDao
-import com.example.declutteringapp.model.repo.ThirtyDaysDao
 
 @Database(entities = arrayOf(
     Space::class,
@@ -12,29 +10,28 @@ import com.example.declutteringapp.model.repo.ThirtyDaysDao
 
 abstract class SpaceDataBase : RoomDatabase(){
 
-        abstract fun getSpaceDao(): MySpacesDao
-    abstract fun getDaysDao(): ThirtyDaysDao
-
+    abstract fun getSpaceDao(): MySpacesDao
 
 
     companion object {
 
-            @Volatile
-            private var INSTANCE: SpaceDataBase? = null
+        @Volatile
+        private var INSTANCE: SpaceDataBase? = null
 
-            fun getDatabase(context: Context): SpaceDataBase {
+        fun getDatabase(context: Context?): SpaceDataBase {
 
-                return INSTANCE ?: synchronized(this) {
-                    val instance = Room.databaseBuilder(
-                        context.applicationContext,
+            return (INSTANCE ?: synchronized(this) {
+                val instance = context?.let {
+                    Room.databaseBuilder(
+                        it,
                         SpaceDataBase::class.java,
                         "space_database"
 
                     ).build()
-                    INSTANCE = instance
-                    instance
                 }
-            }
+                INSTANCE = instance
+                instance
+            })!!
         }
     }
-
+}

@@ -82,7 +82,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
         super.onViewCreated(view, savedInstanceState)
 
         ImageCamera = binding.imgCameraSpace
-        ImageGallary = binding.imgUploadSpace
         binding.ShowRoomName.setText(spaces.space.roomName)
         binding.ShowRoomStatus.setText(spaces.space.status)
         Glide.with(this)
@@ -108,7 +107,7 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(SpaceViewModel::class.java)
 
-        initViews()
+      //  initViews()
 
 
         viewModelD.allItems(spaces.space.roomId).observe(viewLifecycleOwner,  { list ->
@@ -125,6 +124,11 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
         ImageCamera.setOnClickListener {
             captureImage()
+            viewModelD.updateSpace(Space(
+                  "",
+               "",
+                mCurrentPhotoPath
+            ))
 
         }
 
@@ -283,35 +287,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
     }
 }
-
-
-
-
-
-
-
-//  var itemSpace=ToDeclutter(data)
-
-//  selectedImagePath = data.roomImages!!
-//   binding.showRoomImage.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
-
-
-
-
-
-/*
-
-               var images=ImageR.setImageBitmap(BitmapFactory.decodeStream(ContentResolver().openInputStream())
-                       ImageR!!.setImageBitmap(Bitmap)
-
-*/
-
-
-
-
-
-
-
 
 
 

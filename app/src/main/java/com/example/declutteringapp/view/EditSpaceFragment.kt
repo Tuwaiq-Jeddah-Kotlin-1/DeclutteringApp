@@ -28,7 +28,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.Space
-import com.example.declutteringapp.view.adapters.SpaceRvAdapter
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import java.io.File
 import java.io.IOException
@@ -44,7 +43,7 @@ class EditSpaceFragment : Fragment() {
     lateinit var roomNames: Spinner
     lateinit var saveBtn: Button
     lateinit var viewModel: SpaceViewModel
-    lateinit var ImageGallary: ImageButton
+    //lateinit var ImageGallary: ImageButton
     private var photoFile: File? = null
     private var mCurrentPhotoPath: String? = null
     private var selectedImagePath = ""
@@ -82,7 +81,7 @@ class EditSpaceFragment : Fragment() {
         }
 
 
-        initViews()
+       initViews()
 
         viewModel = ViewModelProvider(
             this,
@@ -104,16 +103,8 @@ class EditSpaceFragment : Fragment() {
         }
 
 
-        val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            uri?.let { binding.showRoomImage.setImageURI(mCurrentPhotoPath?.toUri())
-              }
-        }
 
-        ImageGallary.setOnClickListener {
 
-            pickImages.launch("image/*")
-
-        }
 
         val roomState = resources.getStringArray(R.array.room_spinner)
 

@@ -15,7 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.ActivityMainBinding
-import com.example.declutteringapp.model.repo.SpaceRepo
+import com.example.declutteringapp.model.SpaceRepo
 import java.util.*
 
 
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         val navController = navHostFragment.navController
-
        binding.bottomNav.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -105,18 +104,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-/*
-
-        val editor: SharedPreferences.Editor =
-            sharedPref.edit()
-        editor.putInt("score", score)
-        editor.apply()
-
-
-
-        val score = sharedPref.getInt("Score", 0)
-
-*/
 
 
 

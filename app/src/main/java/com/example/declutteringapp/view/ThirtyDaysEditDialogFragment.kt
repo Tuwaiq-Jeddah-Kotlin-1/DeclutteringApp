@@ -74,22 +74,19 @@ class ThirtyDaysEditDialogFragment: Fragment(){
         ).get(DaysViewModel::class.java)
 
         ImageCamera = binding.imgCamera
-        ImageGallary = binding.imgUpload
 
         imagePlace = binding.imagePlacement
-       itemNum = binding.etItemNumber
 
         saveBtn = binding.btnSubmitDay
 
-        val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+    /*    val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri?.let { binding.imagePlacement.setImageURI(uri) }
-        }
+        }*/
         ImageCamera.setOnClickListener {
             captureImage()
         }
 
         ImageGallary.setOnClickListener {
-            pickImages.launch("image/*")
 
             //getActionTakePicture.launch("image/*")
 
@@ -110,20 +107,19 @@ class ThirtyDaysEditDialogFragment: Fragment(){
         val image = mCurrentPhotoPath
 
 
-        var itemCounts = binding.etItemNumber.text.toString()
 
-        when {
+      /*  when {
             TextUtils.isEmpty(binding.etItemNumber.text.toString().trim { it <= ' ' }) -> {
                 Toast.makeText(context, "Please Enter a Item Count", Toast.LENGTH_LONG).show()
             }
 
-            }
+            }*/
 
 
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
                     val data =
-                        ThirtyDays(dayNum = 0, itemCounts = itemCounts, imgPath = image)
+                        ThirtyDays(dayNum = 0, imgPath = image)
                     viewModelDay.addDay(data)
                     Toast.makeText(requireContext(), "You updated the day!", Toast.LENGTH_SHORT)
                         .show()
@@ -193,10 +189,9 @@ class ThirtyDaysEditDialogFragment: Fragment(){
                     viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                         context?.let {
 
-                            var    itemCounts= binding.etItemNumber.text.toString()
                             var image= mCurrentPhotoPath
 
-                            var day = ThirtyDays(0,  itemCounts, image)
+                            var day = ThirtyDays(0, image)
 
                          viewModelDay.addDay(day)
 

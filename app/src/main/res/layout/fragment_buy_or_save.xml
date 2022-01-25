@@ -10,6 +10,55 @@
 
 
     <ImageView
+        android:layout_width="358dp"
+        android:layout_height="124dp"
+        android:src="@drawable/ic_frame_look_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.031" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.665" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy"
+        android:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <TextView
+        android:layout_width="287dp"
+        android:layout_height="68dp"
+        android:text="Think of an Item you want to buy, and answer the questions!
+you'll visually see which side the money is moving towards."
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+    <ImageView
         android:layout_width="48dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_money"
@@ -28,24 +77,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
-    <TextView
-        android:background="@color/light"
-        android:layout_width="309dp"
-        android:layout_height="84dp"
-        android:text="Think of an Item you want to buy, and answer the questions!
-\n\n
-you'll visually see which side the bag is moving towards."
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.640" />
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/ic_circle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/questionsViewpager"
         android:layout_width="match_parent"
@@ -60,21 +100,22 @@ you'll visually see which side the bag is moving towards."
 
     </androidx.viewpager2.widget.ViewPager2>
 
+
     <ImageView
         android:id="@+id/imageToss"
         android:layout_width="48dp"
         android:layout_height="33dp"
-        android:src="@drawable/ic_cart"
+        android:src="@drawable/money"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.603" />
+        app:layout_constraintVertical_bias="0.608" />
 
     <Button
         android:id="@+id/yesButton"
-        android:layout_width="62dp"
+        android:layout_width="70dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
         android:text="No"
@@ -91,7 +132,7 @@ you'll visually see which side the bag is moving towards."
         android:id="@+id/lines"
         android:layout_width="370dp"
         android:layout_height="2dp"
-        android:background="#E9981E"
+        android:background="#3E3E3D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -101,7 +142,7 @@ you'll visually see which side the bag is moving towards."
 
     <Button
         android:id="@+id/noButton"
-        android:layout_width="62dp"
+        android:layout_width="70dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
         android:text="Yes"
@@ -116,7 +157,7 @@ you'll visually see which side the bag is moving towards."
     <ImageView
         android:layout_width="40dp"
         android:layout_height="37dp"
-        android:src="@drawable/ic_save"
+        android:src="@drawable/ic_money_save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"

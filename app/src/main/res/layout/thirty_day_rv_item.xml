@@ -14,76 +14,64 @@
         app:cardCornerRadius="5dp"
         app:cardElevation="3dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/rvThirtyText"
-                android:layout_width="93dp"
-                android:layout_height="87dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:paddingTop="0dp"
-                android:textColor="#454545"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/rvItemNum"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/rvThirtyText"
+            android:layout_width="93dp"
+            android:layout_height="87dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:paddingTop="0dp"
+            android:textColor="#454545"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/rvItemNum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:layout_width="35dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="60dp"
-                android:gravity="center"
-                android:text="Day"
-                android:textColor="#D3D3D3"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toTopOf="@+id/rvThirtyImg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.219"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:text="Day"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toTopOf="@+id/rvThirtyImg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.219"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/rvItemNum"
-                android:layout_width="33dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="48dp"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="#8B7198"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/rvThirtyImg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.813"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/rvItemNum"
+            android:layout_width="33dp"
+            android:layout_height="43dp"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/rvThirtyImg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.813"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/rvThirtyImg"
-                android:layout_width="108dp"
-                android:layout_height="94dp"
-                android:layout_marginTop="76dp"
-                android:src="@drawable/ic_purple_replace"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/rvThirtyImg"
+            android:layout_width="146dp"
+            android:layout_height="136dp"
+            android:src="@drawable/ic_purple_replace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-            <ImageView
-                android:layout_width="21dp"
-                android:layout_height="17dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ic_item_out"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

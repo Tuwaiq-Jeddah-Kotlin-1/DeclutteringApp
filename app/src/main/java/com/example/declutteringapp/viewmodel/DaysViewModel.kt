@@ -4,29 +4,18 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.declutteringapp.model.SpaceDataBase
 import com.example.declutteringapp.model.ThirtyDays
-import com.example.declutteringapp.model.repo.SpaceRepo
+import com.example.declutteringapp.model.SpaceRepo
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
 
-class DaysViewModel  ( application: Application) : AndroidViewModel(application) {
+class DaysViewModel  : ViewModel() {
 
+    val repository : SpaceRepo=SpaceRepo()
+    val allDays : LiveData<List<ThirtyDays>> =repository.allDays
 
-    val allDays : LiveData<List<ThirtyDays>>
-
-    val repository : SpaceRepo
-
-
-    init {
-        val roomDao = SpaceDataBase.getDatabase(application).getSpaceDao()
-        val daysDao = SpaceDataBase.getDatabase(application).getDaysDao()
-
-        repository = SpaceRepo(roomDao, daysDao )
-        allDays = repository.allDays
-
-    }
 
 
     fun deleteDay (day :ThirtyDays) = viewModelScope.launch(Dispatchers.IO) {

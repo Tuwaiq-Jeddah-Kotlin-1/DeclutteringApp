@@ -13,13 +13,17 @@
         <action
             android:id="@+id/action_splashFragment_to_viewPagerFragment"
             app:destination="@id/viewPagerFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_homeFragment2"
             app:destination="@id/homeFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -38,6 +42,8 @@
         <action
             android:id="@+id/action_viewPagerFragment_to_logInFragment"
             app:destination="@id/logInFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:launchSingleTop="false" />
     </fragment>
     <fragment
@@ -47,10 +53,14 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment2_to_startFragment2"
-            app:destination="@id/startFragment2" />
+            app:destination="@id/startFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment2_to_logInFragment"
             app:destination="@id/logInFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:launchSingleTop="false" />
     </fragment>
 
@@ -62,20 +72,30 @@
 
         <action
             android:id="@+id/action_startFragment2_to_mySpaceFragment2"
-            app:destination="@id/mySpaceFragment2" />
+            app:destination="@id/mySpaceFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
 
         <action
             android:id="@+id/action_startFragment2_to_keepOrTossFragment"
-            app:destination="@id/keepOrTossFragment" />
+            app:destination="@id/keepOrTossFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@anim/fui_slide_out_left" />
         <action
             android:id="@+id/action_startFragment2_to_buyOrSave"
-            app:destination="@id/buyOrSave" />
+            app:destination="@id/buyOrSave"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_startFragment2_to_thirtyDaysFragment"
-            app:destination="@id/thirtyDaysFragment" />
+            app:destination="@id/thirtyDaysFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_startFragment2_to_fiveMinFragment"
-            app:destination="@id/fiveMinFragment" />
+            app:destination="@id/fiveMinFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
 
     </fragment>
     <fragment
@@ -85,7 +105,9 @@
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment2_to_logInFragment"
-            app:destination="@id/logInFragment" />
+            app:destination="@id/logInFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
 
 
     </fragment>
@@ -96,11 +118,15 @@
         tools:layout="@layout/fragment_my_space" >
         <action
             android:id="@+id/action_mySpaceFragment2_to_editSpaceFragment2"
-            app:destination="@id/editSpaceFragment"/>
+            app:destination="@id/editSpaceFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
 
         <action
             android:id="@+id/action_mySpaceFragment2_to_showRoomFragment"
-            app:destination="@id/showRoomFragment" />
+            app:destination="@id/showRoomFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
 
 
 
@@ -111,10 +137,14 @@
         android:label="LogInFragment" >
         <action
             android:id="@+id/action_logInFragment_to_startFragment2"
-            app:destination="@id/startFragment2" />
+            app:destination="@id/startFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_logInFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
+            app:destination="@id/homeFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -124,7 +154,9 @@
         tools:layout="@layout/fragment_thirty_days" >
         <action
             android:id="@+id/action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment"
-            app:destination="@id/thirtyDaysEditDialogFragment" />
+            app:destination="@id/thirtyDaysEditDialogFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="days"
             app:argType="com.example.declutteringapp.model.ThirtyDays" />
@@ -143,11 +175,10 @@
 
         <action
             android:id="@+id/action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment"
-            app:destination="@id/thirtyDaysFragment" />
-      <!--  <argument
-            android:name="days"
-            app:argType="com.example.declutteringapp.model.ThirtyDays" />
--->
+            app:destination="@id/thirtyDaysFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+
     </fragment>
     <fragment
         android:id="@+id/editSpaceFragment"
@@ -156,14 +187,13 @@
         tools:layout="@layout/fragment_edit_space">
         <action
             android:id="@+id/action_editSpaceFragment_to_mySpaceFragment22"
-            app:destination="@id/mySpaceFragment2"/>
+            app:destination="@id/mySpaceFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
 
 
     </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.declutteringapp.view.MainActivity"
-   />
+
 
     <fragment
         android:id="@+id/showRoomFragment"
@@ -180,9 +210,7 @@
         android:name="com.example.declutteringapp.view.KeepOrTossFragment"
         android:label="fragment_keep_or_toss"
         tools:layout="@layout/fragment_keep_or_toss" >
-        <action
-            android:id="@+id/action_keepOrTossFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+
     </fragment>
 
     <fragment
@@ -190,11 +218,7 @@
         android:name="com.example.declutteringapp.view.BuyOrSave"
         android:label="fragment_buy_or_save"
         tools:layout="@layout/fragment_buy_or_save" />
-    <fragment
-        android:id="@+id/resultFragment"
-        android:name="com.example.declutteringapp.ResultFragment"
-        android:label="fragment_result"
-        tools:layout="@layout/fragment_result" />
+
 
 
 </navigation>

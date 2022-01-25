@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".view.MySpaceFragment">
 
-    tools:context="com.example.declutteringapp.view.MySpaceFragment">
-
+    <ImageView
+        android:layout_width="407dp"
+        android:layout_height="107dp"
+        android:src="@drawable/ic_frame_look_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.189" />
 
     <TextView
         android:id="@+id/textView9"
@@ -14,21 +23,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="My Rooms"
-        android:textColor="#6C6363"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Room miniMizer"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14" />
+        app:layout_constraintVertical_bias="0.105" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="360dp"
+        android:layout_width="238dp"
 
-        android:layout_height="63dp"
+        android:layout_height="67dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
@@ -36,9 +44,10 @@
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/spaceRV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.44" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/spaceRV"
@@ -71,7 +80,7 @@ android:layout_margin="20dp"
         app:layout_constraintVertical_bias="1.0"
         app:tint="@color/white" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/emtyTextRV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,6 +89,6 @@ android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

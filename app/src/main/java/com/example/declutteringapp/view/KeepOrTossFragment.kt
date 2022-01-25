@@ -100,7 +100,7 @@ class KeepOrTossFragment : Fragment() {
             }
             .onEach {
                 secondClick()
-                if (nClick+yesClick>= 13 && nClick>yesClick) {
+                if (nClick+yesClick>= 12 && nClick>yesClick) {
                     binding.noButton.isEnabled=false
                     binding.yesButton.isEnabled=false
                   //  Toast.makeText(context, "btn 12", Toast.LENGTH_LONG).show()
@@ -128,7 +128,7 @@ class KeepOrTossFragment : Fragment() {
             }
             .onEach {
                 secondClickN()
-                if (nClick+yesClick>= 13) {
+                if (nClick+yesClick>= 12) {
                     binding.noButton.isEnabled=false
                     binding.yesButton.isEnabled=false
                   Toast.makeText(context, "Well done", Toast.LENGTH_LONG).show()

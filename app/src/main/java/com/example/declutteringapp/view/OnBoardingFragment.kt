@@ -37,15 +37,12 @@ import java.io.InputStream
 class OnBoardingFragment : Fragment() {
 
     private lateinit var _binding: FragmentOnBoardingBinding
-    private val languages = arrayOf("Java","Python","Kotlin","Scala","C++")
-    private var index = 0
     private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
-
 
 
     override fun onCreateView(
@@ -63,27 +60,33 @@ class OnBoardingFragment : Fragment() {
 
 
         init()
+
     }
 
+
     private fun init() {
-        val  viewModel = ViewModelProvider(
+        val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(OnBoardingViewModel::class.java)
 
         val adapter = LocalAdapter(viewModel)
         val items = listOf(
-            Item("Owning less is better than organizing more",  R.drawable.onboarding_two),
-                    Item("start decluttering,with our fun tools and  challenges",R.drawable.onboarding_one),
-            Item("get a clear image of each room in your house with our room miniMizer", R.drawable.onboarding_three)
+            Item("Owning less is better than organizing more", R.drawable.onboarding_two),
+            Item(
+                "start decluttering,with our fun tools and  challenges!",
+                R.drawable.onboarding_one
+            ),
+            Item(
+                "get a clear image of each room in your house with our room miniMizer",
+                R.drawable.onboarding_three
+            )
         )
         adapter.replaceItems(items)
         binding.viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         binding.viewpager.adapter = adapter
-        // disable scrolling
-        // viewPager.isUserInputEnabled = false
-        // viewPager.currentItem = 1
-        binding.viewpager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+
+        binding.viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 
@@ -97,53 +100,6 @@ class OnBoardingFragment : Fragment() {
 
         binding?.indicator?.setViewPager(binding?.viewpager)
 
-/*
-        // accessing the TextSwitcher from XML layout
-        val textSwitcher = binding.textSwitcher
-        textSwitcher.setFactory {
-            val textView = TextView(activity)
-            textView.gravity = Gravity.TOP or Gravity.CENTER_HORIZONTAL
-            textView.textSize = 32f
-            textView.setTextColor(Color.BLUE)
-            textView
-        }
-        textSwitcher.setText(languages[index])
-            // Your code logic goes here.
-
-        val textIn = AnimationUtils.loadAnimation(
-            context, android.R.anim.slide_in_left)
-        textSwitcher.inAnimation = textIn
-
-        val textOut = AnimationUtils.loadAnimation(
-            activity, android.R.anim.slide_out_right)
-        textSwitcher.outAnimation = textOut*/
-
-        /*if (index == arr.length - 1) {
-            index = 0;
-            textSwitcher.setText(arr[index]);
-        }
-        else {
-            textSwitcher.setText(arr[++index]);
-        }*/
-/*
-       val out: Animation = AlphaAnimation(1.0f, 0.0f)
-        out.setRepeatCount(Animation.INFINITE)
-        out.setRepeatMode(Animation.REVERSE)
-        out.setDuration(3000)
-        textSwitcher.startAnimation(out)
-
-        val inn: Animation = AlphaAnimation(1.0f, 0.0f)
-        out.setRepeatCount(Animation.INFINITE)
-        out.setRepeatMode(Animation.REVERSE)
-        out.setDuration(3000)
-        textSwitcher.startAnimation(inn)
-
-      index = if (index - 1 >= 0) index - 1 else 4
-          textSwitcher.setText(languages[index])
-
-          index = if (index + 1 < languages.size) index + 1 else 0
-
-          textSwitcher.setText(languages[index])*/
 
         fun Context.getRawInput(@RawRes resourceId: Int): InputStream {
             return resources.openRawResource(resourceId)
@@ -158,88 +114,6 @@ class OnBoardingFragment : Fragment() {
 
         }
 
-        // previous button functionality
-    /*    val prev = findViewById<Button>(R.id.prev)
-        prev.setOnClickListener {
-
-        }*/
-     /*   // next button functionality
-        val button = findViewById<Button>(R.id.next)
-        button.setOnClickListener {
-
-        }*/
-
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-        val viewPager = binding.viewpager as ViewPager2
-  //      viewPager.adapter = OnBoardingScreenViewPagerAdapter(activity.this)
-*/
-
-    }
-
-
-
-/*
-   lifecycleScope.launch {
-
-        if(getOnBoardStatus()){
-            findNavController().navigate(R.id.action_splashFragment_to_homeFragment2)}
-        else{
-
-            findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)}
-
-        delay(3000)}
-
-
 }
-
-
-
-fun getOnBoardStatus(): Boolean {
-    addPref()
-    return this.requireActivity().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)!!.getBoolean("finished", false)
-}
-
-
-fun addPref()
-{
-    val shpf=requireContext().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)
-    shpf.edit().apply {  putBoolean("finished",true)}.apply()
-}
-
-
-    */
-
-
-
-
-
-
-       /* val fragmentList= arrayListOf<Fragment>(FirstFragment(),SecondFragment(),ThirdFragment())
-        val viewpager=getView()?.findViewById<ViewPager2>(R.id.viewpager)
-        viewpager?.adapter=OnBoardingScreenViewPagerAdapter(fragmentList,childFragmentManager,lifecycle)
-*/

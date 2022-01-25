@@ -6,22 +6,43 @@
     android:layout_height="match_parent"
     android:background="@color/Grey"
     tools:context="com.example.declutteringapp.view.FiveMinFragment">
-
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="424dp"
+        android:layout_height="136dp"
+        android:src="@drawable/ic_frame_look_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014" />
 
     <TextView
-        android:layout_width="334dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="92dp"
-        android:padding="2dp"
+        android:layout_width="324dp"
+        android:layout_height="74dp"
         android:text="Look around your space and declutter any items with out thinking too much
-
-        /n this will help you practice letting go of things."
-        android:textSize="17dp"
+        this will help you practice letting go of things."
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08" />
+
+
+    <ImageView
+        android:layout_width="113dp"
+        android:layout_height="113dp"
+        android:src="@drawable/timer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.974" />
 
     <TextView
         android:id="@+id/timer"
@@ -41,7 +62,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:text="Start"
+        android:background="@drawable/border_shape_two"
         app:cornerRadius="20dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/timer"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="@+id/timer"
@@ -51,8 +74,9 @@
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#AFA2A2"
+        android:background="@drawable/border_shape_two"
         android:text="Reset"
+        android:textColor="@color/black"
         android:visibility="invisible"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="@+id/button"
@@ -64,6 +88,6 @@
         android:id="@+id/viewKonfetti"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteX="-54dp"
         tools:layout_editor_absoluteY="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

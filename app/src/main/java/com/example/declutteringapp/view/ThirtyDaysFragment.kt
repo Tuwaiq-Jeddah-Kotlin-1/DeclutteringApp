@@ -52,7 +52,7 @@ class ThirtyDaysFragment : Fragment()  {
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(DaysViewModel::class.java)
 
-        thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext(), )
+        thirtyDaysRVAdapter = ThirtyDaysRVAdapter(requireContext())
 
         thirtyDaysRVv.adapter = thirtyDaysRVAdapter
 
@@ -60,18 +60,17 @@ class ThirtyDaysFragment : Fragment()  {
             findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
         }
 
-        val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
+      /*  val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
         val currentDateAndTime: String = sdf.format(Date())
 
         val daysData = ArrayList<ThirtyDays>()
 
-
+*/
 
         viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
 
-
-                thirtyDaysRVAdapter.updateList(list)
+                thirtyDaysRVAdapter.updateList(it)
             }
         })
     }

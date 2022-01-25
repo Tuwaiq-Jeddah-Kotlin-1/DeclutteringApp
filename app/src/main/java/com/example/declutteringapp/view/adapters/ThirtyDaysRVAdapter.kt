@@ -39,25 +39,16 @@ class ThirtyDaysRVAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var days = allDays[position]
 
-        holder.itemCount.setText(allDays.get(position).itemCounts.toString())
+        //holder.itemCount.setText(allDays.get(position).itemCounts.toString())
 
         holder.itemNum.setText((position+1).toString())
-
-
-        //holder.imageView.setImage(allDays.get(position).imgPath!!)
-
 
         Glide.with(context)
             .load(days.imgPath)
             .into(holder.imageView)
-        /*allDays[position].imgPath
-                   holder.imageView.setImageBitmap(BitmapFactory.decodeFile(allDays[position].imgPath.toString()))
-       */
-
 
         holder.itemView.setOnClickListener {
 
-        //    dayClickInterface.onDayClick(allDays.get(position))
             allDays.get(position)
         }
     }
@@ -91,42 +82,4 @@ class ThirtyDaysRVAdapter(
     }
 
 }
-
-
-/*
-
-interface DayClickInterface {
-
-    fun onDayClick(thirtyDays: ThirtyDays)
-}
-
-
-    private val differCallback = object : DiffUtil.ItemCallback<ThirtyDays>() {
-        override fun areItemsTheSame(oldItem: ThirtyDays, newItem: ThirtyDays): Boolean {
-            return oldItem == newItem
-        }
-
-        @SuppressLint("DiffUtilEquals")
-        override fun areContentsTheSame(oldItem: ThirtyDays, newItem: ThirtyDays): Boolean {
-            return oldItem == newItem
-
-        }
-    }
-    val differ = AsyncListDiffer(this, differCallback)
-
-
-
-
-*/
-
-
-
-//holder.imageView.setImage(allDays.get(position).imgPath!!)
-
-
-
-
-//holder.imageView.setImageBitmap(BitmapFactory.decodeFile(allDays[position].imgPath))
-
-
 

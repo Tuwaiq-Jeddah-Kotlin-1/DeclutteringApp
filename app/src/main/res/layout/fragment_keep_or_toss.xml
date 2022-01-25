@@ -6,10 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Grey"
     tools:context="com.example.declutteringapp.view.KeepOrTossFragment">
-
-    <androidx.viewpager2.widget.ViewPager2
+     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/questionsViewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,23 +17,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-</androidx.viewpager2.widget.ViewPager2>
+    </androidx.viewpager2.widget.ViewPager2>
 
-    <TextView
-        android:background="@color/light"
-        android:layout_width="309dp"
-        android:layout_height="84dp"
-        android:text="Think of an Item, and answer the questions!
-\n\n
-you'll visually see which side the basket is moving towards."
-        android:textColor="@color/black"
-        android:textSize="14dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="403dp"
+        android:layout_height="119dp"
+        android:src="@drawable/ic_frame_look_two"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintHorizontal_bias="0.178"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.014" />
+
+    <TextView
+        android:layout_width="313dp"
+        android:layout_height="80dp"
+        android:text="Think of an Item, and answer the questions!
+
+    you'll visually see which side the basket is moving towards."
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.591"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.073" />
 
     <ImageView
         android:layout_width="56dp"
@@ -43,10 +52,10 @@ you'll visually see which side the basket is moving towards."
         android:src="@drawable/ic_box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <ImageView
                 android:id="@+id/imageToss"
@@ -61,12 +70,12 @@ you'll visually see which side the basket is moving towards."
                 app:layout_constraintVertical_bias="0.590" />
 
     <ImageView
-        android:layout_width="40dp"
+        android:layout_width="44dp"
         android:layout_height="37dp"
         android:src="@drawable/ic_drawer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.61" />
@@ -75,6 +84,7 @@ you'll visually see which side the basket is moving towards."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Keep"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
@@ -87,6 +97,7 @@ you'll visually see which side the basket is moving towards."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Toss"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.939"
@@ -107,6 +118,7 @@ you'll visually see which side the basket is moving towards."
                 app:layout_constraintVertical_bias="0.628" />
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:src="@drawable/ic_circle"
@@ -118,10 +130,10 @@ you'll visually see which side the basket is moving towards."
 
 <Button
         android:id="@+id/yesButton"
-        android:layout_width="62dp"
+        android:layout_width="70dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
-        android:text="No"
+        android:text="Yes"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,10 +144,10 @@ you'll visually see which side the basket is moving towards."
         app:layout_constraintVertical_bias="0.834" />
     <Button
         android:id="@+id/noButton"
-        android:layout_width="62dp"
+        android:layout_width="70dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
-        android:text="Yes"
+        android:text="No"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.219"
