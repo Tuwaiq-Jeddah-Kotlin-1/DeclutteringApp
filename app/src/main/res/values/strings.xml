@@ -90,5 +90,6 @@
     <string name="space_status">Space Status</string>
     <string name="_30_days_challenge">30 Days Challenge</string>
     <string name="the_first_day_declutter_one_item_the_second_day_two_the_third_day_three_items_and_so_one_this_challenge_is_meant_to_help_you_get_started_by_the_end_you_ll_declutter_500_items">The first day declutter one item, the second day two, the third day three items, and so one.. this challenge is meant to help you get started! by the end you\'ll declutter 500 Items!</string>
+    <string name="start_again">Start Again</string>
 
 </resources>

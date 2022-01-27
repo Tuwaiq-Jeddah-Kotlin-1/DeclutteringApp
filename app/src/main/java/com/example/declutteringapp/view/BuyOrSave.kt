@@ -3,6 +3,7 @@ package com.example.declutteringapp.view
 import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +25,7 @@ import kotlin.math.abs
 import kotlin.math.min
 
 
-private const val MOVE_DISTANCE = 30
+private const val MOVE_DISTANCE = 26
 private const val MOVE_TIME = 50
 
 class BuyOrSave : Fragment() {
@@ -85,7 +86,7 @@ class BuyOrSave : Fragment() {
                     binding.yesButton.isEnabled=false
                     val builder = AlertDialog.Builder(context)
                     if(nClick>yesClick){
-                        builder.setMessage("Save our Money \uD83D\uDC4B")
+                        builder.setMessage("Save Your Money \uD83D\uDCB0")
                             .setCancelable(false)
                             .setPositiveButton("Do something else") { dialog, id ->
                                 findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
@@ -95,7 +96,7 @@ class BuyOrSave : Fragment() {
 
                             }
                         val alert = builder.create()
-                        alert.show()}else{ builder.setMessage("Buy it \uD83D\uDC4D")
+                        alert.show()}else{ builder.setMessage("Buy it \uD83D\uDCB8  ")
                         .setCancelable(false)
                         .setPositiveButton("Do something else") { dialog, id ->
                             findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
@@ -103,7 +104,9 @@ class BuyOrSave : Fragment() {
                         .setNegativeButton("Start Again") { dialog, id ->
                             findNavController().navigate(R.id.action_buyOrSave_self)}
                         val alert = builder.create()
-                        alert.show()}
+                        alert.show()
+                        alert.getWindow()?.setGravity(Gravity.TOP)
+                    }
                 }else{}
 
             }.launchIn(lifecycleScope)
@@ -131,7 +134,7 @@ class BuyOrSave : Fragment() {
                     binding.yesButton.isEnabled=false
                     val builder = AlertDialog.Builder(context)
                     if(nClick>yesClick){
-                        builder.setMessage("Save our Money \uD83D\uDC4B")
+                        builder.setMessage("Save your money \uD83D\uDCB0")
                             .setCancelable(false)
                             .setPositiveButton("Do something else") { dialog, id ->
                                 findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
@@ -141,7 +144,7 @@ class BuyOrSave : Fragment() {
 
                             }
                         val alert = builder.create()
-                        alert.show()}else{ builder.setMessage("Buy it \uD83D\uDC4D")
+                        alert.show()}else{ builder.setMessage("Buy it \uD83D\uDCB8 ")
                         .setCancelable(false)
                         .setPositiveButton("Do something else") { dialog, id ->
                             findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
@@ -149,19 +152,14 @@ class BuyOrSave : Fragment() {
                         .setNegativeButton("Start Again") { dialog, id ->
                             findNavController().navigate(R.id.action_buyOrSave_self)}
                         val alert = builder.create()
-                        alert.show()}
+                        alert.show()
+                        alert.getWindow()?.setGravity(Gravity.TOP)
+                    }
                 }else{}
             }
             .launchIn(lifecycleScope)
 
 
-        if (nClick > yesClick) {
-            Toast.makeText(context, "nnnnnnnn", Toast.LENGTH_LONG).show()
-
-        } else if (nClick > yesClick) {
-            Toast.makeText(context, "kkkkkkk", Toast.LENGTH_LONG).show()
-        } else {
-        }
         val listQuestions = mutableListOf<KeepOrTossModel>()
 
         adapter = QuestionsViewPagerAdapter(requireContext(), listQuestions)

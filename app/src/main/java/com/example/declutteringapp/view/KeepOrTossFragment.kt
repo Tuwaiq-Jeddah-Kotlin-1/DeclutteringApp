@@ -3,6 +3,7 @@ package com.example.declutteringapp.view
 import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,11 +25,10 @@ import kotlin.math.abs
 import kotlin.math.min
 
 
-private const val MOVE_DISTANCE = 30
+private const val MOVE_DISTANCE = 26
 private const val MOVE_TIME = 50
 
 class KeepOrTossFragment : Fragment() {
-    private lateinit var sharedPreferences: SharedPreferences
 
     private lateinit var binding: FragmentKeepOrTossBinding
     private lateinit var adapter: QuestionsViewPagerAdapter
@@ -98,7 +98,12 @@ class KeepOrTossFragment : Fragment() {
 
                             }
                         val alert = builder.create()
-                        alert.show()}else{ builder.setMessage("Keep \uD83D\uDC4D")
+                        alert.show()
+
+                        alert.getWindow()?.setGravity(Gravity.TOP)
+
+
+                    }else{ builder.setMessage("Keep \uD83D\uDC4D")
                         .setCancelable(false)
                         .setPositiveButton("Do something else") { dialog, id ->
                             findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
@@ -106,8 +111,9 @@ class KeepOrTossFragment : Fragment() {
                         .setNegativeButton("Start Again") { dialog, id ->
                             findNavController().navigate(R.id.action_keepOrTossFragment_self)}
                         val alert = builder.create()
-                        alert.show()}
-                  //  Toast.makeText(context, "btn 12", Toast.LENGTH_LONG).show()
+                        alert.show()
+                        alert.getWindow()?.setGravity(Gravity.TOP)
+                    }
 
 
                 }else{}
@@ -146,7 +152,10 @@ class KeepOrTossFragment : Fragment() {
                         .setNegativeButton("Start Again") { dialog, id ->
                             findNavController().navigate(R.id.action_keepOrTossFragment_self)}
                     val alert = builder.create()
-                    alert.show()}else{ builder.setMessage("Keep\uD83D\uDC4D")
+                    alert.show()
+                        alert.getWindow()?.setGravity(Gravity.TOP)
+
+                    }else{ builder.setMessage("Keep\uD83D\uDC4D")
                         .setCancelable(false)
                         .setPositiveButton("Do something else") { dialog, id ->
                             findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
@@ -154,7 +163,9 @@ class KeepOrTossFragment : Fragment() {
                             .setNegativeButton("Start Again") { dialog, id ->
                                 findNavController().navigate(R.id.action_keepOrTossFragment_self)}
                         val alert = builder.create()
-                        alert.show()}
+                        alert.show()
+                        alert.getWindow()?.setGravity(Gravity.TOP)
+                    }
                 }else{}
             }
             .launchIn(lifecycleScope)
@@ -178,9 +189,7 @@ class KeepOrTossFragment : Fragment() {
         binding.questionsViewpager.isUserInputEnabled = false
 
 
-            if(binding.questionsViewpager.currentItem == adapter.itemCount -1 ){
-            Toast.makeText(context, "Keep it", Toast.LENGTH_LONG).show()
-        }
+
 
 
 

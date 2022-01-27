@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.airbnb.lottie.LottieDrawable
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentFiveMinBinding
 import nl.dionsegijn.konfetti.models.Shape
@@ -50,11 +51,17 @@ class FiveMinFragment : Fragment() {
             binding.button.setOnClickListener {
                 if (isRunning) {
                     pauseTimer()
+                    binding.clockMove.pauseAnimation()
+                    binding.clockMove.speed =0.11F
+
                 } else {
                     val time  = 5
 
                     time_in_milli_seconds = time.toLong() *60000L
                     startTimer(time_in_milli_seconds)
+
+                    binding.clockMove.playAnimation()
+                    binding.clockMove.speed =0.11F
                 }
             }
 
@@ -131,4 +138,5 @@ class FiveMinFragment : Fragment() {
                  .setPosition(-50f, binding.viewKonfetti.width + 50f, -50f, -50f)
                  .streamFor(300, 5000L)
         }
+
     }
