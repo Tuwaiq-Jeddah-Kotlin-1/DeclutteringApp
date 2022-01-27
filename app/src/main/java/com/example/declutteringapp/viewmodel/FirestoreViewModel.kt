@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.declutteringapp.model.repo.FirestoreRepository
+import com.example.declutteringapp.model.repo.Repo
 import com.example.declutteringapp.model.UserInfoModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,7 +20,7 @@ import kotlinx.coroutines.withContext
 class FirestoreViewModel : ViewModel(){
 
     val TAG = "FIRESTORE_VIEW_MODEL"
-    var firebaseRepository = FirestoreRepository()
+    var firebaseRepository = Repo()
     var savedUser : MutableLiveData<List<UserInfoModel>> = MutableLiveData()
 
 

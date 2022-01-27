@@ -15,7 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.ActivityMainBinding
-import com.example.declutteringapp.model.SpaceRepo
+import com.example.declutteringapp.model.repo.Repo
 import java.util.*
 
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        SpaceRepo.NotificationRepo().myNotification(this)
+        Repo.NotificationRepo().myNotification(this)
 
         val sharedPreferences = getSharedPreferences("SHARED_PREF", Activity.MODE_PRIVATE)
 

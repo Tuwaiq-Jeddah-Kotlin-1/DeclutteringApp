@@ -7,15 +7,14 @@
     tools:context=".view.MySpaceFragment">
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="407dp"
         android:layout_height="107dp"
         android:src="@drawable/ic_frame_look_two"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/spaceRV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView9"
@@ -26,41 +25,37 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Room miniMizer"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="238dp"
+        android:layout_width="249dp"
 
-        android:layout_height="67dp"
+        android:layout_height="63dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
-        android:text="Add each room you want to declutter, to keep on track, and check your progress"
+        android:text="@string/add_each_room_you_want_to_declutter_to_keep_on_track_and_check_your_progress"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/spaceRV"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/spaceRV"
-        android:layout_width="352dp"
-        android:layout_height="421dp"
-android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="505dp"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:listitem="@layout/space_rv_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -70,25 +65,10 @@ android:layout_margin="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="28dp"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:tint="@color/white" />
-
-   <!-- <TextView
-        android:id="@+id/emtyTextRV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:text="Add Every Space in your house You want to Declutter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

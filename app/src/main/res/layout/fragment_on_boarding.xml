@@ -8,23 +8,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.declutteringapp.view.OnBoardingFragment">
 
-    <!--  <TextSwitcher55555555555555555554
-
-
-
-  8
-        android:id="@+id/textSwitcher"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginRight="32dp"
-        android:inAnimation="@anim/fui_slide_in_right"
-        android:outAnimation="@anim/move_left"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
-
     <ImageView
         android:layout_width="253dp"
         android:layout_height="92dp"
@@ -51,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:text="Already have an account? login"
+        android:text="@string/already_have_an_account_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:text="clear space, clear mind"
+        android:text="@string/clear_space_clear_mind"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,12 +73,11 @@
         android:layout_width="254dp"
         android:layout_height="39dp"
         android:layout_marginTop="88dp"
-        android:text="Start miniMizing"
+        android:text="@string/start_minimizing"
         android:textAllCaps="false"
-        android:textColorHighlight="#B1B0B0"
-        android:textColorLink="#D8D8D8"
         android:textSize="14dp"
         app:cornerRadius="6dp"
+        android:background="@drawable/border_shape_two"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

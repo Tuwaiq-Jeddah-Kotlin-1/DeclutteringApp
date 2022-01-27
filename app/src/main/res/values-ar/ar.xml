@@ -19,7 +19,51 @@
     <string name="signout">تسجيل الخروج</string>
     <string name="stop">أوقف المؤقت</string>
     <string name="start">ابدا المؤقت</string>
-    <string name="working">Started</string>
-    <string name="stopped">Stopped</string>
-    <string name="change_language">Change Language:</string>
+    <string name="working">بدأت</string>
+    <string name="stopped">توقفت</string>
+    <string name="change_language">تغيير اللغة</string>
+    <string name="save_button">حفظ</string>
+    <string name="cancel_button">×</string>
+    <string name="error_task_cancelled">Task Cancelled</string>
+    <string name="error_camera_app_not_found">Camera not found</string>
+    <string name="error_failed_to_create_camera_image_file">failed to create image file</string>
+    <string name="permission_camera_denied">camera permission denied</string>
+    <string name="error_failed_to_crop_image">failed to crop image</string>
+    <string name="title_choose_image_provider">Choose Image provider</string>
+    <string name="action_cancel">actionn canceled</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_gallery">Gallary</string>
+    <string name="room_stats">حالة الغرفة</string>
+    <string name="room_title_jj">عنوان الغرفة</string>
+    <string-array name="room_spinner">
+        <item>مزدحمة بالأشياء</item>
+        <item>كل الأشياء لها مكانها المخصص</item>
+        <item>تحتاج لبعض التقليل</item>
+    </string-array>
+    <string-array name="room_name_spinner">
+        <item>المطبخ</item>
+        <item>غرفة المعيشة</item>
+        <item>غرفة النوم</item>
+        <item>غرفة الضيوف</item>
+        <item>غرفة أطفال</item>
+        <item>جراج</item>
+        <item>دورة مياه</item>
+        <item>غرفة تخزين</item>
+        <item>غرفة ألعاب</item>
+    </string-array>
+    <string-array name="decluttring_qoutes">
+        <item>“الاكتفاء ليس بكمية معينة، الاكتفاء هو قرار” أليسون فالكنر</item>
+        <item>“ البيت الهادئ، يساوي قلب هادئ وحياة هادئة
+– ايركا لاين</item>
+        <item>“منزلك لابد أن يكون راحة من التوتر، وبيس سببا له.”
+– بيتر والش</item>
+        <item>المجتمع يقول أنك تحتاج للعديد من الممتلكات لتكون سعيدا، وهو مخطأ.” , جوشوا بيكر</item>
+        <item>"التخفيف من الأغراض الزائدة، يجعل عبأ الحياة أخف" , قريتشين روبين</item>
+        <item>"من الهدوء يأتي الصفاء" تريفير كاريس</item>
+        <item>"أفضل طريقة لايجاد ما تحتاج اليه، هي بالتخلص من الذ لا تحتاجه" ماري كونر</item>
+        <item>"Eliminating clutter makes the burden of daily life feel lighter", Gretchen Rubin</item>
+        <item>"Owning less is better than organizing more" Joshua Becker</item>
+    </string-array>
+    <string name="selected_item">Selected item:</string>
+    <string name="room_title">room name</string>
 </resources>

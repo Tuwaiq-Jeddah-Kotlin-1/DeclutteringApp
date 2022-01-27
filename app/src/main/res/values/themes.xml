@@ -3,11 +3,11 @@
     <style name="Theme.DeclutteringApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#000000</item>
-        <item name="colorPrimaryVariant">@color/Grey</item>
-        <item name="colorOnPrimary">@color/Grey</item>
+        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#000000</item>
-        <item name="colorSecondaryVariant">#FAC1AF</item>
+        <item name="colorSecondaryVariant">#000000</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

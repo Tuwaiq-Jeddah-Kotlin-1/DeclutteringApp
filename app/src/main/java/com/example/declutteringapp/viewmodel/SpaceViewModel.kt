@@ -1,13 +1,10 @@
 package com.example.declutteringapp.viewmodel
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.declutteringapp.model.Space
-import com.example.declutteringapp.model.SpaceDataBase
-import com.example.declutteringapp.model.SpaceRepo
 import com.example.declutteringapp.model.ToDeclutter
+import com.example.declutteringapp.model.repo.Repo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -17,7 +14,7 @@ class SpaceViewModel : ViewModel() {
 
 
 
-    val repository: SpaceRepo = SpaceRepo()
+    val repository: Repo = Repo()
 
     val allSpaces: LiveData<List<Space>> =repository.allSpaces
 

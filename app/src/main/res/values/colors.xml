@@ -2,8 +2,6 @@
 <resources>
     <color name="dialog_choose_icon_color">#757575</color>
     <color name="dialog_choose_text_color">#757575</color>
-
-
     <color name="black">#FF000000</color>
     <color name="Bege">#F2EAC2</color>
     <color name="Blue">#8FD9D9</color>

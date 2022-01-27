@@ -36,9 +36,6 @@ import java.util.*
 
 class EditSpaceFragment : Fragment() {
 
-
-
-
     lateinit var roomStutus: Spinner
     lateinit var roomNames: Spinner
     lateinit var saveBtn: Button

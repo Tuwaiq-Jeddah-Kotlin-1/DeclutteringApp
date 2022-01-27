@@ -44,7 +44,6 @@ class OnBoardingFragment : Fragment() {
 
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -57,12 +56,8 @@ class OnBoardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         init()
-
     }
-
 
     private fun init() {
         val viewModel = ViewModelProvider(
@@ -73,14 +68,8 @@ class OnBoardingFragment : Fragment() {
         val adapter = LocalAdapter(viewModel)
         val items = listOf(
             Item("Owning less is better than organizing more", R.drawable.onboarding_two),
-            Item(
-                "start decluttering,with our fun tools and  challenges!",
-                R.drawable.onboarding_one
-            ),
-            Item(
-                "get a clear image of each room in your house with our room miniMizer",
-                R.drawable.onboarding_three
-            )
+            Item("Start miniMizing,, with our fun tools and  challenges!", R.drawable.onboarding_one),
+            Item("get a clear image of each room in your house with our room miniMizer", R.drawable.onboarding_three)
         )
         adapter.replaceItems(items)
         binding.viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -98,12 +87,8 @@ class OnBoardingFragment : Fragment() {
             binding.viewpager.setCurrentItem(position, true)
         })
 
-        binding?.indicator?.setViewPager(binding?.viewpager)
+        binding.indicator.setViewPager(binding.viewpager)
 
-
-        fun Context.getRawInput(@RawRes resourceId: Int): InputStream {
-            return resources.openRawResource(resourceId)
-        }
 
         binding.getStarted.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_logInFragment)

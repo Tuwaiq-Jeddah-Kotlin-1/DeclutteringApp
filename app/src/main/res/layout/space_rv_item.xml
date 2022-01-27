@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/ivDeleteSpace"
             android:padding="4dp"
-            android:text="Space Status"
+            android:text="@string/space_status"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

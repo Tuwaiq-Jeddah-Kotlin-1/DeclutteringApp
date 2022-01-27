@@ -7,9 +7,4 @@ data class UserInfoModel(var name:String,var email:String,var password:String) :
 
         constructor():this("","","")
 
-
-        fun getUserInfo():String{
-            var user = " $email,password:$password"
-            return user
-        }
     }

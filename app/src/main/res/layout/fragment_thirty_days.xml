@@ -23,7 +23,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="30 Days Challenge"
+        android:text="@string/_30_days_challenge"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +38,7 @@
         android:layout_height="67dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="The first day declutter one item, the second day two, the third day three items, and so one..
-this challenge is meant to help you get started! by the end you'll declutter 500 Items!"
+        android:text="@string/the_first_day_declutter_one_item_the_second_day_two_the_third_day_three_items_and_so_one_this_challenge_is_meant_to_help_you_get_started_by_the_end_you_ll_declutter_500_items"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
