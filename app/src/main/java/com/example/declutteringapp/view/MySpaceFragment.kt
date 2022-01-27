@@ -67,14 +67,9 @@ class MySpaceFragment : Fragment() , SpaceRvAdapter.SpaceClickDeleteInterface,
 
         spacesRV.adapter = spaceRvAdapter
 
-      /*  viewModel = ViewModelProvider(
-            this
-        ).get(SpaceViewModel::class.java)*/
-
 
         viewModel.allSpaces.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
-
                 spaceRvAdapter.updateList(it)
 
             }

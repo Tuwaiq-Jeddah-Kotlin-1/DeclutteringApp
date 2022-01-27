@@ -13,7 +13,6 @@ import com.example.declutteringapp.model.ThirtyDays
 
 class ThirtyDaysRVAdapter(
     val context: Context,
-  //  val dayClickInterface: DayClickInterface,
 
 ) :
     RecyclerView.Adapter<ThirtyDaysRVAdapter.ViewHolder>() {
@@ -22,7 +21,6 @@ class ThirtyDaysRVAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val itemCount = itemView.findViewById<TextView>(R.id.rvItemNum)
         val itemNum = itemView.findViewById<TextView>(R.id.rvItemNum)
         val imageView: ImageView = itemView.findViewById(R.id.rvThirtyImg)
 
@@ -39,7 +37,6 @@ class ThirtyDaysRVAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var days = allDays[position]
 
-        //holder.itemCount.setText(allDays.get(position).itemCounts.toString())
 
         holder.itemNum.setText((position+1).toString())
 
@@ -70,16 +67,7 @@ class ThirtyDaysRVAdapter(
     }
 
 
-    interface DayClickInterface {
 
-        fun onDayClick(thirtyDays: ThirtyDays)
-    }
-
-
-    fun setData(arrDaysList: List<ThirtyDays>) {
-        var arrlist = arrDaysList as ArrayList<ThirtyDays>
-        arrlist +30
-    }
 
 }
 

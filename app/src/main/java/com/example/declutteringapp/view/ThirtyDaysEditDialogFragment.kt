@@ -39,8 +39,6 @@ class ThirtyDaysEditDialogFragment: Fragment(){
     lateinit var viewModelDay: DaysViewModel
     lateinit var saveBtn: Button
     lateinit var ImageCamera: ImageButton
-    lateinit var ImageGallary: ImageButton
-    lateinit var itemNum: EditText
     lateinit var imagePlace: ImageView
 
     var dayID = -1
@@ -79,21 +77,15 @@ class ThirtyDaysEditDialogFragment: Fragment(){
 
         saveBtn = binding.btnSubmitDay
 
-    /*    val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            uri?.let { binding.imagePlacement.setImageURI(uri) }
-        }*/
+        imagePlace.setOnClickListener{
+            captureImage()
+
+
+        }
         ImageCamera.setOnClickListener {
             captureImage()
         }
 
-        ImageGallary.setOnClickListener {
-
-            //getActionTakePicture.launch("image/*")
-
-        }
-
-
-      //  initViews()
 
         binding.btnSubmitDay.setOnClickListener {
             createSpace(it)
@@ -108,14 +100,6 @@ class ThirtyDaysEditDialogFragment: Fragment(){
 
 
 
-      /*  when {
-            TextUtils.isEmpty(binding.etItemNumber.text.toString().trim { it <= ' ' }) -> {
-                Toast.makeText(context, "Please Enter a Item Count", Toast.LENGTH_LONG).show()
-            }
-
-            }*/
-
-
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
                     val data =
@@ -126,13 +110,6 @@ class ThirtyDaysEditDialogFragment: Fragment(){
 
                 }
             }}
-
-
-
-    private fun inputCheck(count: String, Img: String): Boolean{
-        return (!TextUtils.isEmpty(count.toString()) && !TextUtils.isEmpty(Img))
-    }
-
 
 
             private val getActionTakePicture =

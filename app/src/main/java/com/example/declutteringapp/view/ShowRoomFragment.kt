@@ -49,17 +49,13 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
     private lateinit var _binding: FragmentShowRoomBinding
     private val binding get() = _binding!!
     lateinit var viewModelD: SpaceViewModel
-    lateinit var ImageCamera: ImageButton
-    lateinit var ImageGallary: ImageButton
     lateinit var toDeclutterRV: RecyclerView
     lateinit var addFAB: ImageButton
     private var photoFile: File? = null
     private var itemId=0
     private var mCurrentPhotoPath: String? = null
-    private var selectedImagePath = ""
     private lateinit var sharedPreferences: SharedPreferences
 
-    //val sharedViewModel by activityViewModels<ItemsSharedViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +77,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ImageCamera = binding.imgCameraSpace
         binding.ShowRoomName.setText(spaces.space.roomName)
         binding.ShowRoomStatus.setText(spaces.space.status)
         Glide.with(this)
@@ -107,7 +102,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(SpaceViewModel::class.java)
 
-      //  initViews()
 
 
         viewModelD.allItems(spaces.space.roomId).observe(viewLifecycleOwner,  { list ->
@@ -122,21 +116,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
             itemDialog()
         }
 
-        ImageCamera.setOnClickListener {
-            captureImage()
-            viewModelD.updateSpace(Space(
-                  "",
-               "",
-                mCurrentPhotoPath
-            ))
-
-        }
-
-        binding.showRoomImage.setOnClickListener{
-            captureImage()
-            viewModelD.updateSpace(Space("","",mCurrentPhotoPath ))
-
-        }
 
 
     }
@@ -175,99 +154,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
 
 
-
-
-    fun initViews() = binding.apply {
-       if (itemId != -1) {
-           viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-
-            val itemsDeclutterr = view?.findViewById<EditText>(R.id.etAddItem)
-
-            viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-                context?.let {
-                    var  itemsD=   itemsDeclutterr?.text.toString()
-
-
-                    val data = ToDeclutter(
-                            items = itemsD,spaces.space.roomId
-                        )
-
-                    viewModelD.addItem(data)
-
-
-                    binding.showRoomImage.visibility = View.VISIBLE
-
-          }}}}}
-    private  val getActionTakePicture =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == Activity.RESULT_OK) {
-                binding.showRoomImage.setImageURI(photoFile!!.toUri())
-
-
-            } else {
-
-
-                // "Request cancelled or something went wrong."
-            }
-
-        }
-
-
-    private fun captureImage() {
-        if (ContextCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.CAMERA
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(
-                    Manifest.permission.CAMERA,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ),
-                0
-            )
-        } else {
-            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-                // Ensure that there's a camera activity to handle the intent
-                takePictureIntent?.also {
-                    photoFile = try {
-                        createImageFile()
-                    } catch (ex: IOException) {
-
-                        null
-                    }
-                    photoFile?.also {
-                        val photoURI: Uri = FileProvider.getUriForFile(
-                            requireActivity().applicationContext,
-                            // "com.example.android.fileprovider"
-                            "com.example.declutteringapp.contentprovider",
-                            it
-                        )
-                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                        getActionTakePicture.launch(takePictureIntent)
-
-                    }
-                }}}}
-
-    @Throws(IOException::class)
-    fun createImageFile(): File {
-        // Create an image file name
-        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val imageFileName = "JPEG_" + timeStamp + "_"
-        val storageDir = activity?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        var image = File.createTempFile(
-            imageFileName, //* prefix *//*
-            ".jpg", //* suffix *//*
-            storageDir      //* directory *//*
-        )
-
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = image.absolutePath
-
-        return image
-    }
-
     override fun onDeleteIconClick(item: ToDeclutter) {
 
         val builder = AlertDialog.Builder(context)
@@ -282,8 +168,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
             }
         val alert = builder.create()
         alert.show()
-
-
 
     }
 }
