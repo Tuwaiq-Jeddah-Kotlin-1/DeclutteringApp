@@ -1,16 +1,13 @@
 package com.example.declutteringapp.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentStartBinding
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.callbackFlow
 
 
 class StartFragment : Fragment() {

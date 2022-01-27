@@ -1,21 +1,12 @@
 package com.example.declutteringapp.view
 
-import android.content.Context
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
-import androidx.viewpager.widget.PagerAdapter
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RawRes
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.Item
 import com.example.declutteringapp.viewmodel.OnBoardingViewModel

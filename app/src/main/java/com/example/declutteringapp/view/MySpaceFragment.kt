@@ -1,15 +1,13 @@
 package com.example.declutteringapp.view
 
 import android.app.AlertDialog
-import android.app.Application
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -21,7 +19,6 @@ import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.view.adapters.SpaceRvAdapter
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-
 import java.util.*
 
 

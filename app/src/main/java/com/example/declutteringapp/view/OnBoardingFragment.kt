@@ -1,37 +1,19 @@
 package com.example.declutteringapp.view
 import android.app.Application
-import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation.findNavController
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
-import com.example.declutteringapp.R
-import com.example.declutteringapp.model.Item
-import com.example.declutteringapp.viewmodel.OnBoardingViewModel
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import timber.log.Timber
-import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
-import android.widget.ImageView
-import androidx.annotation.RawRes
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
+import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentOnBoardingBinding
-import com.example.declutteringapp.viewmodel.SpaceViewModel
-import java.io.InputStream
+import com.example.declutteringapp.model.Item
+import com.example.declutteringapp.viewmodel.OnBoardingViewModel
+import timber.log.Timber
 
 
 class OnBoardingFragment : Fragment() {

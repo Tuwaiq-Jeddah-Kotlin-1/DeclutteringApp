@@ -2,9 +2,6 @@ package com.example.declutteringapp.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.declutteringapp.model.Space
-import com.example.declutteringapp.model.ThirtyDays
-import com.example.declutteringapp.model.ToDeclutter
 
 
 @Dao

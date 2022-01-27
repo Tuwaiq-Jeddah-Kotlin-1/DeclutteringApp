@@ -1,42 +1,24 @@
 
 package com.example.declutteringapp.view
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.declutteringapp.R.layout.support_simple_spinner_dropdown_item
-
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
-import com.example.declutteringapp.databinding.FragmentLogInBinding
+import com.example.declutteringapp.R.layout.support_simple_spinner_dropdown_item
 import com.example.declutteringapp.databinding.FragmentProfileBinding
-import com.example.declutteringapp.view.MainActivity
-import com.example.declutteringapp.viewmodel.FirestoreViewModel
-import com.firebase.ui.auth.AuthUI
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

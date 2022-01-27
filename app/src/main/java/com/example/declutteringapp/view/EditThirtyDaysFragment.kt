@@ -11,9 +11,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.text.TextUtils
-import android.view.*
-import android.widget.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -27,7 +31,6 @@ import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.EditThirtyDaysFragmentBinding
 import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.viewmodel.DaysViewModel
-
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat

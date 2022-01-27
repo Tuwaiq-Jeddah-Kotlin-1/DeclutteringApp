@@ -1,4 +1,6 @@
 package com.example.declutteringapp.viewmodel
+
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,14 +14,11 @@ import kotlinx.coroutines.launch
 
 class SpaceViewModel : ViewModel() {
 
-
-
     val repository: Repo = Repo()
 
     val allSpaces: LiveData<List<Space>> =repository.allSpaces
 
     fun allItems(roomId:Int): LiveData<List<ToDeclutter>> = repository.allItems(roomId)
-
 
     fun deleteSpace(space: Space) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(space)

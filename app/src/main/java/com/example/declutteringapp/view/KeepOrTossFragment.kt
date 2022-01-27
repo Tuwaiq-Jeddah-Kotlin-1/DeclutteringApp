@@ -1,47 +1,30 @@
 package com.example.declutteringapp.view
 
-import android.Manifest
 import android.app.AlertDialog
-import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.os.Build
 import android.os.Bundle
-import android.text.method.TextKeyListener.clear
-import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.*
-import androidx.cardview.widget.CardView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.applyCanvas
-import androidx.core.view.ViewCompat
+import android.widget.AbsListView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentKeepOrTossBinding
 import com.example.declutteringapp.model.KeepOrTossModel
-import com.example.declutteringapp.model.ToDeclutter
 import com.example.declutteringapp.view.adapters.QuestionsViewPagerAdapter
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import java.io.OutputStream
 import kotlin.math.abs
 import kotlin.math.min
 
 
-
-private const val MOVE_DISTANCE = 40
+private const val MOVE_DISTANCE = 30
 private const val MOVE_TIME = 50
 
 class KeepOrTossFragment : Fragment() {
@@ -100,9 +83,30 @@ class KeepOrTossFragment : Fragment() {
             }
             .onEach {
                 secondClick()
-                if (nClick+yesClick>= 12 && nClick>yesClick) {
+                if (nClick+yesClick>= 12  || yesClick>= 12 || nClick>= 12) {
                     binding.noButton.isEnabled=false
                     binding.yesButton.isEnabled=false
+                    val builder = AlertDialog.Builder(context)
+                    if(nClick>yesClick){
+                        builder.setMessage("Tosss \uD83D\uDC4B")
+                            .setCancelable(false)
+                            .setPositiveButton("Do something else") { dialog, id ->
+                                findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
+                            }
+                            .setNegativeButton("Start Again") { dialog, id ->
+                                findNavController().navigate(R.id.action_keepOrTossFragment_self)
+
+                            }
+                        val alert = builder.create()
+                        alert.show()}else{ builder.setMessage("Keep \uD83D\uDC4D")
+                        .setCancelable(false)
+                        .setPositiveButton("Do something else") { dialog, id ->
+                            findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
+                        }
+                        .setNegativeButton("Start Again") { dialog, id ->
+                            findNavController().navigate(R.id.action_keepOrTossFragment_self)}
+                        val alert = builder.create()
+                        alert.show()}
                   //  Toast.makeText(context, "btn 12", Toast.LENGTH_LONG).show()
 
 
@@ -128,10 +132,29 @@ class KeepOrTossFragment : Fragment() {
             }
             .onEach {
                 secondClickN()
-                if (nClick+yesClick>= 12) {
+                if (nClick+yesClick>= 12  || yesClick>= 12 || nClick>= 12) {
                     binding.noButton.isEnabled=false
                     binding.yesButton.isEnabled=false
                   Toast.makeText(context, "Well done", Toast.LENGTH_LONG).show()
+                    val builder = AlertDialog.Builder(context)
+                    if(nClick>yesClick){
+                    builder.setMessage("Tosss \uD83D\uDC4B")
+                        .setCancelable(false)
+                        .setPositiveButton("Do something else") { dialog, id ->
+                            findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
+                        }
+                        .setNegativeButton("Start Again") { dialog, id ->
+                            findNavController().navigate(R.id.action_keepOrTossFragment_self)}
+                    val alert = builder.create()
+                    alert.show()}else{ builder.setMessage("Keep\uD83D\uDC4D")
+                        .setCancelable(false)
+                        .setPositiveButton("Do something else") { dialog, id ->
+                            findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
+                        }
+                            .setNegativeButton("Start Again") { dialog, id ->
+                                findNavController().navigate(R.id.action_keepOrTossFragment_self)}
+                        val alert = builder.create()
+                        alert.show()}
                 }else{}
             }
             .launchIn(lifecycleScope)

@@ -1,35 +1,17 @@
 package com.example.declutteringapp.view
 
+
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
-import com.example.declutteringapp.databinding.FragmentEditSpaceBinding
-import com.example.declutteringapp.databinding.FragmentSplashBinding
-import kotlinx.coroutines.*
-
-/*import android.content.Context
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
-import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.**/
-import java.lang.Runnable
-import kotlin.coroutines.CoroutineContext
 
 
 class SplashFragment : Fragment() {

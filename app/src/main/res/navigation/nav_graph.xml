@@ -215,13 +215,26 @@
         android:label="fragment_keep_or_toss"
         tools:layout="@layout/fragment_keep_or_toss" >
 
+        <action
+            android:id="@+id/action_keepOrTossFragment_to_startFragment2"
+            app:destination="@id/startFragment2" />
+        <action
+            android:id="@+id/action_keepOrTossFragment_self"
+            app:destination="@id/keepOrTossFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/buyOrSave"
         android:name="com.example.declutteringapp.view.BuyOrSave"
         android:label="fragment_buy_or_save"
-        tools:layout="@layout/fragment_buy_or_save" />
+        tools:layout="@layout/fragment_buy_or_save" >
+        <action
+            android:id="@+id/action_buyOrSave_to_startFragment2"
+            app:destination="@id/startFragment2" />
+        <action
+            android:id="@+id/action_buyOrSave_self"
+            app:destination="@id/buyOrSave" />
+    </fragment>
 
 
 

@@ -1,16 +1,13 @@
 package com.example.declutteringapp.view.adapters
 
-import android.app.AlertDialog
-import com.example.declutteringapp.R
-import com.example.declutteringapp.databinding.QuestionsLayoutBinding
-
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.declutteringapp.R
+import com.example.declutteringapp.databinding.QuestionsLayoutBinding
 import com.example.declutteringapp.model.KeepOrTossModel
 
 class QuestionsViewPagerAdapter( val context: Context,private var listQuestions: MutableList<KeepOrTossModel>?) :
