@@ -227,13 +227,13 @@ class KeepOrTossFragment : Fragment() {
         }
     }
 
-    suspend fun firstClickN(){
+     fun firstClickN(){
         binding.noButton.clicks()
         val distance = min(distanceToEdge(false), MOVE_DISTANCE)
         moveImage(distance)
     }
 
-    suspend fun secondClickN(){
+     fun secondClickN(){
         binding.noButton.clicks()
         if (binding.questionsViewpager.scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
             binding.questionsViewpager.setCurrentItem(

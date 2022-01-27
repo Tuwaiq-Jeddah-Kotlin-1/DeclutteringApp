@@ -167,10 +167,14 @@
         android:id="@+id/fiveMinFragment"
         android:name="com.example.declutteringapp.view.FiveMinFragment"
         android:label="fragment_five_min"
-        tools:layout="@layout/fragment_five_min" />
+        tools:layout="@layout/fragment_five_min" >
+        <action
+            android:id="@+id/action_fiveMinFragment_to_startFragment2"
+            app:destination="@id/startFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/thirtyDaysEditDialogFragment"
-        android:name="com.example.declutteringapp.view.ThirtyDaysEditDialogFragment"
+        android:name="com.example.declutteringapp.view.EditThirtyDaysFragment"
         android:label="ThirtyDaysEditDialogFragment" >
 
         <action

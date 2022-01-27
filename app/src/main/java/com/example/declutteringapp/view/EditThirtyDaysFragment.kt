@@ -24,7 +24,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.declutteringapp.R
-import com.example.declutteringapp.databinding.DialogFragmentEditThirtyDaysBinding
+import com.example.declutteringapp.databinding.EditThirtyDaysFragmentBinding
 import com.example.declutteringapp.model.ThirtyDays
 import com.example.declutteringapp.viewmodel.DaysViewModel
 
@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class ThirtyDaysEditDialogFragment: Fragment(){
+class EditThirtyDaysFragment: Fragment(){
 
     lateinit var viewModelDay: DaysViewModel
     lateinit var saveBtn: Button
@@ -48,23 +48,21 @@ class ThirtyDaysEditDialogFragment: Fragment(){
     private var selectedImagePath = ""
 
 
-    private lateinit var binding: DialogFragmentEditThirtyDaysBinding
-
-
+    private lateinit var binding:  EditThirtyDaysFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DialogFragmentEditThirtyDaysBinding.inflate(inflater, container, false)
+        binding = EditThirtyDaysFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews()
+      initViews()
 
     viewModelDay = ViewModelProvider(
             this,
@@ -79,9 +77,8 @@ class ThirtyDaysEditDialogFragment: Fragment(){
 
         imagePlace.setOnClickListener{
             captureImage()
-
-
         }
+
         ImageCamera.setOnClickListener {
             captureImage()
         }
@@ -107,6 +104,10 @@ class ThirtyDaysEditDialogFragment: Fragment(){
                     viewModelDay.addDay(data)
                     Toast.makeText(requireContext(), "You updated the day!", Toast.LENGTH_SHORT)
                         .show()
+                    if (image==null){
+                        Toast.makeText(requireContext(), "please take a photo of the items!", Toast.LENGTH_SHORT)
+
+                    }
 
                 }
             }}

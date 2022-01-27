@@ -7,7 +7,7 @@
     android:background="@color/Grey"
 
     android:orientation="vertical"
-    tools:context="com.example.declutteringapp.view.ThirtyDaysEditDialogFragment">
+    tools:context="com.example.declutteringapp.view.EditThirtyDaysFragment">
 
         <ImageView
             android:id="@+id/imagePlacement"

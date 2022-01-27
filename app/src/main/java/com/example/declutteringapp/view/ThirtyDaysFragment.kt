@@ -1,11 +1,13 @@
 package com.example.declutteringapp.view
 
+import android.app.AlertDialog
 import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -45,6 +47,7 @@ class ThirtyDaysFragment : Fragment()  {
 
         thirtyDaysRVv = binding.thirtyDaysRV
 
+
         thirtyDaysRVv.layoutManager = GridLayoutManager(context, 3)
 
         viewModel = ViewModelProvider(
@@ -60,24 +63,31 @@ class ThirtyDaysFragment : Fragment()  {
             findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
         }
 
-      /*  val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
-        val currentDateAndTime: String = sdf.format(Date())
-
-        val daysData = ArrayList<ThirtyDays>()
-
-*/
 
         viewModel.allDays.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
 
                 thirtyDaysRVAdapter.updateList(it)
+              /*  when (list.size-1) {
+                    val builder = AlertDialog.Builder(context)
+                    builder.setMessage("Your done clear, startagain, or do another challenge")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes") { dialog, id ->
+                            thirtyDaysRVv.removeAllViewsInLayout()
+                            Toast.makeText(this.activity, "list cleard", Toast.LENGTH_LONG).show()
+                        }
+                        .setNegativeButton("No") { dialog, id ->
+                            dialog.dismiss()
+                        }
+                    val alert = builder.create()
+                    alert.show()
+*/
+
+
             }
+
         })
     }
- /*   override fun onDayClick(thirtyDays: ThirtyDays) {
-        findNavController().navigate(R.id.action_thirtyDaysFragment_to_thirtyDaysEditDialogFragment)
-    }*/
-
 
 
 

@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.content.Context
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.model.ThirtyDays
@@ -18,6 +19,7 @@ class ThirtyDaysRVAdapter(
     RecyclerView.Adapter<ThirtyDaysRVAdapter.ViewHolder>() {
 
     val allDays= ArrayList<ThirtyDays>()
+var limit =30
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -38,6 +40,7 @@ class ThirtyDaysRVAdapter(
         var days = allDays[position]
 
 
+
         holder.itemNum.setText((position+1).toString())
 
         Glide.with(context)
@@ -48,13 +51,22 @@ class ThirtyDaysRVAdapter(
 
             allDays.get(position)
         }
+
+
+
     }
 
 
     override fun getItemCount(): Int {
-        return allDays.size
+        if(allDays.size>=limit){
+            Toast.makeText(context, "You have finshed the challenge", Toast.LENGTH_SHORT).show()
+        return limit}
+
+        else {return allDays.size}
 
     }
+
+
 
 
     fun updateList(newList: List<ThirtyDays>) {

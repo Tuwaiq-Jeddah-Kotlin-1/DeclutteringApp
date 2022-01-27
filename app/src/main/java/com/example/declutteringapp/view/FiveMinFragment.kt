@@ -3,15 +3,20 @@ package com.example.declutteringapp.view
 
 
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentFiveMinBinding
 import nl.dionsegijn.konfetti.models.Shape
 import nl.dionsegijn.konfetti.models.Size
@@ -49,7 +54,7 @@ class FiveMinFragment : Fragment() {
                 if (isRunning) {
                     pauseTimer()
                 } else {
-                    val time  = 1
+                    val time  = 5
 
                     time_in_milli_seconds = time.toLong() *60000L
                     startTimer(time_in_milli_seconds)
@@ -74,8 +79,19 @@ class FiveMinFragment : Fragment() {
         private fun startTimer(time_in_seconds: Long) {
             countdown_timer = object : CountDownTimer(time_in_seconds, 1000) {
                 override fun onFinish() {
-                    loadConfeti()
 
+                    val builder = AlertDialog.Builder(context)
+                    builder.setMessage("Well Done! \uD83D\uDC4F")
+                        .setCancelable(false)
+                        .setPositiveButton("Do something else") { dialog, id ->
+                            findNavController().navigate(R.id.action_fiveMinFragment_to_startFragment2)
+                        }
+                        .setNegativeButton("Start Again") { dialog, id ->
+                            dialog.dismiss()
+                        }
+                    val alert = builder.create()
+                    alert.show()
+                    loadConfeti()
 
                 }
 
@@ -113,57 +129,9 @@ class FiveMinFragment : Fragment() {
                  .setSpeed(1f, 5f)
                  .setFadeOutEnabled(true)
                  .setTimeToLive(2000L)
+                 .addColors(Color.parseColor("#FFD700"), Color.parseColor("#FD7F20"))
                  .addSizes(Size(12))
                  .setPosition(-50f, binding.viewKonfetti.width + 50f, -50f, -50f)
                  .streamFor(300, 5000L)
         }
     }
-
-
-       /*         binding.btn.setText(if (isWorking) R.string.start else R.string.stop)
-
-                Toast.makeText(
-                    context, getString(
-                        if (isWorking)
-                            R.string.working
-                        else
-                            R.string.stopped
-                    ),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
-*/
-
-
-/*    var isWorking = false
-
-    val meter = binding.cMeter
-
-    override fun onClick(v: View) {
-
-        if (!isWorking) {
-            meter.start()
-            isWorking = true
-        } else {
-            meter.stop()
-            isWorking = false
-        }
-
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
