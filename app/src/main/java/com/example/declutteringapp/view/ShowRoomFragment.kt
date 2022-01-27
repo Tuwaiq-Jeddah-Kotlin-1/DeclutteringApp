@@ -1,44 +1,27 @@
 package com.example.declutteringapp.view
 
-import android.Manifest
-import android.app.Activity
 import android.app.AlertDialog
 import android.app.Application
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
-import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
-import androidx.core.net.toUri
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.declutteringapp.R
 import com.example.declutteringapp.databinding.FragmentShowRoomBinding
-import com.example.declutteringapp.model.Space
 import com.example.declutteringapp.model.ToDeclutter
 import com.example.declutteringapp.view.adapters.ToDeclutterAdapter
 import com.example.declutteringapp.viewmodel.SpaceViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import java.io.File
-import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
@@ -51,10 +34,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
     lateinit var viewModelD: SpaceViewModel
     lateinit var toDeclutterRV: RecyclerView
     lateinit var addFAB: ImageButton
-    private var photoFile: File? = null
-    private var itemId=0
-    private var mCurrentPhotoPath: String? = null
-    private lateinit var sharedPreferences: SharedPreferences
 
 
 
@@ -84,9 +63,6 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
             .into(binding.showRoomImage)
 
 
-
-        sharedPreferences =
-            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
 
         toDeclutterRV = binding.toDeclutterRV
         toDeclutterRV.layoutManager = GridLayoutManager(context, 1)
