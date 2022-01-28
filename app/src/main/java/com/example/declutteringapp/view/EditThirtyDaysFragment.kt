@@ -88,32 +88,38 @@ class EditThirtyDaysFragment: Fragment(){
 
 
         binding.btnSubmitDay.setOnClickListener {
-            createSpace(it)
-            findNavController().navigate(R.id.action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment)
-        }
-
-    }
-
-
-    private fun createSpace(it: View?) {
-        val image = mCurrentPhotoPath
-
-
+            val image = mCurrentPhotoPath
 
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
                     val data =
                         ThirtyDays(dayNum = 0, imgPath = image)
-                    viewModelDay.addDay(data)
-                    Toast.makeText(requireContext(), "You updated the day!", Toast.LENGTH_SHORT)
-                        .show()
-                    if (image==null){
-                        Toast.makeText(requireContext(), "please take a photo of the items!", Toast.LENGTH_SHORT)
+
+                    if (image.isNullOrEmpty()) {
+                        Toast.makeText(requireContext(), "please add an image!", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        if (data != null) {
+                            viewModelDay.addDay(data)
+                        }
+
+                        findNavController().navigate(R.id.action_thirtyDaysEditDialogFragment_to_thirtyDaysFragment)
+
+                        Toast.makeText(
+                            requireContext(),
+                            "You Added Today Items",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                     }
-
                 }
-            }}
+
+            }
+        }}
+
+    private fun createSpace(it: View?) {
+
+            }
 
 
             private val getActionTakePicture =

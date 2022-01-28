@@ -84,18 +84,6 @@ class EditSpaceFragment : Fragment() {
 
 
 
-        saveBtn.setOnClickListener {
-
-            createSpace(it)
-
-            findNavController().navigate(R.id.action_editSpaceFragment_to_mySpaceFragment22)
-
-            Toast.makeText(requireContext(), "You Added a Room!", Toast.LENGTH_SHORT).show()
-
-
-        }
-
-
 
 
 
@@ -172,35 +160,40 @@ class EditSpaceFragment : Fragment() {
                 }
             }
         }
-    }
 
 
-    fun createSpace(it: View?) {
+        saveBtn.setOnClickListener {
 
-        val roomName = roomNames.selectedItem.toString()
-        val spinnerText = roomStutus.selectedItem.toString()
-        val roomImage = mCurrentPhotoPath
 
-        val data = roomImage?.let { it1 ->
-            Space(
-                status = spinnerText,
-                roomName = roomName,
-                imgPath = it1,
-            )
+            val roomName = roomNames.selectedItem.toString()
+            val spinnerText = roomStutus.selectedItem.toString()
+            val roomImage = mCurrentPhotoPath
+
+            val data = roomImage?.let { it1 ->
+                Space(
+                    status = spinnerText,
+                    roomName = roomName,
+                    imgPath = it1,
+                )
+            }
+
+            if (roomImage.isNullOrEmpty()){
+                Toast.makeText(requireContext(), "please add an image!", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                if (data != null) {
+                    viewModel.addSpace(data)
+                }
+
+            findNavController().navigate(R.id.action_editSpaceFragment_to_mySpaceFragment22)
+
+            Toast.makeText(requireContext(), "You Added a Room!", Toast.LENGTH_SHORT).show()
+
+}
         }
 
-if (roomImage.isNullOrEmpty()){
-    Toast.makeText(requireContext(), "please add an image!", Toast.LENGTH_SHORT).show()
-}
-        else{
-    if (data != null) {
-        viewModel.addSpace(data)
     }
-            Toast.makeText(requireContext(), "please add an image!", Toast.LENGTH_SHORT).show()
-}
 
-
-    }
 
 
     fun initViews() = binding.apply {
