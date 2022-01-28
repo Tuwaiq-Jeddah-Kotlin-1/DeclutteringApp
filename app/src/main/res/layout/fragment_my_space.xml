@@ -53,13 +53,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/spaceRV"
         android:layout_width="match_parent"
-        android:layout_height="505dp"
-        android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="252dp"
         app:layout_constraintEnd_toEndOf="parent"
-
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/space_rv_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
