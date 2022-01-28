@@ -29,7 +29,6 @@ private const val MOVE_DISTANCE = 26
 private const val MOVE_TIME = 50
 
 class BuyOrSave : Fragment() {
-    private lateinit var sharedPreferences: SharedPreferences
 
     private lateinit var binding: FragmentBuyOrSaveBinding
     private lateinit var adapter: QuestionsViewPagerAdapter

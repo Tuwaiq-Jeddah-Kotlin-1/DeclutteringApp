@@ -1,120 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Grey"
-
-    tools:context=".view.EditSpaceFragment">
+    tools:context=".view.EditSpaceFragment"
+    tools:layout_editor_absoluteX="10dp"
+    tools:layout_editor_absoluteY="8dp">
 
     <TextView
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginBottom="112dp"
         android:text="Take a before photo of the room, to track your progress"
+        app:layout_constraintBottom_toTopOf="@+id/idRoomStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/showRoomImage"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/etRoomName"
-        android:layout_width="match_parent"
+        android:id="@+id/etRoomDec"
+        android:layout_width="411dp"
+        android:layout_height="93dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/border_shape"
+        android:hint="Enter a description, or any notes about the room"
+        app:layout_constraintBottom_toTopOf="@+id/idBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/idRoomStatus"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:autofillHints="choose a room name"
+        android:background="@drawable/border_shape"
+        android:dropDownWidth="match_parent"
+        android:dropDownSelector="@android:color/darker_gray"
+        android:elevation="2dp"
+        android:gravity="center_horizontal"
+        android:requiresFadingEdge="horizontal"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/etRoomDec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.761" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room Name"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.658" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="80dp"
+        android:text="Room State"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Room Description"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/etRoomDec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/idRoomName"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/border_shape"
+        android:dropDownWidth="match_parent"
+        android:dropDownSelector="@android:color/darker_gray"
+        android:elevation="2dp"
+        android:gravity="center_horizontal"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/idRoomStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.835" />
+
+    <ImageButton
+        android:id="@+id/imgCameraSpace"
+        android:layout_width="27dp"
+        android:layout_height="22dp"
+        android:backgroundTint="#FFFFFF"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_camers"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <ImageView
+        android:id="@+id/showRoomImage"
+        android:layout_width="243dp"
+        android:layout_height="166dp"
+        android:src="@drawable/ic_image_replace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <Button
+        android:id="@+id/idBtn"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:hint="Enter Note Title"
-        android:textColorHint="@color/white"
+        android:background="@drawable/border_shape_two"
+        android:text="Add the Room"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
-
-    <Spinner
-        android:id="@+id/idRoomStatus"
-        android:autofillHints="choose a room status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:alpha=".4"
-        android:dropDownWidth="match_parent"
-        android:dropDownSelector="@android:color/darker_gray"
-        android:elevation="20dp"
-        android:focusable="auto"
-        android:foregroundGravity="center_vertical|fill_vertical"
-        android:gravity="center_horizontal"
-        android:requiresFadingEdge="horizontal"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
-
-    <Spinner
-        android:id="@+id/idRoomName"
-        android:backgroundTint="#AAAAAA"
-        android:autofillHints="choose a room name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:alpha=".4"
-        android:dropDownWidth="match_parent"
-        android:dropDownSelector="@android:color/darker_gray"
-        android:elevation="20dp"
-        android:focusable="auto"
-        android:foregroundGravity="center_vertical|fill_vertical"
-        android:gravity="center_horizontal"
-        android:requiresFadingEdge="horizontal"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.400" />
-
-    <ImageButton
-        android:id="@+id/imgCameraSpace"
-        android:layout_width="41dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="#FFFFFF"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_camers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/showRoomImage"
-        android:layout_width="234dp"
-        android:layout_height="181dp"
-        android:src="@drawable/ic_image_replace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/idBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:text="Add the Room"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRoomName"
-        app:layout_constraintVertical_bias="0.695" />
+        app:layout_constraintVertical_bias="0.976" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

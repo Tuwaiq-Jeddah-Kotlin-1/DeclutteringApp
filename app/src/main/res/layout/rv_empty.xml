@@ -24,7 +24,6 @@
         android:layout_width="348dp"
         android:layout_height="335dp"
         android:alpha=".60"
-        android:src="@drawable/ic_star"
         tools:layout_editor_absoluteX="31dp"
         tools:layout_editor_absoluteY="107dp"
 

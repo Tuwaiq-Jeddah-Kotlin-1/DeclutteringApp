@@ -74,6 +74,9 @@ class EditSpaceFragment : Fragment() {
 
         }
 
+        binding.showRoomImage.setOnClickListener{
+            captureImage()
+        }
 
        initViews()
 
@@ -81,12 +84,6 @@ class EditSpaceFragment : Fragment() {
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(Application())
         ).get(SpaceViewModel::class.java)
-
-
-
-
-
-
 
 
         val roomState = resources.getStringArray(R.array.room_spinner)
@@ -98,81 +95,29 @@ class EditSpaceFragment : Fragment() {
             )
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             roomStutus.adapter = adapter
-            roomStutus.onItemSelectedListener = object :
-                AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View, position: Int, id: Long
-                ) {
-                    Toast.makeText(
-                        activity,
-                        getString(R.string.selected_item) + " " +
-                                "" + positionitem, Toast.LENGTH_SHORT
-                    ).show()
-
-                }
-
-                var positionitem: String = roomStutus.getSelectedItemPosition().toString()
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
-            }
         }
 
         val roomNamesRes = resources.getStringArray(R.array.room_name_spinner)
-
         if (roomNames != null) {
-
             val adapter = ArrayAdapter(
                 requireContext(),
                 R.layout.support_simple_spinner_dropdown_item, roomNamesRes
             )
-
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
             roomNames.adapter = adapter
-
-            roomNames.onItemSelectedListener = object :
-
-                AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View, position: Int, id: Long
-                ) {
-                    if (position == 0) {
-                        Toast.makeText(
-                            activity,
-                            getString(R.string.selected_item) + " " +
-                                    "" + positionitem, Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                    }
-
-
-                }
-
-                var positionitem: String = roomNames.getSelectedItemPosition().toString()
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-
-                }
-            }
         }
 
 
         saveBtn.setOnClickListener {
-
-
-            val roomName = roomNames.selectedItem.toString()
+   val roomName = roomNames.selectedItem.toString()
             val spinnerText = roomStutus.selectedItem.toString()
             val roomImage = mCurrentPhotoPath
-
+val roomDec=binding.etRoomDec.text.toString()
             val data = roomImage?.let { it1 ->
                 Space(
                     status = spinnerText,
                     roomName = roomName,
+                    description =roomDec ,
                     imgPath = it1,
                 )
             }
@@ -183,24 +128,23 @@ class EditSpaceFragment : Fragment() {
             else{
                 if (data != null) {
                     viewModel.addSpace(data)
-                }
 
             findNavController().navigate(R.id.action_editSpaceFragment_to_mySpaceFragment22)
 
             Toast.makeText(requireContext(), "You Added a Room!", Toast.LENGTH_SHORT).show()
 
-}
+}}
         }
 
     }
-
-
 
     fun initViews() = binding.apply {
         if (spaceID != -1) {
 
             var roomName = roomNames.selectedItem.toString()
             var spinnerText = roomStutus.selectedItem.toString()
+            val roomDec=binding.etRoomDec.text.toString()
+
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
 
@@ -208,10 +152,10 @@ class EditSpaceFragment : Fragment() {
                         Space(
                             status = spinnerText,
                             roomName = roomName,
-                            imgPath = it1
+description = roomDec,
+                        imgPath = it1
                         )
                     }
-                    // , subData = arrayListOf(String())
                     if (data != null) {
                         selectedImagePath = data.imgPath!!
                     }

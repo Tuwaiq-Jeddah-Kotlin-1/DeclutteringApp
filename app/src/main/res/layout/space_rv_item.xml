@@ -49,7 +49,7 @@
 
         <ImageView
             android:id="@+id/spaceImages"
-            android:layout_width="115dp"
+            android:layout_width="match_parent"
             android:layout_height="103dp"
             android:src="@drawable/ic_image_replace"
             app:layout_constraintBottom_toTopOf="@+id/tvSpacestatus"

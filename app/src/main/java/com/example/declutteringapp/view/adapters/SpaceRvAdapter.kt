@@ -13,6 +13,7 @@ import com.example.declutteringapp.model.Space
 
 
 class SpaceRvAdapter(
+
     val context: Context,
     val spaceClickDeleteInterface: SpaceClickDeleteInterface,
     val spaceClickInterface: SpaceClickInterface
@@ -43,6 +44,8 @@ class SpaceRvAdapter(
         val deleteSpace: ImageView = itemView.findViewById(R.id.ivDeleteSpace)
     }
 
+
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         var spaces = allSpaces[position]
@@ -53,6 +56,7 @@ class SpaceRvAdapter(
 
 
         Glide.with(context)
+
             .load(spaces.imgPath)
             .into(holder.spaceImage)
 

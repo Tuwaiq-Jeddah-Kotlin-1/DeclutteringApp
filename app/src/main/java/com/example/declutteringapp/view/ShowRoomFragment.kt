@@ -58,6 +58,7 @@ class ShowRoomFragment : Fragment(), ToDeclutterAdapter.ClickDeleteInterface {
 
         binding.ShowRoomName.setText(spaces.space.roomName)
         binding.ShowRoomStatus.setText(spaces.space.status)
+        binding.tvRoomDec.setText((spaces.space.description))
         Glide.with(this)
             .load(spaces.space.imgPath)
             .into(binding.showRoomImage)
