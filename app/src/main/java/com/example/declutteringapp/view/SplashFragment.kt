@@ -40,10 +40,10 @@ class SplashFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
-/*
+
             if (getOnBoardStatus())
                 findNavController().navigate(R.id.action_splashFragment_to_homeFragment2)
-            else*/
+            else
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
 
         }, 3000)
