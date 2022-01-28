@@ -42,32 +42,18 @@ class SplashFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
 
             if (getOnBoardStatus())
+
                 findNavController().navigate(R.id.action_splashFragment_to_homeFragment2)
             else
-                findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
+                findNavController().navigate(R.id.action_splashFragment_to_onBoardingFragment)
 
         }, 3000)
-
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
 
     fun getOnBoardStatus(): Boolean {
-        addPref()
-        return this.requireActivity().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)!!.getBoolean("finished", false)
-    }
 
-
-    fun addPref()
-    {
-        val shpf=requireContext().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)
-        shpf.edit().apply {  putBoolean("finished",true)}.apply()
+        return requireActivity().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)
+            .getBoolean("finished", false)
     }
 }
-
-

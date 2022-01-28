@@ -13,7 +13,7 @@ import kotlinx.android.parcel.Parcelize
 
     data class Space(@ColumnInfo(name = "roomName") var roomName:String,
                      @ColumnInfo(name = "status") var status:String,
-                     @ColumnInfo(name = "img_path") var imgPath: String?,
+                     @ColumnInfo(name = "img_path") var imgPath: String,
                      @PrimaryKey(autoGenerate = true) var roomId: Int = 0): Parcelable
 
 

@@ -1,5 +1,6 @@
 package com.example.declutteringapp.view
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,8 +51,14 @@ class OnBoardingFragment : Fragment() {
         val adapter = LocalAdapter(viewModel)
         val items = listOf(
             Item("Owning less is better than organizing more", R.drawable.onboarding_two),
-            Item("Start miniMizing,, with our fun tools and  challenges!", R.drawable.onboarding_one),
-            Item("get a clear image of each room in your house with our room miniMizer", R.drawable.onboarding_three)
+            Item(
+                "Start miniMizing,, with our fun tools and  challenges!",
+                R.drawable.onboarding_one
+            ),
+            Item(
+                "get a clear image of each room in your house with our room miniMizer",
+                R.drawable.onboarding_three
+            )
         )
         adapter.replaceItems(items)
         binding.viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -74,13 +81,18 @@ class OnBoardingFragment : Fragment() {
 
         binding.getStarted.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_logInFragment)
-
+            addPref()
         }
         binding.logInText.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_logInFragment)
 
         }
+    }
+        fun addPref()
+        {
+            val shpf=requireContext().getSharedPreferences("OnBoarding", Context.MODE_PRIVATE)
+            shpf.edit().apply {  putBoolean("finished",true)}.apply()
+        }
 
     }
 
-}

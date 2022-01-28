@@ -12,7 +12,6 @@
 
         <EditText
             android:id="@+id/etAddItem"
-            android:background="@drawable/border_shape"
             android:layout_width="231dp"
             android:layout_height="59dp" />
 

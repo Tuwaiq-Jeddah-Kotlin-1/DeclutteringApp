@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     private val binding get() = _binding!!
    // val sharedPref =getPreferences(Context.MODE_PRIVATE)
 
-    var score= 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.splashFragment -> {
                     binding.bottomNav.visibility = View.GONE
                 }
-                R.id.viewPagerFragment -> {
+                R.id.onBoardingFragment -> {
                     binding.bottomNav.visibility = View.GONE
                 }
                 R.id.homeFragment2 -> {

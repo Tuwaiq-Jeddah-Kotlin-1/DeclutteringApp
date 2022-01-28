@@ -38,7 +38,6 @@ class EditSpaceFragment : Fragment() {
     lateinit var roomNames: Spinner
     lateinit var saveBtn: Button
     lateinit var viewModel: SpaceViewModel
-    //lateinit var ImageGallary: ImageButton
     private var photoFile: File? = null
     private var mCurrentPhotoPath: String? = null
     private var selectedImagePath = ""
@@ -85,7 +84,6 @@ class EditSpaceFragment : Fragment() {
 
 
 
-
         saveBtn.setOnClickListener {
 
             createSpace(it)
@@ -96,6 +94,8 @@ class EditSpaceFragment : Fragment() {
 
 
         }
+
+
 
 
 
@@ -181,13 +181,23 @@ class EditSpaceFragment : Fragment() {
         val spinnerText = roomStutus.selectedItem.toString()
         val roomImage = mCurrentPhotoPath
 
-        val data = Space(
-            status = spinnerText,
-            roomName = roomName,
-            imgPath = roomImage,
-        )
+        val data = roomImage?.let { it1 ->
+            Space(
+                status = spinnerText,
+                roomName = roomName,
+                imgPath = it1,
+            )
+        }
 
+if (roomImage.isNullOrEmpty()){
+    Toast.makeText(requireContext(), "please add an image!", Toast.LENGTH_SHORT).show()
+}
+        else{
+    if (data != null) {
         viewModel.addSpace(data)
+    }
+            Toast.makeText(requireContext(), "please add an image!", Toast.LENGTH_SHORT).show()
+}
 
 
     }
@@ -201,13 +211,17 @@ class EditSpaceFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {
                 context?.let {
 
-                    val data = Space(
-                        status = spinnerText,
-                        roomName = roomName,
-                        imgPath = mCurrentPhotoPath
-                    )
+                    val data = mCurrentPhotoPath?.let { it1 ->
+                        Space(
+                            status = spinnerText,
+                            roomName = roomName,
+                            imgPath = it1
+                        )
+                    }
                     // , subData = arrayListOf(String())
-                    selectedImagePath = data.imgPath!!
+                    if (data != null) {
+                        selectedImagePath = data.imgPath!!
+                    }
                     showRoomImage.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath))
                     showRoomImage.visibility = View.VISIBLE
                 }
@@ -220,7 +234,7 @@ class EditSpaceFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 result.data?.data
-                binding.showRoomImage.setImageURI(mCurrentPhotoPath!!.toUri())
+                binding.showRoomImage.setImageURI(mCurrentPhotoPath?.toUri())
 
             }
         }
