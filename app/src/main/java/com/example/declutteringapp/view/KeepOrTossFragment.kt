@@ -88,7 +88,7 @@ class KeepOrTossFragment : Fragment() {
                     binding.yesButton.isEnabled=false
                     val builder = AlertDialog.Builder(context)
                     if(nClick>yesClick){
-                        builder.setMessage("You Should Probbly Toss It, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three month to a year, you should toss it.\uD83D\uDC4B")
+                        builder.setMessage("You Should Probbly Toss It, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three months to a year, you should toss it.\uD83D\uDC4B")
                             .setCancelable(false)
                             .setPositiveButton("Do something else") { dialog, id ->
                                 findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
@@ -144,7 +144,7 @@ class KeepOrTossFragment : Fragment() {
                   Toast.makeText(context, "Well done", Toast.LENGTH_LONG).show()
                     val builder = AlertDialog.Builder(context)
                     if(nClick>yesClick){
-                    builder.setMessage("\"You Should Probbly Toss the item, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three month to a year, you should toss it.\uD83D\uDC4B")
+                    builder.setMessage("\"You Should Probbly Toss the item, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three months to a year, you should toss it.\uD83D\uDC4B")
                         .setCancelable(false)
                         .setPositiveButton("Do something else") { dialog, id ->
                             findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)

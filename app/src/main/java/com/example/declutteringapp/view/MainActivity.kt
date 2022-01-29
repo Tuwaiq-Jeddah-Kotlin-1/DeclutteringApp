@@ -23,8 +23,7 @@ class MainActivity : AppCompatActivity() {
 
 
     lateinit var _binding:ActivityMainBinding
-    private val binding get() = _binding!!
-   // val sharedPref =getPreferences(Context.MODE_PRIVATE)
+    private val binding get() = _binding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

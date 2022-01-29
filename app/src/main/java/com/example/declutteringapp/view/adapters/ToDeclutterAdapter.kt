@@ -21,9 +21,6 @@ class ToDeclutterAdapter (
 
         private val allItems = ArrayList<ToDeclutter>()
 
-
-
-
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val itemView = LayoutInflater.from(parent.context).inflate(
                 R.layout.to_declutter_rv_item,
@@ -43,7 +40,6 @@ class ToDeclutterAdapter (
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             var items = allItems[position]
             holder.tvItem.setText(items.items)
-          //  allItems.get(position).roomId
 
             holder.ivDelete.setOnClickListener {
 
