@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -71,6 +72,7 @@ class MySpaceFragment : Fragment() , SpaceRvAdapter.SpaceClickDeleteInterface,
 
             }
         })
+
         addFAB.setOnClickListener {
 
             findNavController().navigate(
@@ -79,12 +81,7 @@ class MySpaceFragment : Fragment() , SpaceRvAdapter.SpaceClickDeleteInterface,
 
 
         }
-/*        if(list?.size == 0){
-            spacesRV.visibility=View.GONE
-        }else{
-            spacesRV.visibility=View.VISIBLE
-            binding.emtyTextRV.visibility=View.GONE
-        }*/
+
 
 
     }

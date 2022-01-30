@@ -3,6 +3,8 @@ package com.example.declutteringapp.view
 import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -18,9 +20,11 @@ import com.example.declutteringapp.databinding.FragmentKeepOrTossBinding
 import com.example.declutteringapp.model.KeepOrTossModel
 import com.example.declutteringapp.view.adapters.QuestionsViewPagerAdapter
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import kotlin.math.abs
 import kotlin.math.min
 
@@ -63,7 +67,8 @@ class KeepOrTossFragment : Fragment() {
 
         screenWidth = resources.displayMetrics.widthPixels
 
-
+binding.boxToss.visibility=View.GONE
+binding.boxTwo.visibility=View.GONE
 
         binding.yesButton.clicks()
 
@@ -88,22 +93,39 @@ class KeepOrTossFragment : Fragment() {
                     binding.yesButton.isEnabled=false
                     val builder = AlertDialog.Builder(context)
                     if(nClick>yesClick){
-                        builder.setMessage("You Should Probbly Toss It, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three months to a year, you should toss it.\uD83D\uDC4B")
-                            .setCancelable(false)
-                            .setPositiveButton("Do something else") { dialog, id ->
-                                findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
-                            }
-                            .setNegativeButton("Start Again") { dialog, id ->
-                                findNavController().navigate(R.id.action_keepOrTossFragment_self)
+                        binding.boxTwo.visibility=View.VISIBLE
+                        binding.boxToss.visibility=View.GONE
+                        binding.boxTwo.playAnimation()
 
-                            }
-                        val alert = builder.create()
-                        alert.show()
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.boxTwo.startAnimation(animation)
+                            binding.boxTwo.visibility=View.GONE}, 1000)
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                            builder.setMessage("\"You Should Probably Toss the item, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three months to a year, you should toss it.\uD83D\uDC4B")
+                                .setCancelable(false)
+                                .setPositiveButton("Do something else") { dialog, id ->
+                                    findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
+                                }
+                                .setNegativeButton("Start Again") { dialog, id ->
+                                    findNavController().navigate(R.id.action_keepOrTossFragment_self)}
+                            val alert = builder.create()
+                            alert.show()
+                            alert.getWindow()?.setGravity(Gravity.TOP)
 
-                        alert.getWindow()?.setGravity(Gravity.TOP)
+                        }, 2000)
 
+                    }else{
 
-                    }else{ builder.setMessage("You should Keep the item  \uD83D\uDC4D")
+                        binding.boxToss.visibility=View.VISIBLE
+                        binding.boxTwo.visibility=View.GONE
+                        binding.boxToss.playAnimation()
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.boxToss.startAnimation(animation)
+                            binding.boxToss.visibility=View.GONE}, 1000)
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {builder.setMessage("You should Keep the item  \uD83D\uDC4D")
                         .setCancelable(false)
                         .setPositiveButton("Do something else") { dialog, id ->
                             findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
@@ -112,7 +134,7 @@ class KeepOrTossFragment : Fragment() {
                             findNavController().navigate(R.id.action_keepOrTossFragment_self)}
                         val alert = builder.create()
                         alert.show()
-                        alert.getWindow()?.setGravity(Gravity.TOP)
+                        alert.getWindow()?.setGravity(Gravity.TOP) }, 2000)
                     }
 
 
@@ -133,7 +155,7 @@ class KeepOrTossFragment : Fragment() {
                 binding.imageToss.startAnimation(animation)
             }
             .onEach {
-                val animation = AnimationUtils.loadAnimation(context, R.anim.line_shake)
+                val animation = AnimationUtils.loadAnimation(context, R.anim.line_shake_right)
                 binding.line.startAnimation(animation)
             }
             .onEach {
@@ -141,31 +163,51 @@ class KeepOrTossFragment : Fragment() {
                 if (nClick+yesClick>= 12  || yesClick>= 12 || nClick>= 12) {
                     binding.noButton.isEnabled=false
                     binding.yesButton.isEnabled=false
-                  Toast.makeText(context, "Well done", Toast.LENGTH_LONG).show()
                     val builder = AlertDialog.Builder(context)
-                    if(nClick>yesClick){
-                    builder.setMessage("\"You Should Probbly Toss the item, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three months to a year, you should toss it.\uD83D\uDC4B")
-                        .setCancelable(false)
-                        .setPositiveButton("Do something else") { dialog, id ->
-                            findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
-                        }
-                        .setNegativeButton("Start Again") { dialog, id ->
-                            findNavController().navigate(R.id.action_keepOrTossFragment_self)}
-                    val alert = builder.create()
-                    alert.show()
-                        alert.getWindow()?.setGravity(Gravity.TOP)
 
-                    }else{ builder.setMessage("KYou should Keep the item \uD83D\uDC4D")
-                        .setCancelable(false)
-                        .setPositiveButton("Do something else") { dialog, id ->
-                            findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
-                        }
+                    if(nClick>yesClick){
+                        binding.boxTwo.visibility=View.VISIBLE
+                        binding.boxTwo.playAnimation()
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.boxTwo.startAnimation(animation)
+                            binding.boxTwo.visibility=View.GONE}, 1000)
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                            builder.setMessage("\"You Should Probably Toss the item, or keep it in a maybe box! \uD83D\uDCE6 if you don't open the box for three months to a year, you should toss it.\uD83D\uDC4B")
+                                .setCancelable(false)
+                                .setPositiveButton("Do something else") { dialog, id ->
+                                    findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
+                                }
+                                .setNegativeButton("Start Again") { dialog, id ->
+                                    findNavController().navigate(R.id.action_keepOrTossFragment_self)}
+                            val alert = builder.create()
+                            alert.show()
+                            alert.getWindow()?.setGravity(Gravity.TOP)
+
+                        }, 2000)
+
+
+                    }else{                 binding.boxToss.visibility=View.VISIBLE
+                        binding.boxTwo.visibility=View.GONE
+                        binding.boxToss.playAnimation()
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.boxToss.startAnimation(animation)
+                            binding.boxToss.visibility=View.GONE}, 1000)
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {builder.setMessage("You should Keep the item  \uD83D\uDC4D")
+                            .setCancelable(false)
+                            .setPositiveButton("Do something else") { dialog, id ->
+                                findNavController().navigate(R.id.action_keepOrTossFragment_to_startFragment2)
+                            }
                             .setNegativeButton("Start Again") { dialog, id ->
                                 findNavController().navigate(R.id.action_keepOrTossFragment_self)}
-                        val alert = builder.create()
-                        alert.show()
-                        alert.getWindow()?.setGravity(Gravity.TOP)
+                            val alert = builder.create()
+                            alert.show()
+                            alert.getWindow()?.setGravity(Gravity.TOP) }, 2000)
                     }
+
                 }else{}
             }
             .launchIn(lifecycleScope)

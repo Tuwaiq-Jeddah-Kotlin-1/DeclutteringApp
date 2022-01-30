@@ -19,6 +19,34 @@
         app:layout_constraintVertical_bias="0.0">
     </androidx.viewpager2.widget.ViewPager2>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/boxToss"
+        android:layout_width="396dp"
+        android:layout_height="467dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/check" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/boxTwo"
+        android:layout_width="376dp"
+        android:layout_height="398dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/box_two" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="403dp"
@@ -55,7 +83,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintVertical_bias="0.600" />
 
     <ImageView
                 android:id="@+id/imageToss"
@@ -72,13 +100,13 @@
     <ImageView
         android:layout_width="44dp"
         android:layout_height="37dp"
-        android:src="@drawable/ic_drawer"
+        android:src="@drawable/check"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.60" />
 
     <TextView
         android:layout_width="wrap_content"

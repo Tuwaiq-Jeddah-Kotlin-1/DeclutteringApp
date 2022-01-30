@@ -32,7 +32,6 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/circle" />
 
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="324dp"

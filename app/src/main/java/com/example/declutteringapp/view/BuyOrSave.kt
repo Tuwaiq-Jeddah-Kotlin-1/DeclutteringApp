@@ -2,10 +2,14 @@ package com.example.declutteringapp.view
 
 import android.app.AlertDialog
 import android.content.SharedPreferences
+import android.opengl.Visibility
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.AbsListView
@@ -60,9 +64,10 @@ class BuyOrSave : Fragment() {
 
         screenWidth = resources.displayMetrics.widthPixels
 
+binding.moneyBuy.visibility=View.GONE
+        binding.moneySave.visibility=View.GONE
 
-
-        binding.yesButton.clicks()
+        binding.noButton.clicks()
 
             .onEach {
                 firstClick()
@@ -85,32 +90,60 @@ class BuyOrSave : Fragment() {
                     binding.yesButton.isEnabled=false
                     val builder = AlertDialog.Builder(context)
                     if(nClick>yesClick){
-                        builder.setMessage("Save Your Money \uD83D\uDCB0")
+                        binding.moneyBuy.visibility=View.VISIBLE
+                        binding.moneySave.visibility=View.GONE
+                        binding.moneyBuy.playAnimation()
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.moneyBuy.startAnimation(animation)
+                            binding.moneyBuy.visibility=View.GONE}, 2000)
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {builder.setMessage("you can buy it \uD83D\uDCB8")
                             .setCancelable(false)
                             .setPositiveButton("Do something else") { dialog, id ->
                                 findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
                             }
                             .setNegativeButton("Start Again") { dialog, id ->
-                                findNavController().navigate(R.id.action_buyOrSave_self)
+                                findNavController().navigate(R.id.action_buyOrSave_self)}
+                            val alert = builder.create()
+                            alert.show()
+                            alert.getWindow()?.setGravity(Gravity.TOP) }, 3000)
 
-                            }
-                        val alert = builder.create()
-                        alert.show()}else{ builder.setMessage("Buy it \uD83D\uDCB8  ")
-                        .setCancelable(false)
-                        .setPositiveButton("Do something else") { dialog, id ->
-                            findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
-                        }
-                        .setNegativeButton("Start Again") { dialog, id ->
-                            findNavController().navigate(R.id.action_buyOrSave_self)}
-                        val alert = builder.create()
-                        alert.show()
-                        alert.getWindow()?.setGravity(Gravity.TOP)
+
+
+                }
+                      else{
+
+                        binding.moneySave.visibility=View.VISIBLE
+                        binding.moneyBuy.visibility=View.GONE
+                        binding.moneySave.playAnimation()
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.moneySave.startAnimation(animation)
+
+                            binding.moneySave.visibility=View.GONE}, 2000)
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                            builder.setMessage("Save your money \uD83D\uDCB0")
+                                .setCancelable(false)
+                                .setPositiveButton("Do something else") { dialog, id ->
+                                    findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
+                                }
+                                .setNegativeButton("Start Again") { dialog, id ->
+                                    findNavController().navigate(R.id.action_buyOrSave_self)}
+                            val alert = builder.create()
+                            alert.show()
+                            alert.getWindow()?.setGravity(Gravity.TOP)
+
+                        }, 3000)
+
                     }
+
                 }else{}
 
             }.launchIn(lifecycleScope)
 
-        binding.noButton.clicks()
+        binding.yesButton.clicks()
             .onEach {
                 firstClickN()
             }
@@ -123,7 +156,7 @@ class BuyOrSave : Fragment() {
                 binding.imageToss.startAnimation(animation)
             }
             .onEach {
-                val animation = AnimationUtils.loadAnimation(context, R.anim.line_shake)
+                val animation = AnimationUtils.loadAnimation(context, R.anim.line_shake_right)
                 binding.lines.startAnimation(animation)
             }
             .onEach {
@@ -133,30 +166,58 @@ class BuyOrSave : Fragment() {
                     binding.yesButton.isEnabled=false
                     val builder = AlertDialog.Builder(context)
                     if(nClick>yesClick){
-                        builder.setMessage("Save your money \uD83D\uDCB0")
+
+                        binding.moneyBuy.visibility=View.VISIBLE
+                        binding.moneySave.visibility=View.GONE
+                        binding.moneyBuy.playAnimation()
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.moneyBuy.startAnimation(animation)
+binding.moneyBuy.speed=0.11F
+                            binding.moneyBuy.visibility=View.GONE}, 2000)
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {builder.setMessage("you can buy it \uD83D\uDCB8")
                             .setCancelable(false)
                             .setPositiveButton("Do something else") { dialog, id ->
                                 findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
                             }
                             .setNegativeButton("Start Again") { dialog, id ->
-                                findNavController().navigate(R.id.action_buyOrSave_self)
+                                findNavController().navigate(R.id.action_buyOrSave_self)}
+                            val alert = builder.create()
+                            alert.show()
+                            alert.getWindow()?.setGravity(Gravity.TOP) }, 3000)
 
-                            }
-                        val alert = builder.create()
-                        alert.show()}else{ builder.setMessage("Buy it \uD83D\uDCB8 ")
-                        .setCancelable(false)
-                        .setPositiveButton("Do something else") { dialog, id ->
-                            findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
-                        }
-                        .setNegativeButton("Start Again") { dialog, id ->
-                            findNavController().navigate(R.id.action_buyOrSave_self)}
-                        val alert = builder.create()
-                        alert.show()
-                        alert.getWindow()?.setGravity(Gravity.TOP)
-                    }
+                }else{
+
+                        binding.moneyBuy.visibility=View.GONE
+                        binding.moneySave.visibility=View.VISIBLE
+                        binding.moneySave.playAnimation()
+
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable{
+                            val animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                            binding.moneySave.startAnimation(animation)
+
+                            binding.moneySave.visibility=View.GONE}, 2000)
+                        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                            builder.setMessage("Save your money \uD83D\uDCB0")
+                                .setCancelable(false)
+                                .setPositiveButton("Do something else") { dialog, id ->
+                                    findNavController().navigate(R.id.action_buyOrSave_to_startFragment2)
+                                }
+                                .setNegativeButton("Start Again") { dialog, id ->
+                                    findNavController().navigate(R.id.action_buyOrSave_self)}
+                            val alert = builder.create()
+                            alert.show()
+                            alert.getWindow()?.setGravity(Gravity.TOP)
+
+                        }, 3000)}
+
+
                 }else{}
-            }
-            .launchIn(lifecycleScope)
+
+            }.launchIn(lifecycleScope)
+
 
 
         val listQuestions = mutableListOf<KeepOrTossModel>()

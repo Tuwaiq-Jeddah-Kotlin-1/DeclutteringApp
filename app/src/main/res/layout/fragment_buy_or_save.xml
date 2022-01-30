@@ -8,6 +8,33 @@
     android:layout_height="match_parent"
     tools:context="com.example.declutteringapp.view.BuyOrSave">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/moneySave"
+        android:layout_width="303dp"
+        android:layout_height="273dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/save" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/moneyBuy"
+        android:layout_width="290dp"
+        android:layout_height="241dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.265"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/buy" />
 
     <ImageView
         android:layout_width="358dp"
@@ -64,10 +91,10 @@ you'll visually see which side the money is moving towards."
         android:src="@drawable/ic_money"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.594" />
 
     <ImageView
         android:layout_width="10dp"
@@ -79,8 +106,7 @@ you'll visually see which side the money is moving towards."
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.640" />
 
-
-    <androidx.viewpager2.widget.ViewPager2
+  <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/questionsViewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -90,8 +116,6 @@ you'll visually see which side the money is moving towards."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-
     </androidx.viewpager2.widget.ViewPager2>
 
 
@@ -112,7 +136,7 @@ you'll visually see which side the money is moving towards."
         android:layout_width="70dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
-        android:text="No"
+        android:text="Yes"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,7 +163,7 @@ you'll visually see which side the money is moving towards."
         android:layout_width="70dp"
         android:layout_height="59dp"
         android:background="@drawable/round_button"
-        android:text="Yes"
+        android:text="No"
         android:textColor="@color/white"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -155,7 +179,7 @@ you'll visually see which side the money is moving towards."
         android:src="@drawable/ic_money_save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.592" />
