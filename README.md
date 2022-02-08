@@ -29,14 +29,4 @@ demo@gmail.com
 123Ert123Ert
 
 ## ScreenShots
-![1](https://user-images.githubusercontent.com/91476799/151699505-6e114665-162d-4a30-bae0-4ab09b5c2cba.png)
-![jjjjj (1)](https://user-images.githubusercontent.com/91476799/151700572-1ec88628-ce66-49f3-956b-4265f70908cb.gif)
-![3](https://user-images.githubusercontent.com/91476799/151699510-3baba065-df05-4625-bde2-02a3b9b52c02.png)
-![4](https://user-images.githubusercontent.com/91476799/151699511-aba702ed-ec2b-401b-bd75-b11c29d82abc.png)
-![start](https://user-images.githubusercontent.com/91476799/151700696-7118ba8c-820b-4a58-8adc-10cd663128db.png)
-![Picture13](https://user-images.githubusercontent.com/91476799/151700878-3feac685-12b8-4752-96d0-0abffdf3b4e4.png)
-![Picture12](https://user-images.githubusercontent.com/91476799/151700879-56ff1129-94a5-4698-858d-8ded04235d1f.png)
-
-![ktvd](https://user-images.githubusercontent.com/91476799/151699069-e8beb79c-966d-4631-bbdb-26c300305163.gif)
-![sbvd](https://user-images.githubusercontent.com/91476799/151699074-ace6720c-a2df-4bd7-b30a-0ed4cc91a8e8.gif)
-![five](https://user-images.githubusercontent.com/91476799/151699076-cbe5fe3a-1954-4536-ab73-5b4c44fa9044.gif)
+<img src="https://user-images.githubusercontent.com/91476799/151699505-6e114665-162d-4a30-bae0-4ab09b5c2cba.png" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151700572-1ec88628-ce66-49f3-956b-4265f70908cb.gif" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151699510-3baba065-df05-4625-bde2-02a3b9b52c02.png" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151699511-aba702ed-ec2b-401b-bd75-b11c29d82abc.png" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151700696-7118ba8c-820b-4a58-8adc-10cd663128db.png" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151700878-3feac685-12b8-4752-96d0-0abffdf3b4e4.png" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151700879-56ff1129-94a5-4698-858d-8ded04235d1f.png" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151699069-e8beb79c-966d-4631-bbdb-26c300305163.gif" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151699074-ace6720c-a2df-4bd7-b30a-0ed4cc91a8e8.gif" width="45%"></img> <img src="https://user-images.githubusercontent.com/91476799/151699076-cbe5fe3a-1954-4536-ab73-5b4c44fa9044.gif" width="45%"></img> 
